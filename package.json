@@ -13,7 +13,10 @@
     "node": ">=20"
   },
   "dependencies": {
+    "dotenv": "^18.0.10",
     "express": "^5.1.0",
-    "nunjucks": "^3.2.4"
+    "mysql2": "^3.24.6",
+    "nunjucks": "^3.2.4",
+    "pg": "^8.23.1"
   }
 }
