@@ -14,6 +14,8 @@ function crearApp() {
 
   // Archivos de publico/ (CSS, JS, imagenes) se sirven en /publico
   app.use("/publico", express.static(path.join(__dirname, "..", "publico")));
+  app.use(express.urlencoded({ extended: false }));
+  app.use("/", require("./rutas/autenticacion"));
 
   // Pantallas
   app.use("/", require("./rutas/paginas"));

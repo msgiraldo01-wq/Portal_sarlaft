@@ -43,6 +43,33 @@ hasta que les llegue su turno.
 
 ## Bitácora
 
+# Avance de la lógica · Portal SARLAFT
+
+Forma de trabajo: el autor escribe el código; la guía explica cada paso, revisa y corrige. No se entrega código hecho.
+Alcance pedido por el docente: login, registro (persona jurídica y natural) y pantalla de clientes.
+
+## Estado al 14/11/2026
+
+- [x] Paso 0. Git iniciado.
+- [x] Paso 1. Conexión Node → MySQL. `src/bd.js` con `mysql2/promise` (pool), variables `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` en `.env`; `dotenv` cargado en la primera línea de `servidor.js`. Ruta `GET /api/salud` en `src/app.js` responde la versión (MySQL 8.0.43). Usuario MySQL `portal_sarlaft` con SELECT/INSERT/UPDATE/DELETE.
+- [x] Paso 2. Formulario de ingreso por POST. `express.urlencoded` en `app.js`; `src/rutas/autenticacion.js` con `POST /ingreso` que valida campos vacíos (con `.trim()`), vuelve a mostrar la vista con `error` y `usuarioEscrito`, o hace `console.log` del usuario y redirige a `/`.
+- [ ] Paso 3. Buscar el usuario en la tabla `usuarios` y comparar con bcrypt (`bcryptjs`). Contraseña de prueba de los usuarios de `03_datos_prueba.sql`: Demo2026*.
+- [ ] Paso 4. Sesión (`express-session`), proteger rutas internas, salir.
+- [ ] Pasos 5–7. Registro de terceros (validación, DV del NIT, transacción, código de verificación).
+- [ ] Pasos 8–9. Clientes desde MySQL.
+- [ ] Paso 10. Auditoría.
+
+## Aprendizajes y tropiezos del autor (para repasar)
+
+- Diferencia entre `node archivo` y `npm run script`.
+- Nombres del `.env` deben coincidir exactamente con `process.env.X`; `npm run dev` no se reinicia al cambiar `.env`.
+- Depuración del "Access denied": se comparó la longitud de la clave que leía Node (11) con la real (9); sobraban paréntesis en el `.env`. Las comillas sí las quita dotenv.
+- Alcance (scope): `app` solo existe dentro de `crearApp()`.
+- `app.get("ruta", función)`: con un solo argumento lee una configuración y no crea ruta.
+- Choque de nombres con `res.locals.usuario` (objeto del menú) → `[object Object]`; se usó `usuarioEscrito`.
+- Propiedad abreviada `{ x }` equivale a `{ x: x }`.
+
+
 Anote aquí, con sus palabras, qué hizo en cada paso y qué aprendió.
 Le sirve para sustentar.
 

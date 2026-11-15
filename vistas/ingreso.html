@@ -1,15 +1,15 @@
 {% extends "base_acceso.html" %}
 {% from "_iconos.html" import icono %}
 {#
-  ingreso.html - Ingreso del equipo interno (oficial de cumplimiento,
-  analistas, auditores).
+ingreso.html - Ingreso del equipo interno (oficial de cumplimiento,
+analistas, auditores).
 
-  VISTA: el boton lleva al inicio sin validar nada. La validacion del
-  usuario y la contrasena contra la tabla usuarios es funcionalidad de
-  un sprint posterior.
+VISTA: el boton lleva al inicio sin validar nada. La validacion del
+usuario y la contrasena contra la tabla usuarios es funcionalidad de
+un sprint posterior.
 
-  Los terceros NO entran por aqui: entran por /acceso con su documento
-  y un codigo, sin contrasena.
+Los terceros NO entran por aqui: entran por /acceso con su documento
+y un codigo, sin contrasena.
 #}
 {% block titulo %}Ingresar{% endblock %}
 {% block subtitulo %}Equipo de cumplimiento{% endblock %}
@@ -21,27 +21,22 @@
     <p>Con su usuario del equipo de cumplimiento.</p>
   </header>
 
-  {# Los campos no tienen "name": en la vista no se envia nada al servidor #}
-  <form class="pila" action="/" method="get">
+  {# Envía usuario y clave por POST a /ingreso #}
+  <form class="pila" action="/ingreso" method="post">
     <div class="campo">
       <label for="g-usuario">Usuario</label>
-      <input id="g-usuario" class="control" autocomplete="username"
-             autocapitalize="none" spellcheck="false" required autofocus>
+      <input id="g-usuario" name="usuario" value="{{ usuarioEscrito }}" class="control" autocomplete="username"
+        autocapitalize="none" spellcheck="false" required autofocus>
     </div>
 
     <div class="campo">
       <label for="g-clave">Contraseña</label>
-      <input id="g-clave" class="control" type="password" autocomplete="current-password" required>
+      <input id="g-clave" name="clave" class="control" type="password" autocomplete="current-password" required>
     </div>
+    {% if error %}
+    <p class="campo-error" role="alert">{{ icono("error") }}{{ error }}</p>
+    {% endif %}
 
     <button type="submit" class="boton boton--primario boton--ancho">Ingresar</button>
   </form>
-
-  <div class="nota nota--atencion no-imprimir">
-    {{ icono("info") }}
-    <p><strong>Vista de demostración.</strong> Escriba cualquier usuario y contraseña para ver el sistema interno.</p>
-  </div>
-
-  <p class="acceso-pie">¿Es proveedor, cliente o empleado? <a href="/acceso">Diligencie su formulario aquí</a></p>
-</div>
-{% endblock %}
+  {% endblock %}
