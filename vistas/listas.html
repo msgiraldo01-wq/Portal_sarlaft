@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import resultado_lista %}
+{#
+  listas.html - Consultas en listas restrictivas (ONU, OFAC, Procuraduria...).
+  Recibe: consultas, resultado (filtro), total, conteo, y catalogos.listas_restrictivas.
+#}
+{% block titulo %}Listas restrictivas{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Listas restrictivas</h1>
+    <p class="subtitulo-pagina">Cada tercero y sus personas vinculadas se consultan al enviar el formulario</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton boton--primario" data-abrir-dialogo="dlg-consulta">{{ icono("buscar") }}Consulta manual</button>
+  </div>
+</header>
+
+<section class="marco resumen" aria-label="Resumen de consultas">
+  <a class="resumen-item" href="/diligencia/listas"><span class="resumen-etiqueta">Consultas</span><span class="resumen-valor">{{ total }}</span><span class="pastilla">Todas</span></a>
+  <a class="resumen-item" href="?resultado=coincidencia_exacta"><span class="resumen-etiqueta">Coincidencias exactas</span><span class="resumen-valor">{{ conteo.coincidencia_exacta }}</span>{{ resultado_lista("coincidencia_exacta") }}</a>
+  <a class="resumen-item" href="?resultado=coincidencia_parcial"><span class="resumen-etiqueta">Coincidencias parciales</span><span class="resumen-valor">{{ conteo.coincidencia_parcial }}</span>{{ resultado_lista("coincidencia_parcial") }}</a>
+  <a class="resumen-item" href="?resultado=sin_coincidencia"><span class="resumen-etiqueta">Sin coincidencias</span><span class="resumen-valor">{{ conteo.sin_coincidencia }}</span>{{ resultado_lista("sin_coincidencia") }}</a>
+</section>
+
+<div class="rejilla-lateral">
+  <section class="marco" aria-labelledby="t-consultas">
+    <div class="marco-cabecera">
+      <h2 id="t-consultas">Consultas{% if resultado %}: {{ resultado | replace("_", " ") }}{% endif %}</h2>
+      <span class="marco-detalle">Primero las coincidencias</span>
+    </div>
+    <div class="tabla-envoltura">
+      <table class="tabla">
+        <thead><tr><th scope="col">Consultado</th><th scope="col">Documento</th><th scope="col">Tercero</th><th scope="col">Lista</th><th scope="col">Resultado</th><th scope="col">Fecha</th></tr></thead>
+        <tbody>
+          {% for c in consultas %}
+          <tr>
+            <td class="recortar" title="{{ c.nombre_consultado }}">{{ c.nombre_consultado }}</td>
+            <td class="sin-salto"><span class="maquina">{{ c.documento_consultado }}</span></td>
+            <td class="recortar">{% if c.formulario_id %}<a href="/formularios/{{ c.formulario_id }}" title="{{ c.tercero }}">{{ c.tercero }}</a>{% else %}{{ c.tercero }}{% endif %}</td>
+            <td>{{ c.lista }}</td>
+            <td>{{ resultado_lista(c.resultado) }}</td>
+            <td class="sin-salto"><span class="maquina">{{ c.consultado_en | fecha }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="marco-pie"><span>Mostrando {{ consultas | length }}</span></div>
+  </section>
+
+  <section class="marco" aria-labelledby="t-catalogo">
+    <div class="marco-cabecera"><h2 id="t-catalogo">Listas que se consultan</h2></div>
+    <ul class="lista-tarjetas">
+      {% for l in catalogos.listas_restrictivas %}
+      <li><div>
+        <span class="lista-tarjetas-titulo">{{ l.nombre }}</span>
+        <span class="texto-suave texto-chico">{{ l.fuente }}</span>
+        <span class="acciones"><span class="pastilla{{ ' pastilla--marca' if l.vinculante }}">{{ "Vinculante" if l.vinculante else "De control" }}</span></span>
+      </div></li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+<dialog id="dlg-consulta" class="dialogo" aria-labelledby="dlg-consulta-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-consulta-titulo">Consulta manual</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <p>Para consultar a una persona que no está en ningún formulario. Queda registrada con su nombre.</p>
+      <div class="formulario-rejilla">
+        <div class="campo campo--ancho"><label for="cm-nombre">Nombre o razón social</label><input id="cm-nombre" class="control" required></div>
+        <div class="campo"><label for="cm-doc">Documento</label><input id="cm-doc" class="control maquina" inputmode="numeric"></div>
+        <div class="campo"><label for="cm-lista">Lista</label><select id="cm-lista" class="control"><option>Todas las listas</option>{% for l in catalogos.listas_restrictivas %}<option>{{ l.codigo }}</option>{% endfor %}</select></div>
+      </div>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">Consultar</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

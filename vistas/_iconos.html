@@ -1,0 +1,65 @@
+{#
+  _iconos.html - Iconos del Portal SARLAFT
+  -------------------------------------------------------------------
+  Todos los iconos son SVG en linea de 16x16, trazo de 1.5, sin relleno
+  y con stroke="currentColor", asi que toman el color del texto que los
+  rodea y cambian solos con el tema.
+
+  Uso:
+    {% from "_iconos.html" import icono %}
+    {{ icono("buscar") }}
+    {{ icono("alerta", "icono--20") }}   <- clase extra opcional
+
+  El icono es decorativo (aria-hidden). Si un boton solo tiene icono,
+  el nombre accesible va en el boton:
+    <button class="boton boton--icono" aria-label="Cerrar">{{ icono("cerrar") }}</button>
+
+  Para agregar un icono: dibujarlo en una cuadricula de 16x16 dejando
+  1.5px de margen y agregar sus trazos al diccionario "trazos".
+#}
+{% set trazos = {
+  "inicio":       '<path d="M2.5 7.25 8 2.75l5.5 4.5"/><path d="M4 6.25v7.25h8V6.25"/><path d="M6.5 13.5v-4h3v4"/>',
+  "usuarios":     '<circle cx="6" cy="5.5" r="2.25"/><path d="M1.75 13.25c0-2.3 1.9-3.9 4.25-3.9s4.25 1.6 4.25 3.9"/><path d="M10.5 3.4a2.25 2.25 0 0 1 0 4.2"/><path d="M12 9.6c1.3.55 2.25 1.85 2.25 3.65"/>',
+  "maletin":      '<rect x="2" y="5" width="12" height="8.5" rx="1.5"/><path d="M5.75 5V3.5h4.5V5"/><path d="M2 8.75h12"/>',
+  "camion":       '<path d="M1.75 4h8v7.25h-8z"/><path d="M9.75 6.5h2.6l1.9 2.3v2.45h-4.5"/><circle cx="4.5" cy="12" r="1.25"/><circle cx="11.75" cy="12" r="1.25"/>',
+  "credencial":   '<rect x="2.5" y="2.5" width="11" height="11" rx="1.5"/><circle cx="8" cy="6.5" r="1.75"/><path d="M5 11.25c.5-1.4 1.6-2.1 3-2.1s2.5.7 3 2.1"/>',
+  "torta":        '<path d="M7.25 2.8a5.25 5.25 0 1 0 6 6H7.25z"/><path d="M9.5 1.75v4.75h4.75A4.75 4.75 0 0 0 9.5 1.75z"/>',
+  "documento":    '<path d="M4 1.75h5l3 3v9.5H4z"/><path d="M9 1.75v3h3"/><path d="M6 8.25h4M6 10.75h4"/>',
+  "reloj":        '<circle cx="8" cy="8" r="6"/><path d="M8 4.75V8l2.25 1.5"/>',
+  "ojo":          '<path d="M1.5 8S3.9 3.75 8 3.75 14.5 8 14.5 8 12.1 12.25 8 12.25 1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/>',
+  "aprobado":     '<circle cx="8" cy="8" r="6"/><path d="m5.5 8.1 1.75 1.75L10.6 6.4"/>',
+  "check":        '<path d="m3.5 8.25 3 3 6-6.5"/>',
+  "escudo":       '<path d="M8 1.75 13 3.6v3.9c0 3-2.15 5.25-5 6.75-2.85-1.5-5-3.75-5-6.75V3.6z"/><path d="m5.9 7.9 1.5 1.5 2.8-2.9"/>',
+  "institucion":  '<path d="M2 6 8 2.5 14 6"/><path d="M3 6h10"/><path d="M4.5 6v5.5M8 6v5.5M11.5 6v5.5"/><path d="M2.25 13.5h11.5"/>',
+  "alerta":       '<path d="M8 2.25 14.25 13.5H1.75z"/><path d="M8 6.5v3"/><path d="M8 11.5v.01"/>',
+  "barras":       '<path d="M2.25 13.5h11.5"/><path d="M4.5 11V8.25M8 11V4M11.5 11V6.5"/>',
+  "interrogacion":'<circle cx="8" cy="8" r="6"/><path d="M6.3 6.2a1.75 1.75 0 1 1 2.45 1.6c-.5.25-.75.6-.75 1.15v.4"/><path d="M8 11.25v.01"/>',
+  "deslizadores": '<path d="M2 4.5h7M12 4.5h2M2 11.5h2M7 11.5h7"/><circle cx="10.5" cy="4.5" r="1.5"/><circle cx="5.5" cy="11.5" r="1.5"/>',
+  "buscar":       '<circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.25 3.25"/>',
+  "luna":         '<path d="M13.5 9.6A5.75 5.75 0 0 1 6.4 2.5a5.75 5.75 0 1 0 7.1 7.1z"/>',
+  "sol":          '<circle cx="8" cy="8" r="2.75"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.05 1.05M11.55 11.55l1.05 1.05M3.4 12.6l1.05-1.05M11.55 4.45l1.05-1.05"/>',
+  "salir":        '<path d="M6.5 2.5h-3v11h3"/><path d="m10.25 5 3 3-3 3"/><path d="M13.25 8H6.5"/>',
+  "menu":         '<path d="M2.5 4h11M2.5 8h11M2.5 12h11"/>',
+  "cerrar":       '<path d="m4 4 8 8M12 4l-8 8"/>',
+  "abajo":        '<path d="m4.5 6.25 3.5 3.5 3.5-3.5"/>',
+  "izquierda":    '<path d="M9.75 3.5 5.25 8l4.5 4.5"/>',
+  "derecha":      '<path d="m6.25 3.5 4.5 4.5-4.5 4.5"/>',
+  "mas":          '<path d="M8 3v10M3 8h10"/>',
+  "descargar":    '<path d="M8 2v8"/><path d="m4.75 7 3.25 3.25L11.25 7"/><path d="M2.5 13.5h11"/>',
+  "filtro":       '<path d="M2 3h12l-4.5 5.5v4.75l-3-1.5V8.5z"/>',
+  "editar":       '<path d="m10.5 2.5 3 3L6 13H3v-3z"/><path d="m9 4 3 3"/>',
+  "guardar":      '<path d="M2.5 2.5h8.5l2.5 2.5v8.5h-11z"/><path d="M5 2.5v3h5v-3"/><path d="M5 13.5V9.5h6v4"/>',
+  "enviar":       '<path d="M14 2 7 9"/><path d="M14 2 9.5 14l-2.5-5-5-2.5z"/>',
+  "bandeja":      '<path d="M1.75 9 3.6 3h8.8l1.85 6v4.5H1.75z"/><path d="M1.75 9h4l1 1.5h2.5l1-1.5h4"/>',
+  "info":         '<circle cx="8" cy="8" r="6"/><path d="M8 7.25V11"/><path d="M8 5v.01"/>',
+  "error":        '<circle cx="8" cy="8" r="6"/><path d="m6 6 4 4M10 6l-4 4"/>',
+  "calendario":   '<rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5 1.75v2.5M11 1.75v2.5"/>',
+  "adjunto":      '<path d="m13 7.5-5.1 5.1a3 3 0 0 1-4.25-4.25l5.4-5.4a2 2 0 0 1 2.85 2.85L6.5 11.2a1 1 0 0 1-1.4-1.4l4.6-4.6"/>',
+  "papelera":     '<path d="M2.5 4.25h11"/><path d="M6 4.25V2.5h4v1.75"/><path d="M3.75 4.25 4.5 13.5h7l.75-9.25"/>'
+} %}
+
+{% set nombres_iconos = trazos | claves %}
+
+{% macro icono(nombre, clase="") -%}
+<svg class="icono{% if clase %} {{ clase }}{% endif %}" data-icono="{{ nombre }}" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{{ (trazos[nombre] or trazos["info"]) | safe }}</svg>
+{%- endmacro %}

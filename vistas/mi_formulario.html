@@ -1,0 +1,66 @@
+{% extends "base_publico.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_formulario %}
+{#
+  mi_formulario.html - Lo que ve el tercero cuando vuelve a entrar:
+  el estado de su formulario y, si se lo devolvieron, que debe corregir.
+  Recibe: f (formulario de ejemplo en estado "devuelto").
+#}
+{% block titulo %}Mi formulario{% endblock %}
+
+{% block contenido %}
+<div class="mi-formulario pila">
+  <header class="encabezado-pagina">
+    <div>
+      <p class="paso-contador">{{ f.tercero }} · <span class="maquina">{{ f.documento }}</span></p>
+      <h1>Formulario de conocimiento de terceros {{ f.periodo }}</h1>
+    </div>
+    {{ estado_formulario(f.estado) }}
+  </header>
+
+  {% if f.estado == "devuelto" %}
+  <div class="nota nota--atencion">
+    {{ icono("alerta") }}
+    <div class="pila pila--chica">
+      <p><strong>El equipo de cumplimiento le devolvió el formulario para corregir.</strong></p>
+      <p>{{ f.observacion_revision }}</p>
+      <p class="texto-suave texto-chico">Revisado el <span class="maquina">{{ f.revisado_en | fecha }}</span></p>
+    </div>
+  </div>
+  {% endif %}
+
+  <section class="marco" aria-labelledby="titulo-pasos">
+    <div class="marco-cabecera">
+      <h2 id="titulo-pasos">Pasos del formulario</h2>
+      <span class="marco-detalle">Radicado <span class="maquina">{{ f.radicado }}</span></span>
+    </div>
+    <ol class="lista-pasos">
+      {% for m in f.modulos %}
+      <li>
+        <span class="paso-marca paso-marca--{{ m.estado }}" aria-hidden="true">{% if m.estado == "completo" %}{{ icono("check") }}{% elif m.estado == "con_error" %}!{% else %}{{ m.orden }}{% endif %}</span>
+        <span class="lista-pasos-nombre">{{ m.nombre }}</span>
+        {% if m.estado == "con_error" %}
+        <span class="pastilla pastilla--atencion">Por corregir</span>
+        <a class="boton boton--chico" href="/formulario/{{ f.tipo_persona }}/paso/{{ m.orden }}">Corregir</a>
+        {% else %}
+        <span class="pastilla pastilla--ok">Completo</span>
+        <a class="boton boton--chico boton--plano" href="/formulario/{{ f.tipo_persona }}/paso/{{ m.orden }}">Ver</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="marco" aria-labelledby="titulo-historial">
+    <div class="marco-cabecera"><h2 id="titulo-historial">Historial</h2></div>
+    <ol class="linea-tiempo marco-cuerpo">
+      {% for h in f.historial | reverse %}
+      <li>
+        <span class="maquina texto-suave texto-chico">{{ h.ocurrido_en | fecha }}</span>
+        <span>{% if h.estado_nuevo == "borrador" %}Empezó a diligenciar{% elif h.estado_nuevo == "en_revision" %}Firmó y envió el formulario{% elif h.estado_nuevo == "devuelto" %}El equipo de cumplimiento lo devolvió para corregir{% elif h.estado_nuevo == "aprobado" %}Formulario aprobado{% else %}Formulario rechazado{% endif %}</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+</div>
+{% endblock %}

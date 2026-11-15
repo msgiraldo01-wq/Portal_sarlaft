@@ -1,0 +1,20 @@
+{% extends "base_publico.html" %}
+{% from "_iconos.html" import icono %}
+{# no_encontrada.html - Direccion que no existe (error 404). #}
+{% block titulo %}Página no encontrada{% endblock %}
+
+{% block contenido %}
+<div class="acceso">
+  <section class="marco">
+    <div class="vacio">
+      <span class="vacio-icono">{{ icono("alerta", "icono--20") }}</span>
+      <h3>Esta dirección no existe</h3>
+      <p>Revise el enlace o vuelva al inicio.</p>
+      <div class="acciones">
+        <a class="boton" href="/">{{ icono("izquierda") }}Ir al inicio</a>
+        <a class="boton boton--suave" href="/acceso">Acceso de terceros</a>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

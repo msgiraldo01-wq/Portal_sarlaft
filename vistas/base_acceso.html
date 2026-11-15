@@ -1,0 +1,62 @@
+{%- from "_iconos.html" import icono -%}
+{#
+  base_acceso.html - Plantilla de las pantallas de entrada (ingreso del
+  equipo y acceso de terceros): imagen de portada a pantalla completa y
+  una tarjeta con el formulario a la derecha.
+
+  LA IMAGEN NO ESTA EN ESTE ARCHIVO. Se configura en src/config.js,
+  en IMAGEN_ACCESO (imagen clara, oscura, area util, color de fondo y
+  posicion en el celular). Una pagina puede usar otra imagen con:
+      {% set imagen_portada = "img/acceso/terceros.webp" %}
+
+  Bloques: titulo, subtitulo, contenido, pie, scripts y clase_tarjeta
+  ("portada-tarjeta--ancha" para formularios largos).
+-#}
+{%- set imagen_clara = imagen_portada | default(IMAGEN_ACCESO.claro) -%}
+{%- set imagen_oscura = imagen_portada_oscura | default(IMAGEN_ACCESO.oscuro or imagen_clara) -%}
+<!doctype html>
+<html lang="es">
+<head>
+  {% include "_cabeza.html" %}
+  <title>{% block titulo %}Ingresar{% endblock %} · {{ SISTEMA }}</title>
+  <link rel="preload" as="image" href="{{ estatico(imagen_clara) }}">
+</head>
+<body class="publico pagina-portada">
+  <a class="saltar" href="#principal">Saltar al formulario</a>
+
+  <div class="portada"
+       style="--portada-claro: url('{{ estatico(imagen_clara) }}'); --portada-oscuro: url('{{ estatico(imagen_oscura) }}'); --portada-area: {{ IMAGEN_ACCESO.areaUtil }}; --portada-color: {{ IMAGEN_ACCESO.colorFondo }}; --portada-movil: {{ IMAGEN_ACCESO.posicionMovil }};">
+
+    {# Imagen decorativa: va como fondo CSS, los lectores de pantalla la ignoran #}
+    <div class="portada-fondo" aria-hidden="true"></div>
+
+    <div class="portada-tema no-imprimir">
+      <button type="button" class="boton boton--icono boton-tema"
+              data-accion="tema" aria-label="Cambiar tema" title="Cambiar tema">
+        {{ icono("luna", "icono-luna") }}{{ icono("sol", "icono-sol") }}
+      </button>
+    </div>
+
+    <main id="principal" class="portada-contenido" tabindex="-1">
+      <div class="portada-tarjeta {% block clase_tarjeta %}{% endblock %}">
+        <div class="marca portada-marca">
+          <span class="marca-logo" aria-hidden="true">{{ icono("escudo") }}</span>
+          <span class="marca-textos">
+            <span class="marca-nombre">{{ SISTEMA }}</span>
+            <span class="marca-subtitulo">{% block subtitulo %}{{ SUBTITULO }}{% endblock %}</span>
+          </span>
+        </div>
+
+        {% block contenido %}{% endblock %}
+
+        <p class="portada-pie">
+          {% block pie %}{{ ENTIDAD }} trata sus datos personales conforme a la Ley 1581 de 2012.{% endblock %}
+        </p>
+      </div>
+    </main>
+  </div>
+
+  {% include "_pie_comun.html" %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

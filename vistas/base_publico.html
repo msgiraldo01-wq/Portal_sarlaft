@@ -1,0 +1,52 @@
+{%- from "_iconos.html" import icono -%}
+{#
+  base_publico.html - Plantilla para los terceros (proveedores, clientes,
+  empleados, accionistas) que diligencian su formulario.
+
+  Usa el mismo estilo.css que el sistema interno, pero:
+  - no tiene menu lateral: el tercero solo ve su formulario;
+  - body.publico sube los controles a 40px para usarlos con el dedo.
+
+  Bloques: titulo, contenido, pie (opcional) y scripts (opcional).
+-#}
+<!doctype html>
+<html lang="es">
+<head>
+  {% include "_cabeza.html" %}
+  <title>{% block titulo %}Formulario{% endblock %} · {{ SISTEMA }}</title>
+  {% block cabeza %}{% endblock %}
+</head>
+<body class="publico">
+  <a class="saltar" href="#principal">Saltar al contenido</a>
+
+  <header class="cabecera-publica no-imprimir">
+    <div class="marca">
+      <span class="marca-logo" aria-hidden="true">{{ icono("escudo") }}</span>
+      <span class="marca-textos">
+        <span class="marca-nombre">{{ ENTIDAD }}</span>
+        <span class="marca-subtitulo">{% block subtitulo %}Conocimiento de terceros{% endblock %}</span>
+      </span>
+    </div>
+    <div class="acciones">
+      {% block acciones_cabecera %}{% endblock %}
+      <button type="button" class="boton boton--plano boton--icono boton-tema"
+              data-accion="tema" aria-label="Cambiar tema" title="Cambiar tema">
+        {{ icono("luna", "icono-luna") }}{{ icono("sol", "icono-sol") }}
+      </button>
+    </div>
+  </header>
+
+  <main id="principal" class="principal-publico" tabindex="-1">
+    {% block contenido %}{% endblock %}
+  </main>
+
+  <footer class="pie-publico">
+    {% block pie %}
+    <p>{{ ENTIDAD }} trata sus datos personales conforme a la Ley 1581 de 2012, solo para el conocimiento de terceros y la prevención del lavado de activos y la financiación del terrorismo.</p>
+    {% endblock %}
+  </footer>
+
+  {% include "_pie_comun.html" %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

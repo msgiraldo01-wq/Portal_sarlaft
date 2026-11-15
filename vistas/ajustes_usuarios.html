@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import ROLES_USUARIO %}
+{# ajustes_usuarios.html - Usuarios del equipo interno. Recibe: usuarios. #}
+{% block titulo %}Usuarios{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Usuarios</h1>
+    <p class="subtitulo-pagina">Equipo con acceso al sistema interno. Los usuarios se desactivan, no se borran.</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton boton--primario" data-abrir-dialogo="dlg-usuario">{{ icono("mas") }}Nuevo usuario</button>
+  </div>
+</header>
+
+<section class="marco" aria-label="Usuarios">
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead><tr><th scope="col">Nombre</th><th scope="col">Usuario</th><th scope="col">Correo</th><th scope="col">Rol</th><th scope="col">Estado</th><th scope="col">Último ingreso</th><th scope="col"><span class="solo-lectores">Editar</span></th></tr></thead>
+      <tbody>
+        {% for u in usuarios %}
+        <tr>
+          <td>{{ u.nombre }}</td>
+          <td><span class="maquina">{{ u.usuario }}</span></td>
+          <td>{{ u.correo }}</td>
+          <td>{{ ROLES_USUARIO[u.rol] }}</td>
+          <td>{% if u.activo %}<span class="pastilla pastilla--ok">Activo</span>{% else %}<span class="pastilla">Inactivo</span>{% endif %}</td>
+          <td class="sin-salto"><span class="maquina">{{ (u.ultimo_ingreso_en | fecha) or "Nunca" }}</span></td>
+          <td class="celda-acciones"><button type="button" class="boton boton--plano boton--icono boton--chico" data-abrir-dialogo="dlg-usuario" aria-label="Editar a {{ u.nombre }}">{{ icono("editar") }}</button></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="marco marco--relleno seccion" aria-labelledby="t-roles">
+  <h2 id="t-roles">Qué puede hacer cada rol</h2>
+  <dl class="definiciones">
+    <div><dt>Oficial de cumplimiento</dt><dd>Todo: aprobar, rechazar, cerrar alertas, reportar a la UIAF y cambiar preguntas.</dd></div>
+    <div><dt>Analista</dt><dd>Revisar formularios, devolverlos para corregir y analizar alertas.</dd></div>
+    <div><dt>Auditor</dt><dd>Solo consulta: ve todo, no cambia nada.</dd></div>
+    <div><dt>Administrador</dt><dd>Usuarios y parámetros técnicos. No decide sobre formularios.</dd></div>
+  </dl>
+</section>
+
+<dialog id="dlg-usuario" class="dialogo" aria-labelledby="dlg-usuario-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-usuario-titulo">Usuario</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <div class="formulario-rejilla">
+        <div class="campo campo--ancho"><label for="u-nombre">Nombre</label><input id="u-nombre" class="control" required></div>
+        <div class="campo"><label for="u-usuario">Usuario</label><input id="u-usuario" class="control maquina" required></div>
+        <div class="campo"><label for="u-rol">Rol</label><select id="u-rol" class="control">{% for clave, nombre in ROLES_USUARIO %}<option>{{ nombre }}</option>{% endfor %}</select></div>
+        <div class="campo campo--ancho"><label for="u-correo">Correo</label><input id="u-correo" class="control" type="email" required></div>
+      </div>
+      <p class="campo-ayuda seccion">El usuario recibe un correo para crear su contraseña.</p>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">Guardar</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

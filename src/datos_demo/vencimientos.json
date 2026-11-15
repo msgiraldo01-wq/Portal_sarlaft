@@ -1,0 +1,42 @@
+[
+  {
+    "tercero_id": 7,
+    "tercero": "Laboratorio Bioanálisis del Eje S.A.S.",
+    "correo": "calidad@bioanalisiseje.test",
+    "formulario_id": 7,
+    "radicado": "SRL-2025-00873",
+    "vence_en": "2026-10-15",
+    "dias_restantes": -22,
+    "situacion": "vencido"
+  },
+  {
+    "tercero_id": 9,
+    "tercero": "Andrés Felipe Cardona Ríos",
+    "correo": "andres.cardona@correo.test",
+    "formulario_id": 9,
+    "radicado": "SRL-2026-01459",
+    "vence_en": "2027-10-22",
+    "dias_restantes": 350,
+    "situacion": "vigente"
+  },
+  {
+    "tercero_id": 5,
+    "tercero": "Comercializadora Quimbaya Ltda.",
+    "correo": "contabilidad@quimbaya.test",
+    "formulario_id": 5,
+    "radicado": "SRL-2026-01474",
+    "vence_en": "2027-10-24",
+    "dias_restantes": 352,
+    "situacion": "vigente"
+  },
+  {
+    "tercero_id": 3,
+    "tercero": "María Fernanda Ospina Gil",
+    "correo": "mafe.ospina@correo.test",
+    "formulario_id": 3,
+    "radicado": "SRL-2026-01479",
+    "vence_en": "2027-10-25",
+    "dias_restantes": 353,
+    "situacion": "vigente"
+  }
+]

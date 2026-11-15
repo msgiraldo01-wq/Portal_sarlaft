@@ -1,0 +1,82 @@
+{#
+  _componentes.html - Piezas pequenas que se repiten en varias pantallas:
+  pastillas de estado, valores si/no, documentos.
+
+  Uso:
+    {% from "_componentes.html" import estado_formulario, resultado_lista %}
+    {{ estado_formulario(f.estado) }}
+#}
+
+{# Textos y colores de cada estado. Los tonos son las clases pastilla--* de estilo.css #}
+{% set ESTADOS_FORMULARIO = {
+  "borrador":    ["Borrador", "atencion"],
+  "en_revision": ["En revisión", "info"],
+  "devuelto":    ["Devuelto", "atencion"],
+  "aprobado":    ["Aprobado", "ok"],
+  "rechazado":   ["Rechazado", "peligro"]
+} %}
+{% set RESULTADOS_LISTA = {
+  "sin_coincidencia":     ["Sin coincidencias", "ok"],
+  "coincidencia_parcial": ["Coincidencia parcial", "atencion"],
+  "coincidencia_exacta":  ["Coincidencia exacta", "peligro"],
+  "error":                ["Error en la consulta", "peligro"],
+  "por_consultar":        ["Por consultar", ""]
+} %}
+{% set NIVELES_RIESGO = {
+  "sin_calificar": ["Sin calificar", ""],
+  "bajo":  ["Riesgo bajo", "ok"],
+  "medio": ["Riesgo medio", "atencion"],
+  "alto":  ["Riesgo alto", "peligro"]
+} %}
+{% set ESTADOS_ALERTA = {
+  "abierta":        ["Abierta", "peligro"],
+  "en_analisis":    ["En análisis", "atencion"],
+  "descartada":     ["Descartada", ""],
+  "reportada_uiaf": ["Reportada a la UIAF", "marca"]
+} %}
+{% set SEVERIDADES = { "alta": ["Alta", "peligro"], "media": ["Media", "atencion"], "baja": ["Baja", ""] } %}
+{% set ORIGENES_ALERTA = {
+  "lista_restrictiva": "Lista restrictiva", "pep": "Persona expuesta políticamente",
+  "pais_riesgo": "País de riesgo", "actividad_riesgo": "Actividad de riesgo",
+  "activos_virtuales": "Activos virtuales", "inconsistencia": "Inconsistencia", "manual": "Reportada por el equipo"
+} %}
+{% set RELACIONES = {
+  "proveedor": "Proveedor", "cliente": "Cliente", "empleado": "Empleado",
+  "accionista": "Accionista", "otro": "Otro"
+} %}
+{% set ROLES_USUARIO = {
+  "administrador": "Administrador", "oficial_cumplimiento": "Oficial de cumplimiento",
+  "analista": "Analista", "auditor": "Auditor"
+} %}
+{% set TIPOS_PREGUNTA = {
+  "texto": "Texto", "texto_largo": "Texto largo", "numero": "Número", "moneda": "Valor en pesos",
+  "fecha": "Fecha", "si_no": "Sí / No", "seleccion": "Selección", "multiple": "Selección múltiple",
+  "aceptacion": "Aceptación"
+} %}
+{# Cada seccion de un paso del formulario guarda sus personas con este rol #}
+{% set ROL_DE_SECCION = {
+  "firmante": "firmante", "representante_principal": "representante_principal",
+  "representantes_suplentes": "representante_suplente", "familiares_pep": "familiar_pep",
+  "accionistas": "accionista", "junta_directiva": "junta_directiva",
+  "beneficiarios_finales": "beneficiario_final", "grupo_empresarial": "grupo_empresarial",
+  "parientes_directivos": "pariente_directivo"
+} %}
+
+{% macro pastilla(par) -%}
+<span class="pastilla{% if par[1] %} pastilla--{{ par[1] }}{% endif %}">{{ par[0] }}</span>
+{%- endmacro %}
+
+{% macro estado_formulario(estado) -%}{{ pastilla(ESTADOS_FORMULARIO[estado]) }}{%- endmacro %}
+{% macro resultado_lista(resultado) -%}{{ pastilla(RESULTADOS_LISTA[resultado]) }}{%- endmacro %}
+{% macro nivel_riesgo(nivel) -%}{{ pastilla(NIVELES_RIESGO[nivel]) }}{%- endmacro %}
+{% macro estado_alerta(estado) -%}{{ pastilla(ESTADOS_ALERTA[estado]) }}{%- endmacro %}
+{% macro severidad(nivel) -%}{{ pastilla(SEVERIDADES[nivel]) }}{%- endmacro %}
+
+{% macro si_no(valor) -%}
+{#- MySQL entrega los si/no como 1 o 0; tambien se aceptan true y false -#}
+{%- if valor === null or valor === undefined %}<span class="texto-suave">Sin responder</span>{% elif valor %}Sí{% else %}No{% endif -%}
+{%- endmacro %}
+
+{% macro documento(tipo, numero) -%}
+{%- if numero %}<span class="maquina">{{ tipo }} {{ numero }}</span>{% else %}<span class="texto-suave">Sin documento</span>{% endif -%}
+{%- endmacro %}

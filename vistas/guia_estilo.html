@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono, nombres_iconos %}
+{% from "_componentes.html" import estado_formulario, resultado_lista, nivel_riesgo, estado_alerta %}
+{% from "_tablas.html" import tabla_formularios %}
+{#
+  guia_estilo.html - Todos los componentes de estilo.css en una pagina,
+  para revisar el diseno de una vez y copiar el HTML de cada pieza.
+#}
+{% block titulo %}Guía de estilo{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Guía de estilo</h1>
+    <p class="subtitulo-pagina">Componentes de estilo.css. Cambie el tema con el botón de la luna para verlos en oscuro.</p>
+  </div>
+</header>
+
+<div class="rejilla-2">
+  <section class="marco marco--relleno pila pila--chica" aria-labelledby="g-estados">
+    <h2 id="g-estados">Estados</h2>
+    <p class="texto-suave texto-chico">El color fuerte se reserva para los estados: es lo que la gente viene a mirar.</p>
+    <div class="acciones">{% for e in ["borrador", "en_revision", "devuelto", "aprobado", "rechazado"] %}{{ estado_formulario(e) }}{% endfor %}</div>
+    <div class="acciones">{% for e in ["sin_coincidencia", "coincidencia_parcial", "coincidencia_exacta", "por_consultar"] %}{{ resultado_lista(e) }}{% endfor %}</div>
+    <div class="acciones">{% for e in ["bajo", "medio", "alto", "sin_calificar"] %}{{ nivel_riesgo(e) }}{% endfor %}</div>
+    <div class="acciones">{% for e in ["abierta", "en_analisis", "descartada", "reportada_uiaf"] %}{{ estado_alerta(e) }}{% endfor %}</div>
+  </section>
+
+  <section class="marco marco--relleno pila pila--chica" aria-labelledby="g-botones">
+    <h2 id="g-botones">Botones</h2>
+    <div class="acciones">
+      <button type="button" class="boton boton--primario">Primario</button>
+      <button type="button" class="boton">Normal</button>
+      <button type="button" class="boton boton--suave">Suave</button>
+      <button type="button" class="boton boton--peligro">Peligro</button>
+      <button type="button" class="boton boton--plano">Plano</button>
+    </div>
+    <div class="acciones">
+      <button type="button" class="boton boton--chico">{{ icono("editar") }}Chico</button>
+      <button type="button" class="boton boton--chico boton--suave">{{ icono("adjunto") }}Adjuntar</button>
+      <button type="button" class="boton boton--icono" aria-label="Descargar">{{ icono("descargar") }}</button>
+      <button type="button" class="boton boton--icono boton--chico boton--plano" aria-label="Eliminar">{{ icono("papelera") }}</button>
+      <button type="button" class="boton boton--chico" disabled>Desactivado</button>
+    </div>
+    <div class="acciones">
+      <button type="button" class="boton" data-abrir-dialogo="g-dialogo">Abrir un diálogo</button>
+    </div>
+  </section>
+
+  <section class="marco marco--relleno pila" aria-labelledby="g-campos">
+    <h2 id="g-campos">Campos</h2>
+    <div class="formulario-rejilla">
+      <div class="campo">
+        <label for="g-nombre">Campo normal<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="g-nombre" class="control" placeholder="Texto de ejemplo">
+      </div>
+      <div class="campo">
+        <label for="g-nit">Con error</label>
+        <input id="g-nit" class="control maquina" value="901.482.337-2" aria-invalid="true" aria-describedby="g-nit-error">
+        <p id="g-nit-error" class="campo-error">{{ icono("error") }}Solo números, sin puntos ni dígito.</p>
+      </div>
+      <div class="campo">
+        <label for="g-select">Lista</label>
+        <select id="g-select" class="control"><option>Proveedor</option><option>Cliente</option></select>
+      </div>
+      <div class="campo">
+        <label for="g-fecha">Fecha</label>
+        <input id="g-fecha" class="control" type="date" value="2025-12-31">
+      </div>
+      <fieldset class="grupo-opciones campo--ancho">
+        <legend class="etiqueta">Opciones</legend>
+        <div class="opciones opciones--en-linea">
+          <label class="opcion"><input type="radio" name="g-r" checked>Sí</label>
+          <label class="opcion"><input type="radio" name="g-r">No</label>
+          <label class="opcion"><input type="checkbox" checked>Casilla</label>
+        </div>
+      </fieldset>
+    </div>
+  </section>
+
+  <section class="marco marco--relleno pila pila--chica" aria-labelledby="g-mensajes">
+    <h2 id="g-mensajes">Mensajes</h2>
+    <div class="nota nota--info">{{ icono("info") }}<p>Nota informativa.</p></div>
+    <div class="nota nota--atencion">{{ icono("alerta") }}<p><strong>Atención.</strong> Algo requiere revisión.</p></div>
+    <div class="nota nota--peligro">{{ icono("error") }}<p><strong>Error.</strong> No se pudo completar.</p></div>
+    <div class="nota nota--ok">{{ icono("aprobado") }}<p>Acción completada.</p></div>
+    <div class="aviso aviso--ok aviso--estatico">{{ icono("aprobado") }}<div class="aviso-texto"><strong>Aviso</strong><span>Así se ve un aviso emergente (toast).</span></div></div>
+  </section>
+</div>
+
+<section class="marco seccion" aria-labelledby="g-tabla">
+  <div class="marco-cabecera"><h2 id="g-tabla">Tabla de datos</h2><span class="marco-detalle">Filas de 32 px</span></div>
+  {{ tabla_formularios(formularios) }}
+</section>
+
+<section class="marco seccion" aria-labelledby="g-vacio">
+  <div class="marco-cabecera"><h2 id="g-vacio">Estado vacío</h2></div>
+  <div class="vacio">
+    <span class="vacio-icono">{{ icono("bandeja", "icono--20") }}</span>
+    <h3>No hay nada aquí todavía</h3>
+    <p>Dice qué falta y qué se puede hacer al respecto.</p>
+  </div>
+</section>
+
+<section class="marco seccion" aria-labelledby="g-iconos">
+  <div class="marco-cabecera"><h2 id="g-iconos">Iconos</h2><span class="marco-detalle maquina">{{ '{{ icono("nombre") }}' }}</span></div>
+  <ul class="rejilla-iconos marco-cuerpo">
+    {% for nombre in nombres_iconos %}<li>{{ icono(nombre) }}<span class="maquina texto-suave texto-chico">{{ nombre }}</span></li>{% endfor %}
+  </ul>
+</section>
+
+<dialog id="g-dialogo" class="dialogo" aria-labelledby="g-dialogo-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="g-dialogo-titulo">Diálogo de ejemplo</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo"><p>Los diálogos se usan para capturas cortas. Se cierran con Esc, con la X o al enviar.</p></div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">Aceptar</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

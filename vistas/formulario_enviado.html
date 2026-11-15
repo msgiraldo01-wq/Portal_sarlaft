@@ -1,0 +1,34 @@
+{% extends "base_publico.html" %}
+{% from "_iconos.html" import icono %}
+{#
+  formulario_enviado.html - Confirmacion despues de firmar y enviar.
+  Recibe: f (formulario de ejemplo, con su radicado).
+#}
+{% block titulo %}Formulario enviado{% endblock %}
+
+{% block contenido %}
+<div class="acceso">
+  <section class="marco marco--relleno pila confirmacion">
+    <span class="confirmacion-icono">{{ icono("aprobado", "icono--20") }}</span>
+    <h1>Formulario enviado</h1>
+    <p>Recibimos su formulario de conocimiento de terceros. El equipo de cumplimiento lo revisará y le avisará por correo si necesita corregir algo.</p>
+
+    <dl class="definiciones">
+      <div><dt>Radicado</dt><dd class="maquina">{{ f.radicado }}</dd></div>
+      <div><dt>Tercero</dt><dd>{{ f.tercero }}</dd></div>
+      <div><dt>Documento</dt><dd class="maquina">{{ f.documento }}</dd></div>
+      <div><dt>Firmado y enviado</dt><dd class="maquina">{{ f.enviado_en | fecha }}</dd></div>
+    </dl>
+
+    <div class="nota">
+      {{ icono("info") }}
+      <p>Guarde el número de radicado. Con su documento puede volver a entrar para ver el estado de la revisión.</p>
+    </div>
+
+    <div class="acciones">
+      <a class="boton" href="/mi-formulario">Ver estado de mi formulario</a>
+      <button type="button" class="boton boton--suave" onclick="window.print()">{{ icono("descargar") }}Imprimir constancia</button>
+    </div>
+  </section>
+</div>
+{% endblock %}

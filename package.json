@@ -1,0 +1,19 @@
+{
+  "name": "portal-sarlaft",
+  "version": "0.6.0",
+  "description": "Portal SARLAFT: conocimiento de terceros (Circular Externa 009 de 2016, Supersalud)",
+  "private": true,
+  "type": "commonjs",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "dev": "node --watch servidor.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nunjucks": "^3.2.4"
+  }
+}

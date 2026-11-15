@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_formulario, nivel_riesgo, estado_alerta, severidad, resultado_lista %}
+{#
+  tercero.html - Ficha de un tercero: sus datos, sus formularios por
+  periodo y sus alertas. Recibe: t, formularios, alertas, vencimiento.
+#}
+{% block titulo %}{{ t.nombre }}{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>{{ t.nombre }}</h1>
+    <p class="subtitulo-pagina"><span class="maquina">{{ t.documento }}</span> · {{ "Persona jurídica" if t.tipo_persona == "juridica" else "Persona natural" }}</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton">{{ icono("enviar") }}Pedir actualización</button>
+  </div>
+</header>
+
+<div class="rejilla-lateral">
+  <div class="pila">
+    <section class="marco" aria-labelledby="t-formularios">
+      <div class="marco-cabecera"><h2 id="t-formularios">Formularios</h2></div>
+      <div class="tabla-envoltura">
+        <table class="tabla">
+          <thead><tr><th scope="col">Periodo</th><th scope="col">Tipo</th><th scope="col">Radicado</th><th scope="col">Estado</th><th scope="col">Listas</th><th scope="col">Vence</th><th scope="col"><span class="solo-lectores">Abrir</span></th></tr></thead>
+          <tbody>
+            {% for f in formularios %}
+            <tr>
+              <td class="maquina">{{ f.periodo }}</td>
+              <td>{{ f.tipo | capitalize }}</td>
+              <td class="sin-salto"><span class="maquina">{{ f.radicado or "—" }}</span></td>
+              <td>{{ estado_formulario(f.estado) }}</td>
+              <td>{{ resultado_lista(f.listas) }}</td>
+              <td class="sin-salto maquina">{{ f.vence_en | fecha }}</td>
+              <td class="celda-acciones"><a class="boton boton--plano boton--icono boton--chico" href="/formularios/{{ f.formulario_id }}" aria-label="Abrir formulario {{ f.periodo }}">{{ icono("derecha") }}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="marco" aria-labelledby="t-alertas">
+      <div class="marco-cabecera"><h2 id="t-alertas">Alertas</h2></div>
+      {% if alertas | length %}
+      <ul class="lista-tarjetas">
+        {% for a in alertas %}
+        <li><a href="/diligencia/alertas/{{ a.id }}">
+          <span class="lista-tarjetas-titulo">{{ a.descripcion }}</span>
+          <span class="acciones">{{ severidad(a.severidad) }}{{ estado_alerta(a.estado) }}<span class="maquina texto-suave texto-chico">{{ a.creada_en | fecha }}</span></span>
+        </a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <div class="vacio vacio--compacto"><span class="vacio-icono">{{ icono("escudo", "icono--20") }}</span><p>Este tercero no tiene alertas.</p></div>
+      {% endif %}
+    </section>
+  </div>
+
+  <aside class="pila">
+    <section class="marco" aria-labelledby="t-datos">
+      <div class="marco-cabecera"><h2 id="t-datos">Datos</h2>{{ nivel_riesgo(t.nivel_riesgo) }}</div>
+      <dl class="definiciones definiciones--una marco-cuerpo">
+        <div><dt>Relación</dt><dd>{{ t.relaciones | join(", ") | capitalize }}</dd></div>
+        {% if t.contacto_nombre %}<div><dt>Contacto</dt><dd>{{ t.contacto_nombre }}</dd></div>{% endif %}
+        <div><dt>Correo</dt><dd>{{ t.correo }}</dd></div>
+        <div><dt>Celular</dt><dd class="maquina">{{ t.celular }}</dd></div>
+        <div><dt>Registrado</dt><dd class="maquina">{{ t.creado_en | fecha(false) }}</dd></div>
+        <div><dt>Estado</dt><dd>{{ t.estado | capitalize }}</dd></div>
+        {% if vencimiento %}
+        <div><dt>Actualización</dt><dd>
+          <span class="pastilla pastilla--{{ 'peligro' if vencimiento.situacion == 'vencido' else ('atencion' if vencimiento.situacion == 'por_vencer' else 'ok') }}">{{ vencimiento.situacion | replace("_", " ") | capitalize }}</span>
+          <span class="maquina texto-suave texto-chico">{{ vencimiento.vence_en | fecha }}</span></dd></div>
+        {% endif %}
+      </dl>
+    </section>
+  </aside>
+</div>
+{% endblock %}

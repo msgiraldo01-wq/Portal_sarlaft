@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import TIPOS_PREGUNTA %}
+{#
+  ajustes_preguntas.html - Preguntas del formulario (cuestionario parametrizable).
+  Cuando cambie la norma se crea una version nueva del cuestionario; los
+  formularios ya diligenciados conservan la version que respondieron.
+  Recibe: tipo ("juridica" o "natural") y cuestionario con sus modulos.
+#}
+{% block titulo %}Preguntas del formulario{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Preguntas del formulario</h1>
+    <p class="subtitulo-pagina">{{ cuestionario.nombre }} · versión {{ cuestionario.version }} · {{ cuestionario.estado | capitalize }}</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <a class="boton" href="/formulario/{{ tipo }}/paso/1">{{ icono("ojo") }}Ver como tercero</a>
+    <button type="button" class="boton boton--primario" data-abrir-dialogo="dlg-version">{{ icono("mas") }}Nueva versión</button>
+  </div>
+</header>
+
+<nav class="pestanas pestanas--marcadas seccion no-imprimir" aria-label="Tipo de persona">
+  <a href="?tipo=juridica"{% if tipo == "juridica" %} aria-current="page"{% endif %}>Persona jurídica</a>
+  <a href="?tipo=natural"{% if tipo == "natural" %} aria-current="page"{% endif %}>Persona natural</a>
+</nav>
+
+{% if cuestionario.notas %}
+<div class="nota nota--info seccion">{{ icono("info") }}<p>{{ cuestionario.notas }}</p></div>
+{% endif %}
+
+<div class="pila seccion">
+  {% for m in cuestionario.modulos %}
+  <details class="marco modulo-ajustes"{% if loop.first %} open{% endif %}>
+    <summary class="marco-cabecera">
+      <h2>{{ m.orden }}. {{ m.nombre }}</h2>
+      <span class="marco-detalle">{{ m.preguntas | length }} pregunta{{ "s" if m.preguntas | length != 1 }} · {{ m.secciones | length }} sección{{ "es" if m.secciones | length != 1 }}</span>
+    </summary>
+    {% if m.secciones | length %}
+    <div class="marco-cuerpo acciones">
+      <span class="texto-suave texto-chico">Secciones fijas:</span>
+      {% for s in m.secciones %}<span class="pastilla pastilla--marca">{{ s.titulo }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    {% if m.preguntas | length %}
+    <div class="tabla-envoltura">
+      <table class="tabla">
+        <thead><tr><th scope="col">Pregunta</th><th scope="col">Tipo</th><th scope="col">Condiciones</th><th scope="col"><span class="solo-lectores">Editar</span></th></tr></thead>
+        <tbody>
+          {% for p in m.preguntas %}
+          <tr>
+            <td>{{ p.enunciado }}<div class="texto-suave texto-chico maquina">{{ p.codigo }}</div></td>
+            <td class="sin-salto">{{ TIPOS_PREGUNTA[p.tipo] }}{% if p.opciones | length %} <span class="texto-suave texto-chico">({{ p.opciones | length }} opciones)</span>{% endif %}</td>
+            <td>
+              {% if p.obligatoria %}<span class="pastilla">Obligatoria</span>{% endif %}
+              {% if p.depende_de %}<span class="pastilla pastilla--info">Si {{ p.depende_de }} = {{ p.depende_de_valor }}</span>{% endif %}
+              {% if p.alerta_si_valor %}<span class="pastilla pastilla--peligro">Alerta si «{{ p.alerta_si_valor }}»</span>{% endif %}
+              {% if p.relaciones %}<span class="pastilla pastilla--atencion">Solo {{ p.relaciones }}</span>{% endif %}
+            </td>
+            <td class="celda-acciones"><button type="button" class="boton boton--plano boton--icono boton--chico" data-abrir-dialogo="dlg-pregunta" aria-label="Editar pregunta {{ p.codigo }}">{{ icono("editar") }}</button></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </details>
+  {% endfor %}
+</div>
+
+<dialog id="dlg-pregunta" class="dialogo" aria-labelledby="dlg-pregunta-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-pregunta-titulo">Editar pregunta</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <p>Los cambios se aplican a la próxima versión del cuestionario. Los formularios ya enviados no cambian.</p>
+      <div class="formulario-rejilla">
+        <div class="campo campo--ancho"><label for="ep-enunciado">Enunciado</label><textarea id="ep-enunciado" class="control" required></textarea></div>
+        <div class="campo"><label for="ep-tipo">Tipo</label><select id="ep-tipo" class="control">{% for clave, nombre in TIPOS_PREGUNTA %}<option>{{ nombre }}</option>{% endfor %}</select></div>
+        <div class="campo"><label for="ep-alerta">Generar alerta si responde</label><select id="ep-alerta" class="control"><option>Nunca</option><option>Sí</option><option>No</option></select></div>
+        <div class="campo campo--ancho"><label for="ep-ayuda">Texto de ayuda</label><input id="ep-ayuda" class="control"></div>
+        <label class="opcion campo--ancho"><input type="checkbox" checked>Obligatoria</label>
+      </div>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">Guardar cambios</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-version" class="dialogo" aria-labelledby="dlg-version-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-version-titulo">Nueva versión del cuestionario</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <p>Se crea una copia en borrador de la versión {{ cuestionario.version }} para editarla. Al publicarla, reemplaza a la actual para los formularios nuevos.</p>
+      <div class="campo"><label for="nv-notas">Qué cambia y por qué norma</label><textarea id="nv-notas" class="control" required></textarea></div>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">Crear borrador</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

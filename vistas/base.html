@@ -1,0 +1,129 @@
+{%- from "_iconos.html" import icono -%}
+{#
+  base.html - Plantilla del sistema interno (oficial de cumplimiento).
+
+  Cada pagina hija:
+    {% extends "base.html" %}
+    {% set seccion = "clientes" %}            <- clave del enlace activo del menu
+    {% block titulo %}Clientes{% endblock %}  <- el <title> agrega " · Portal SARLAFT"
+    {% block contenido %} ... {% endblock %}
+    {% block scripts %} ... {% endblock %}    <- opcional, JS propio de la pagina
+
+  El menu se arma con la variable global MENU (ver src/menu.js). Los numeros
+  de los contadores llegan en "contadores", un diccionario {clave: numero}.
+-#}
+{%- set seccion_actual = seccion | default("") -%}
+{%- set numeros = contadores | default({}) -%}
+
+{%- macro enlace_menu(enlace, actual, numeros) -%}
+{%- set es_actual = enlace.clave == actual -%}
+<li>
+  <a class="menu-enlace{% if es_actual %} activo{% endif %}" href="{{ enlace.url }}"{% if es_actual %} aria-current="page"{% endif %}>
+    {{ icono(enlace.icono) }}
+    <span class="menu-texto">{{ enlace.texto }}</span>
+    {%- if enlace.contador %}
+    {%- set n = numeros[enlace.contador] or 0 %}
+    <span class="contador contador--{{ enlace.tono | default('neutro') }}" data-contador="{{ enlace.contador }}"{% if not n %} hidden{% endif %}>
+      <span data-numero>{{ n }}</span><span class="solo-lectores"> por atender</span>
+    </span>
+    {%- endif %}
+  </a>
+</li>
+{%- endmacro -%}
+<!doctype html>
+<html lang="es">
+<head>
+  {% include "_cabeza.html" %}
+  <title>{% block titulo %}Inicio{% endblock %} · {{ SISTEMA }}</title>
+  {% block cabeza %}{% endblock %}
+</head>
+<body class="interno">
+  <a class="saltar" href="#principal">Saltar al contenido</a>
+
+  <div class="armazon">
+
+    {# Barra que solo aparece por debajo de 760px #}
+    <header class="barra-movil no-imprimir">
+      <button type="button" class="boton boton--plano" data-accion="menu"
+              aria-controls="menu-lateral" aria-expanded="false">
+        {{ icono("menu") }}<span>Menú</span>
+      </button>
+      <a class="barra-movil-marca" href="/">{{ SISTEMA }}</a>
+    </header>
+
+    <nav id="menu-lateral" class="menu-lateral no-imprimir" aria-label="Menú principal">
+
+      <div class="marca">
+        <a class="marca-enlace" href="/">
+          <span class="marca-logo" aria-hidden="true">{{ icono("escudo") }}</span>
+          <span class="marca-textos">
+            <span class="marca-nombre">{{ SISTEMA }}</span>
+            <span class="marca-subtitulo">{{ SUBTITULO }}</span>
+          </span>
+        </a>
+        <button type="button" class="boton boton--plano boton--icono solo-movil"
+                data-accion="cerrar-menu" aria-label="Cerrar menú">{{ icono("cerrar") }}</button>
+      </div>
+
+      <form class="menu-buscador" role="search" action="/buscar" method="get">
+        <label class="solo-lectores" for="buscador-menu">Buscar tercero por nombre o NIT</label>
+        <span class="campo-icono">
+          {{ icono("buscar") }}
+          <input id="buscador-menu" class="control" type="search" name="q"
+                 placeholder="Buscar tercero o NIT" autocomplete="off" value="{{ busqueda | default('') }}">
+          <kbd class="tecla" aria-hidden="true" title="Atajo: tecla /">/</kbd>
+        </span>
+      </form>
+
+      <div class="menu-secciones">
+        <ul class="menu-lista">
+          {%- for entrada in MENU %}
+            {%- if entrada.tipo == "grupo" %}
+            {%- set tiene_actual = entrada.enlaces | tiene("clave", seccion_actual) %}
+            <li>
+              <details class="grupo" data-grupo="{{ entrada.id }}"{% if tiene_actual or entrada.abierto %} open{% endif %}>
+                <summary class="grupo-titulo">
+                  <span>{{ entrada.texto }}</span>{{ icono("abajo", "grupo-flecha") }}
+                </summary>
+                <ul class="menu-lista">
+                  {%- for enlace in entrada.enlaces %}
+                  {{ enlace_menu(enlace, seccion_actual, numeros) }}
+                  {%- endfor %}
+                </ul>
+              </details>
+            </li>
+            {%- else %}
+            {{ enlace_menu(entrada, seccion_actual, numeros) }}
+            {%- endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div class="menu-pie">
+        <div class="usuario">
+          <span class="avatar" aria-hidden="true">{{ usuario.iniciales if usuario else "?" }}</span>
+          <span class="usuario-datos">
+            <span class="usuario-nombre">{{ usuario.nombre if usuario else "Invitado" }}</span>
+            <span class="usuario-rol">{{ usuario.rol if usuario else "" }}</span>
+          </span>
+        </div>
+        <button type="button" class="boton boton--plano boton--icono boton-tema"
+                data-accion="tema" aria-label="Cambiar tema" title="Cambiar tema">
+          {{ icono("luna", "icono-luna") }}{{ icono("sol", "icono-sol") }}
+        </button>
+        <a class="boton boton--plano boton--icono" href="/salir"
+           aria-label="Cerrar sesión" title="Cerrar sesión">{{ icono("salir") }}</a>
+      </div>
+    </nav>
+
+    <div class="fondo-menu no-imprimir" hidden></div>
+
+    <main id="principal" class="principal" tabindex="-1">
+      {% block contenido %}{% endblock %}
+    </main>
+  </div>
+
+  {% include "_pie_comun.html" %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

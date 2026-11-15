@@ -1,0 +1,50 @@
+{#
+  _tablas.html - Tablas que aparecen en varias pantallas.
+    tabla_formularios(lista)   formularios con estado, listas y fecha
+#}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_formulario, resultado_lista %}
+
+{% macro tabla_formularios(lista, vacio_texto="No hay formularios en esta bandeja.") %}
+<div class="tabla-envoltura">
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th scope="col">Radicado</th>
+        <th scope="col">Tercero</th>
+        <th scope="col">Relación</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Listas restrictivas</th>
+        <th scope="col" class="num">Avance</th>
+        <th scope="col">Actualizado</th>
+        <th scope="col"><span class="solo-lectores">Abrir</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in lista %}
+      <tr>
+        <td class="sin-salto">{% if f.radicado %}<span class="maquina">{{ f.radicado }}</span>{% else %}<span class="texto-suave">Sin enviar</span>{% endif %}</td>
+        <td class="recortar"><a href="/formularios/{{ f.formulario_id }}" title="{{ f.tercero }}">{{ f.tercero }}</a></td>
+        <td>{{ f.relaciones | join(", ") | capitalize }}</td>
+        <td class="sin-salto"><span class="maquina">{{ f.documento }}</span></td>
+        <td>{{ estado_formulario(f.estado) }}</td>
+        <td>{{ resultado_lista(f.listas) }}{% if f.alertas_abiertas %} <span class="pastilla pastilla--peligro">{{ f.alertas_abiertas }} alerta</span>{% endif %}</td>
+        <td class="num maquina">{{ f.porcentaje }} %</td>
+        <td class="sin-salto"><span class="maquina">{{ f.actualizado_en | fecha }}</span></td>
+        <td class="celda-acciones">
+          <a class="boton boton--plano boton--icono boton--chico" href="/formularios/{{ f.formulario_id }}" aria-label="Abrir formulario de {{ f.tercero }}">{{ icono("derecha") }}</a>
+        </td>
+      </tr>
+      {% else %}
+      <tr class="fila-vacia"><td colspan="9">
+        <div class="vacio vacio--compacto">
+          <span class="vacio-icono">{{ icono("bandeja", "icono--20") }}</span>
+          <p>{{ vacio_texto }}</p>
+        </div>
+      </td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}

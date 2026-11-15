@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_formulario, si_no %}
+{#
+  pep.html - Personas expuestas politicamente (Decreto 830 de 2021).
+  Recibe: declarados (formularios con alguna respuesta PEP en "Si"),
+  vinculadas (socios, junta o beneficiarios marcados como PEP), preguntasPep.
+#}
+{% set NOMBRES = {
+  "pep_recursos_publicos": "Maneja recursos públicos", "pep_reconocimiento": "Reconocimiento público",
+  "pep_poder_publico": "Poder público", "pep_servidor_publico": "Servidor público",
+  "pep_decreto_830": "PEP según Decreto 830", "pep_familiar": "Familiar de PEP"
+} %}
+{% block titulo %}Personas expuestas políticamente{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Personas expuestas políticamente</h1>
+    <p class="subtitulo-pagina">Requieren debida diligencia intensificada y aprobación del oficial de cumplimiento</p>
+  </div>
+</header>
+
+<section class="marco" aria-labelledby="t-declarados">
+  <div class="marco-cabecera">
+    <h2 id="t-declarados">Terceros que se declararon PEP</h2>
+    <span class="marco-detalle">Según sus respuestas en el formulario</span>
+  </div>
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead><tr><th scope="col">Tercero</th><th scope="col">Documento</th><th scope="col">Respondió Sí a</th><th scope="col">Familiares</th><th scope="col">Formulario</th></tr></thead>
+      <tbody>
+        {% for f in declarados %}
+        <tr>
+          <td><a href="/formularios/{{ f.formulario_id }}">{{ f.tercero }}</a></td>
+          <td class="sin-salto"><span class="maquina">{{ f.documento }}</span></td>
+          <td>{% for c in preguntasPep %}{% if f.respuestas[c] and f.respuestas[c].booleano %}<span class="pastilla pastilla--atencion">{{ NOMBRES[c] }}</span> {% endif %}{% endfor %}</td>
+          <td class="num maquina">{{ f.personas | donde("rol", "familiar_pep") | length }}</td>
+          <td>{{ estado_formulario(f.estado) }}</td>
+        </tr>
+        {% else %}
+        <tr class="fila-vacia"><td colspan="5"><div class="vacio vacio--compacto"><p>Ningún tercero se ha declarado PEP.</p></div></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="marco seccion" aria-labelledby="t-vinculadas">
+  <div class="marco-cabecera">
+    <h2 id="t-vinculadas">Accionistas, junta y beneficiarios que son PEP</h2>
+  </div>
+  {% if vinculadas | length %}
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead><tr><th scope="col">Persona</th><th scope="col">Documento</th><th scope="col">Rol</th><th scope="col">Tercero</th></tr></thead>
+      <tbody>
+        {% for p in vinculadas %}
+        <tr><td>{{ p.nombre_completo }}</td><td class="maquina">{{ p.tipo_documento }} {{ p.numero_documento }}</td><td>{{ p.rol | replace("_", " ") | capitalize }}</td><td><a href="/formularios/{{ p.formulario_id }}">{{ p.tercero }}</a></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="vacio vacio--compacto">
+    <span class="vacio-icono">{{ icono("institucion", "icono--20") }}</span>
+    <h3>Ninguna persona vinculada está marcada como PEP</h3>
+    <p>Aquí aparecen los socios, miembros de junta y beneficiarios finales que los terceros marquen como PEP.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

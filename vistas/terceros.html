@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_formulario, nivel_riesgo %}
+{#
+  terceros.html - Lista de terceros de una relacion (clientes, proveedores...).
+  Recibe: titulo, relacion, terceros (cada uno con su ultimo formulario).
+#}
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>{{ titulo }}</h1>
+    <p class="subtitulo-pagina">{{ terceros | length }} tercero{{ "s" if terceros | length != 1 }} con relación de {{ relacion }}</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton">{{ icono("descargar") }}Exportar</button>
+  </div>
+</header>
+
+<section class="marco" aria-label="{{ titulo }}">
+  <div class="filtros no-imprimir">
+    <span class="campo-icono">
+      {{ icono("buscar") }}
+      <input class="control" type="search" placeholder="Nombre o documento" aria-label="Filtrar por nombre o documento">
+    </span>
+    <select class="control" aria-label="Nivel de riesgo">
+      <option>Cualquier nivel de riesgo</option><option>Bajo</option><option>Medio</option><option>Alto</option><option>Sin calificar</option>
+    </select>
+  </div>
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th scope="col">Tercero</th><th scope="col">Tipo</th><th scope="col">Documento</th>
+          <th scope="col">Contacto</th><th scope="col">Riesgo</th><th scope="col">Último formulario</th>
+          <th scope="col"><span class="solo-lectores">Abrir</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in terceros %}
+        <tr>
+          <td class="recortar"><a href="/terceros/ficha/{{ t.id }}" title="{{ t.nombre }}">{{ t.nombre }}</a></td>
+          <td>{{ "Jurídica" if t.tipo_persona == "juridica" else "Natural" }}</td>
+          <td class="sin-salto"><span class="maquina">{{ t.documento }}</span></td>
+          <td class="recortar"><span title="{{ t.correo }}">{{ t.correo }}</span></td>
+          <td>{{ nivel_riesgo(t.nivel_riesgo) }}</td>
+          <td class="sin-salto">{% if t.ultimo %}{{ estado_formulario(t.ultimo.estado) }} <span class="maquina texto-suave texto-chico">{{ t.ultimo.periodo }}</span>{% endif %}</td>
+          <td class="celda-acciones"><a class="boton boton--plano boton--icono boton--chico" href="/terceros/ficha/{{ t.id }}" aria-label="Abrir ficha de {{ t.nombre }}">{{ icono("derecha") }}</a></td>
+        </tr>
+        {% else %}
+        <tr class="fila-vacia"><td colspan="7"><div class="vacio vacio--compacto">
+          <span class="vacio-icono">{{ icono("usuarios", "icono--20") }}</span><p>No hay terceros con esta relación.</p>
+        </div></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

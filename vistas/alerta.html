@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_alerta, severidad, resultado_lista, ORIGENES_ALERTA %}
+{#
+  alerta.html - Analisis de una alerta y su decision.
+  Recibe: a (alerta con su tercero, formulario y consulta de origen).
+  VISTA: los botones abren el dialogo de decision, pero no guardan.
+#}
+{% set cerrada = a.estado in ["descartada", "reportada_uiaf"] %}
+{% block titulo %}Alerta · {{ a.tercero }}{% endblock %}
+
+{% block contenido %}
+<nav class="migas no-imprimir" aria-label="Ubicación"><a href="/diligencia/alertas">Alertas</a> <span aria-hidden="true">/</span> <span>{{ a.tercero }}</span></nav>
+
+<header class="encabezado-pagina">
+  <div>
+    <h1>{{ ORIGENES_ALERTA[a.origen] }}</h1>
+    <p class="subtitulo-pagina">{{ a.tercero }} · <span class="maquina">{{ a.documento_txt }}</span></p>
+  </div>
+  {% if not cerrada %}
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton" data-abrir-dialogo="dlg-descartar">Descartar</button>
+    <button type="button" class="boton boton--peligro" data-abrir-dialogo="dlg-reportar">Reportar a la UIAF</button>
+  </div>
+  {% endif %}
+</header>
+
+<div class="rejilla-lateral">
+  <div class="pila">
+    <section class="marco marco--relleno pila pila--chica" aria-label="Descripción">
+      <h2>Qué se detectó</h2>
+      <p>{{ a.descripcion }}</p>
+    </section>
+
+    {% if a.lista %}
+    <section class="marco" aria-labelledby="t-consulta">
+      <div class="marco-cabecera"><h2 id="t-consulta">Consulta que la originó</h2></div>
+      <dl class="definiciones marco-cuerpo">
+        <div><dt>Persona consultada</dt><dd>{{ a.nombre_consultado }}</dd></div>
+        <div><dt>Documento</dt><dd class="maquina">{{ a.documento_consultado }}</dd></div>
+        <div><dt>Lista</dt><dd>{{ a.lista }}</dd></div>
+        <div class="definiciones-ancho"><dt>Detalle</dt><dd>{{ a.detalle_consulta }}</dd></div>
+      </dl>
+    </section>
+    {% endif %}
+
+    <section class="marco marco--relleno pila pila--chica" aria-labelledby="t-analisis">
+      <h2 id="t-analisis">Análisis y decisión</h2>
+      {% if a.decision %}
+      <p>{{ a.decision }}</p>
+      <p class="texto-suave texto-chico">{{ a.cerrada_por }} · <span class="maquina">{{ a.cerrada_en | fecha }}</span></p>
+      {% else %}
+      <div class="campo">
+        <label for="analisis">Notas del análisis</label>
+        <textarea id="analisis" class="control" placeholder="Qué se revisó, con qué fuentes y qué se concluye"></textarea>
+      </div>
+      <div class="acciones"><button type="button" class="boton">{{ icono("guardar") }}Guardar notas</button></div>
+      {% endif %}
+    </section>
+  </div>
+
+  <aside class="marco" aria-labelledby="t-resumen">
+    <div class="marco-cabecera"><h2 id="t-resumen">Resumen</h2>{{ estado_alerta(a.estado) }}</div>
+    <dl class="definiciones definiciones--una marco-cuerpo">
+      <div><dt>Severidad</dt><dd>{{ severidad(a.severidad) }}</dd></div>
+      <div><dt>Asignada a</dt><dd>{{ a.asignada_a or "Sin asignar" }}</dd></div>
+      <div><dt>Creada</dt><dd class="maquina">{{ a.creada_en | fecha }}</dd></div>
+      {% if a.radicado %}<div><dt>Formulario</dt><dd><a href="/formularios/{{ a.formulario_id }}" class="maquina">{{ a.radicado }}</a></dd></div>{% endif %}
+      <div><dt>Tercero</dt><dd><a href="/terceros/ficha/{{ a.tercero_id }}">Ver ficha</a></dd></div>
+    </dl>
+  </aside>
+</div>
+
+{% for d in [
+  ["descartar", "Descartar alerta", "Explique por qué no es una operación inusual (por ejemplo, homónimo con documento distinto). Queda en el registro.", "boton--primario", "Descartar"],
+  ["reportar", "Reportar a la UIAF", "Registre el número del Reporte de Operación Sospechosa (ROS) presentado ante la UIAF. Esta información es reservada: no se debe informar al tercero.", "boton--peligro", "Registrar reporte"]
+] %}
+<dialog id="dlg-{{ d[0] }}" class="dialogo" aria-labelledby="dlg-{{ d[0] }}-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-{{ d[0] }}-titulo">{{ d[1] }}</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <p>{{ d[2] }}</p>
+      <div class="formulario-rejilla">
+        {% if d[0] == "reportar" %}<div class="campo campo--ancho"><label for="dlg-ros">Número del ROS</label><input id="dlg-ros" class="control maquina" required></div>{% endif %}
+        <div class="campo campo--ancho"><label for="dlg-{{ d[0] }}-decision">Justificación</label><textarea id="dlg-{{ d[0] }}-decision" class="control" required></textarea></div>
+      </div>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton {{ d[3] }}">{{ d[4] }}</button>
+    </div>
+  </form>
+</dialog>
+{% endfor %}
+{% endblock %}

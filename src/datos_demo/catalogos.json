@@ -1,0 +1,1289 @@
+{
+  "tipos_documento": [
+    {
+      "codigo": "NIT",
+      "nombre": "Número de identificación tributaria",
+      "tipo_persona": "juridica"
+    },
+    {
+      "codigo": "CC",
+      "nombre": "Cédula de ciudadanía",
+      "tipo_persona": "natural"
+    },
+    {
+      "codigo": "CE",
+      "nombre": "Cédula de extranjería",
+      "tipo_persona": "natural"
+    },
+    {
+      "codigo": "PPT",
+      "nombre": "Permiso por protección temporal",
+      "tipo_persona": "natural"
+    },
+    {
+      "codigo": "PA",
+      "nombre": "Pasaporte",
+      "tipo_persona": "natural"
+    },
+    {
+      "codigo": "TI",
+      "nombre": "Tarjeta de identidad",
+      "tipo_persona": "natural"
+    }
+  ],
+  "paises": [
+    {
+      "codigo": "CO",
+      "nombre": "Colombia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "DE",
+      "nombre": "Alemania",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AD",
+      "nombre": "Andorra",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AO",
+      "nombre": "Angola",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SA",
+      "nombre": "Arabia Saudita",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "DZ",
+      "nombre": "Argelia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AR",
+      "nombre": "Argentina",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AW",
+      "nombre": "Aruba",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AU",
+      "nombre": "Australia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AT",
+      "nombre": "Austria",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BS",
+      "nombre": "Bahamas",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BB",
+      "nombre": "Barbados",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BE",
+      "nombre": "Bélgica",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BZ",
+      "nombre": "Belice",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BM",
+      "nombre": "Bermudas",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BO",
+      "nombre": "Bolivia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BR",
+      "nombre": "Brasil",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BG",
+      "nombre": "Bulgaria",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "BF",
+      "nombre": "Burkina Faso",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CM",
+      "nombre": "Camerún",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CA",
+      "nombre": "Canadá",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "QA",
+      "nombre": "Catar",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CZ",
+      "nombre": "Chequia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CL",
+      "nombre": "Chile",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CN",
+      "nombre": "China",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CY",
+      "nombre": "Chipre",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "KP",
+      "nombre": "Corea del Norte",
+      "riesgo_gafi": "accion"
+    },
+    {
+      "codigo": "KR",
+      "nombre": "Corea del Sur",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CI",
+      "nombre": "Costa de Marfil",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CR",
+      "nombre": "Costa Rica",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "HR",
+      "nombre": "Croacia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CU",
+      "nombre": "Cuba",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CW",
+      "nombre": "Curazao",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "DK",
+      "nombre": "Dinamarca",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "EC",
+      "nombre": "Ecuador",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "EG",
+      "nombre": "Egipto",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SV",
+      "nombre": "El Salvador",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "AE",
+      "nombre": "Emiratos Árabes Unidos",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "ES",
+      "nombre": "España",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "US",
+      "nombre": "Estados Unidos",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PH",
+      "nombre": "Filipinas",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "FI",
+      "nombre": "Finlandia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "FR",
+      "nombre": "Francia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "GR",
+      "nombre": "Grecia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "GT",
+      "nombre": "Guatemala",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "GY",
+      "nombre": "Guyana",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "HT",
+      "nombre": "Haití",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "HN",
+      "nombre": "Honduras",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "HK",
+      "nombre": "Hong Kong",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "IN",
+      "nombre": "India",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "ID",
+      "nombre": "Indonesia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "IQ",
+      "nombre": "Irak",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "IR",
+      "nombre": "Irán",
+      "riesgo_gafi": "accion"
+    },
+    {
+      "codigo": "IE",
+      "nombre": "Irlanda",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "KY",
+      "nombre": "Islas Caimán",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "VG",
+      "nombre": "Islas Vírgenes Británicas",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "IL",
+      "nombre": "Israel",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "IT",
+      "nombre": "Italia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "JM",
+      "nombre": "Jamaica",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "JP",
+      "nombre": "Japón",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "KE",
+      "nombre": "Kenia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "KW",
+      "nombre": "Kuwait",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "LA",
+      "nombre": "Laos",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "LB",
+      "nombre": "Líbano",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "LI",
+      "nombre": "Liechtenstein",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "LU",
+      "nombre": "Luxemburgo",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MY",
+      "nombre": "Malasia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "ML",
+      "nombre": "Malí",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MT",
+      "nombre": "Malta",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MA",
+      "nombre": "Marruecos",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MX",
+      "nombre": "México",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MC",
+      "nombre": "Mónaco",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MZ",
+      "nombre": "Mozambique",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "MM",
+      "nombre": "Myanmar",
+      "riesgo_gafi": "accion"
+    },
+    {
+      "codigo": "NA",
+      "nombre": "Namibia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "NP",
+      "nombre": "Nepal",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "NI",
+      "nombre": "Nicaragua",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "NG",
+      "nombre": "Nigeria",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "NO",
+      "nombre": "Noruega",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "NZ",
+      "nombre": "Nueva Zelanda",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "NL",
+      "nombre": "Países Bajos",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PK",
+      "nombre": "Pakistán",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PA",
+      "nombre": "Panamá",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PG",
+      "nombre": "Papúa Nueva Guinea",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PY",
+      "nombre": "Paraguay",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PE",
+      "nombre": "Perú",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PL",
+      "nombre": "Polonia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PT",
+      "nombre": "Portugal",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "PR",
+      "nombre": "Puerto Rico",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "GB",
+      "nombre": "Reino Unido",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CD",
+      "nombre": "República Democrática del Congo",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "DO",
+      "nombre": "República Dominicana",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "RO",
+      "nombre": "Rumania",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "RU",
+      "nombre": "Rusia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SG",
+      "nombre": "Singapur",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SY",
+      "nombre": "Siria",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "ZA",
+      "nombre": "Sudáfrica",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SS",
+      "nombre": "Sudán del Sur",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SE",
+      "nombre": "Suecia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "CH",
+      "nombre": "Suiza",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "SR",
+      "nombre": "Surinam",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "TH",
+      "nombre": "Tailandia",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "TW",
+      "nombre": "Taiwán",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "TT",
+      "nombre": "Trinidad y Tobago",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "TR",
+      "nombre": "Turquía",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "UA",
+      "nombre": "Ucrania",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "UY",
+      "nombre": "Uruguay",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "VE",
+      "nombre": "Venezuela",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "VN",
+      "nombre": "Vietnam",
+      "riesgo_gafi": "ninguno"
+    },
+    {
+      "codigo": "YE",
+      "nombre": "Yemen",
+      "riesgo_gafi": "ninguno"
+    }
+  ],
+  "departamentos": [
+    {
+      "codigo": "91",
+      "nombre": "Amazonas"
+    },
+    {
+      "codigo": "05",
+      "nombre": "Antioquia"
+    },
+    {
+      "codigo": "81",
+      "nombre": "Arauca"
+    },
+    {
+      "codigo": "88",
+      "nombre": "Archipiélago de San Andrés, Providencia y Santa Catalina"
+    },
+    {
+      "codigo": "08",
+      "nombre": "Atlántico"
+    },
+    {
+      "codigo": "11",
+      "nombre": "Bogotá, D.C."
+    },
+    {
+      "codigo": "13",
+      "nombre": "Bolívar"
+    },
+    {
+      "codigo": "15",
+      "nombre": "Boyacá"
+    },
+    {
+      "codigo": "17",
+      "nombre": "Caldas"
+    },
+    {
+      "codigo": "18",
+      "nombre": "Caquetá"
+    },
+    {
+      "codigo": "85",
+      "nombre": "Casanare"
+    },
+    {
+      "codigo": "19",
+      "nombre": "Cauca"
+    },
+    {
+      "codigo": "20",
+      "nombre": "Cesar"
+    },
+    {
+      "codigo": "27",
+      "nombre": "Chocó"
+    },
+    {
+      "codigo": "23",
+      "nombre": "Córdoba"
+    },
+    {
+      "codigo": "25",
+      "nombre": "Cundinamarca"
+    },
+    {
+      "codigo": "94",
+      "nombre": "Guainía"
+    },
+    {
+      "codigo": "95",
+      "nombre": "Guaviare"
+    },
+    {
+      "codigo": "41",
+      "nombre": "Huila"
+    },
+    {
+      "codigo": "44",
+      "nombre": "La Guajira"
+    },
+    {
+      "codigo": "47",
+      "nombre": "Magdalena"
+    },
+    {
+      "codigo": "50",
+      "nombre": "Meta"
+    },
+    {
+      "codigo": "52",
+      "nombre": "Nariño"
+    },
+    {
+      "codigo": "54",
+      "nombre": "Norte de Santander"
+    },
+    {
+      "codigo": "86",
+      "nombre": "Putumayo"
+    },
+    {
+      "codigo": "63",
+      "nombre": "Quindío"
+    },
+    {
+      "codigo": "66",
+      "nombre": "Risaralda"
+    },
+    {
+      "codigo": "68",
+      "nombre": "Santander"
+    },
+    {
+      "codigo": "70",
+      "nombre": "Sucre"
+    },
+    {
+      "codigo": "73",
+      "nombre": "Tolima"
+    },
+    {
+      "codigo": "76",
+      "nombre": "Valle del Cauca"
+    },
+    {
+      "codigo": "97",
+      "nombre": "Vaupés"
+    },
+    {
+      "codigo": "99",
+      "nombre": "Vichada"
+    }
+  ],
+  "municipios": [
+    {
+      "codigo": "66045",
+      "nombre": "Apía",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "81001",
+      "nombre": "Arauca",
+      "departamento": "Arauca"
+    },
+    {
+      "codigo": "63001",
+      "nombre": "Armenia",
+      "departamento": "Quindío"
+    },
+    {
+      "codigo": "66075",
+      "nombre": "Balboa",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "08001",
+      "nombre": "Barranquilla",
+      "departamento": "Atlántico"
+    },
+    {
+      "codigo": "66088",
+      "nombre": "Belén de Umbría",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "11001",
+      "nombre": "Bogotá, D.C.",
+      "departamento": "Bogotá, D.C."
+    },
+    {
+      "codigo": "68001",
+      "nombre": "Bucaramanga",
+      "departamento": "Santander"
+    },
+    {
+      "codigo": "76001",
+      "nombre": "Cali",
+      "departamento": "Valle del Cauca"
+    },
+    {
+      "codigo": "13001",
+      "nombre": "Cartagena de Indias",
+      "departamento": "Bolívar"
+    },
+    {
+      "codigo": "76147",
+      "nombre": "Cartago",
+      "departamento": "Valle del Cauca"
+    },
+    {
+      "codigo": "66170",
+      "nombre": "Dosquebradas",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "18001",
+      "nombre": "Florencia",
+      "departamento": "Caquetá"
+    },
+    {
+      "codigo": "66318",
+      "nombre": "Guática",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "73001",
+      "nombre": "Ibagué",
+      "departamento": "Tolima"
+    },
+    {
+      "codigo": "94001",
+      "nombre": "Inírida",
+      "departamento": "Guainía"
+    },
+    {
+      "codigo": "66383",
+      "nombre": "La Celia",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "66400",
+      "nombre": "La Virginia",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "91001",
+      "nombre": "Leticia",
+      "departamento": "Amazonas"
+    },
+    {
+      "codigo": "17001",
+      "nombre": "Manizales",
+      "departamento": "Caldas"
+    },
+    {
+      "codigo": "66440",
+      "nombre": "Marsella",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "05001",
+      "nombre": "Medellín",
+      "departamento": "Antioquia"
+    },
+    {
+      "codigo": "66456",
+      "nombre": "Mistrató",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "97001",
+      "nombre": "Mitú",
+      "departamento": "Vaupés"
+    },
+    {
+      "codigo": "86001",
+      "nombre": "Mocoa",
+      "departamento": "Putumayo"
+    },
+    {
+      "codigo": "23001",
+      "nombre": "Montería",
+      "departamento": "Córdoba"
+    },
+    {
+      "codigo": "41001",
+      "nombre": "Neiva",
+      "departamento": "Huila"
+    },
+    {
+      "codigo": "52001",
+      "nombre": "Pasto",
+      "departamento": "Nariño"
+    },
+    {
+      "codigo": "66001",
+      "nombre": "Pereira",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "19001",
+      "nombre": "Popayán",
+      "departamento": "Cauca"
+    },
+    {
+      "codigo": "66572",
+      "nombre": "Pueblo Rico",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "99001",
+      "nombre": "Puerto Carreño",
+      "departamento": "Vichada"
+    },
+    {
+      "codigo": "27001",
+      "nombre": "Quibdó",
+      "departamento": "Chocó"
+    },
+    {
+      "codigo": "66594",
+      "nombre": "Quinchía",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "44001",
+      "nombre": "Riohacha",
+      "departamento": "La Guajira"
+    },
+    {
+      "codigo": "88001",
+      "nombre": "San Andrés",
+      "departamento": "Archipiélago de San Andrés, Providencia y Santa Catalina"
+    },
+    {
+      "codigo": "54001",
+      "nombre": "San José de Cúcuta",
+      "departamento": "Norte de Santander"
+    },
+    {
+      "codigo": "95001",
+      "nombre": "San José del Guaviare",
+      "departamento": "Guaviare"
+    },
+    {
+      "codigo": "47001",
+      "nombre": "Santa Marta",
+      "departamento": "Magdalena"
+    },
+    {
+      "codigo": "66682",
+      "nombre": "Santa Rosa de Cabal",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "66687",
+      "nombre": "Santuario",
+      "departamento": "Risaralda"
+    },
+    {
+      "codigo": "70001",
+      "nombre": "Sincelejo",
+      "departamento": "Sucre"
+    },
+    {
+      "codigo": "25754",
+      "nombre": "Soacha",
+      "departamento": "Cundinamarca"
+    },
+    {
+      "codigo": "15001",
+      "nombre": "Tunja",
+      "departamento": "Boyacá"
+    },
+    {
+      "codigo": "20001",
+      "nombre": "Valledupar",
+      "departamento": "Cesar"
+    },
+    {
+      "codigo": "50001",
+      "nombre": "Villavicencio",
+      "departamento": "Meta"
+    },
+    {
+      "codigo": "85001",
+      "nombre": "Yopal",
+      "departamento": "Casanare"
+    }
+  ],
+  "actividades_ciiu": [
+    {
+      "codigo": "0010",
+      "descripcion": "Asalariados",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "0081",
+      "descripcion": "Personas naturales sin actividad económica",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "0082",
+      "descripcion": "Personas naturales subsidiadas por terceros",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "0090",
+      "descripcion": "Rentistas de capital, solo para personas naturales",
+      "riesgo": "medio"
+    },
+    {
+      "codigo": "2100",
+      "descripcion": "Fabricación de productos farmacéuticos, sustancias químicas medicinales y productos botánicos de uso farmacéutico",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "3250",
+      "descripcion": "Fabricación de instrumentos, aparatos y materiales médicos y odontológicos (incluido mobiliario)",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "4111",
+      "descripcion": "Construcción de edificios residenciales",
+      "riesgo": "medio"
+    },
+    {
+      "codigo": "4645",
+      "descripcion": "Comercio al por mayor de productos farmacéuticos, medicinales, cosméticos y de tocador",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "4659",
+      "descripcion": "Comercio al por mayor de otros tipos de maquinaria y equipo n.c.p.",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "4773",
+      "descripcion": "Comercio al por menor de productos farmacéuticos y medicinales, cosméticos y artículos de tocador en establecimientos especializados",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "4923",
+      "descripcion": "Transporte de carga por carretera",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "5611",
+      "descripcion": "Expendio a la mesa de comidas preparadas",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "6201",
+      "descripcion": "Actividades de desarrollo de sistemas informáticos (planificación, análisis, diseño, programación, pruebas)",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "6202",
+      "descripcion": "Actividades de consultoría informática y actividades de administración de instalaciones informáticas",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "6420",
+      "descripcion": "Actividades de sociedades de cartera",
+      "riesgo": "medio"
+    },
+    {
+      "codigo": "6499",
+      "descripcion": "Otras actividades de servicio financiero, excepto las de seguros y pensiones n.c.p.",
+      "riesgo": "alto"
+    },
+    {
+      "codigo": "6810",
+      "descripcion": "Actividades inmobiliarias realizadas con bienes propios o arrendados",
+      "riesgo": "medio"
+    },
+    {
+      "codigo": "6910",
+      "descripcion": "Actividades jurídicas",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "6920",
+      "descripcion": "Actividades de contabilidad, teneduría de libros, auditoría financiera y asesoría tributaria",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "7020",
+      "descripcion": "Actividades de consultoría de gestión",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8010",
+      "descripcion": "Actividades de seguridad privada",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8121",
+      "descripcion": "Limpieza general interior de edificios",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8610",
+      "descripcion": "Actividades de hospitales y clínicas, con internación",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8621",
+      "descripcion": "Actividades de la práctica médica, sin internación",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8622",
+      "descripcion": "Actividades de la práctica odontológica",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8691",
+      "descripcion": "Actividades de apoyo diagnóstico",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8692",
+      "descripcion": "Actividades de apoyo terapéutico",
+      "riesgo": "bajo"
+    },
+    {
+      "codigo": "8699",
+      "descripcion": "Otras actividades de atención de la salud humana",
+      "riesgo": "bajo"
+    }
+  ],
+  "parentescos": [
+    {
+      "id": 1,
+      "nombre": "Cónyuge"
+    },
+    {
+      "id": 2,
+      "nombre": "Compañero(a) permanente"
+    },
+    {
+      "id": 3,
+      "nombre": "Padre o madre"
+    },
+    {
+      "id": 4,
+      "nombre": "Hijo(a)"
+    },
+    {
+      "id": 5,
+      "nombre": "Hermano(a)"
+    },
+    {
+      "id": 6,
+      "nombre": "Abuelo(a)"
+    },
+    {
+      "id": 7,
+      "nombre": "Nieto(a)"
+    },
+    {
+      "id": 8,
+      "nombre": "Tío(a)"
+    },
+    {
+      "id": 9,
+      "nombre": "Sobrino(a)"
+    },
+    {
+      "id": 10,
+      "nombre": "Primo(a)"
+    },
+    {
+      "id": 11,
+      "nombre": "Suegro(a)"
+    },
+    {
+      "id": 12,
+      "nombre": "Hijastro(a)"
+    },
+    {
+      "id": 13,
+      "nombre": "Yerno o nuera"
+    },
+    {
+      "id": 14,
+      "nombre": "Cuñado(a)"
+    },
+    {
+      "id": 15,
+      "nombre": "Padre o madre adoptante"
+    },
+    {
+      "id": 16,
+      "nombre": "Hijo(a) adoptivo(a)"
+    }
+  ],
+  "listas_restrictivas": [
+    {
+      "id": 1,
+      "codigo": "ONU",
+      "nombre": "Lista consolidada del Consejo de Seguridad",
+      "fuente": "Organización de las Naciones Unidas",
+      "vinculante": 1,
+      "activa": 1
+    },
+    {
+      "id": 2,
+      "codigo": "OFAC",
+      "nombre": "Lista SDN (Specially Designated Nationals)",
+      "fuente": "Departamento del Tesoro de Estados Unidos",
+      "vinculante": 0,
+      "activa": 1
+    },
+    {
+      "id": 3,
+      "codigo": "UE",
+      "nombre": "Lista consolidada de sanciones financieras",
+      "fuente": "Unión Europea",
+      "vinculante": 0,
+      "activa": 1
+    },
+    {
+      "id": 4,
+      "codigo": "PROCURADURIA",
+      "nombre": "Antecedentes disciplinarios",
+      "fuente": "Procuraduría General de la Nación",
+      "vinculante": 0,
+      "activa": 1
+    },
+    {
+      "id": 5,
+      "codigo": "CONTRALORIA",
+      "nombre": "Boletín de responsables fiscales",
+      "fuente": "Contraloría General de la República",
+      "vinculante": 0,
+      "activa": 1
+    },
+    {
+      "id": 6,
+      "codigo": "POLICIA",
+      "nombre": "Antecedentes judiciales",
+      "fuente": "Policía Nacional de Colombia",
+      "vinculante": 0,
+      "activa": 1
+    }
+  ],
+  "tipos_soporte": [
+    {
+      "id": 1,
+      "codigo": "RUT",
+      "nombre": "Registro Único Tributario (RUT)",
+      "tipo_persona": "ambas",
+      "relaciones": null,
+      "obligatorio": 1,
+      "vigencia_dias": null
+    },
+    {
+      "id": 2,
+      "codigo": "CAMARA_COMERCIO",
+      "nombre": "Certificado de existencia y representación legal",
+      "tipo_persona": "juridica",
+      "relaciones": null,
+      "obligatorio": 1,
+      "vigencia_dias": 30
+    },
+    {
+      "id": 3,
+      "codigo": "CEDULA_REPRESENTANTE",
+      "nombre": "Documento de identidad del representante legal",
+      "tipo_persona": "juridica",
+      "relaciones": null,
+      "obligatorio": 1,
+      "vigencia_dias": null
+    },
+    {
+      "id": 4,
+      "codigo": "ESTADOS_FINANCIEROS",
+      "nombre": "Estados financieros del último cierre",
+      "tipo_persona": "juridica",
+      "relaciones": "proveedor,cliente,accionista",
+      "obligatorio": 1,
+      "vigencia_dias": null
+    },
+    {
+      "id": 5,
+      "codigo": "CERTIFICACION_BANCARIA",
+      "nombre": "Certificación bancaria",
+      "tipo_persona": "ambas",
+      "relaciones": "proveedor",
+      "obligatorio": 1,
+      "vigencia_dias": 30
+    },
+    {
+      "id": 6,
+      "codigo": "DOCUMENTO_IDENTIDAD",
+      "nombre": "Documento de identidad",
+      "tipo_persona": "natural",
+      "relaciones": null,
+      "obligatorio": 1,
+      "vigencia_dias": null
+    },
+    {
+      "id": 7,
+      "codigo": "DECLARACION_RENTA",
+      "nombre": "Declaración de renta del último año",
+      "tipo_persona": "natural",
+      "relaciones": "proveedor,cliente,accionista",
+      "obligatorio": 0,
+      "vigencia_dias": null
+    },
+    {
+      "id": 8,
+      "codigo": "COMPOSICION_ACCIONARIA",
+      "nombre": "Composición accionaria certificada por revisor fiscal o contador",
+      "tipo_persona": "juridica",
+      "relaciones": "proveedor,cliente,accionista",
+      "obligatorio": 0,
+      "vigencia_dias": 90
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "clave": "periodicidad_actualizacion_meses",
+    "valor": "12",
+    "tipo": "entero",
+    "descripcion": "Cada cuántos meses debe actualizar su información un tercero aprobado"
+  },
+  {
+    "clave": "dias_aviso_vencimiento",
+    "valor": "30",
+    "tipo": "entero",
+    "descripcion": "Con cuántos días de anticipación se avisa que vence la actualización"
+  },
+  {
+    "clave": "codigo_vigencia_minutos",
+    "valor": "10",
+    "tipo": "entero",
+    "descripcion": "Minutos que dura un código de verificación"
+  },
+  {
+    "clave": "codigo_intentos_maximos",
+    "valor": "5",
+    "tipo": "entero",
+    "descripcion": "Intentos permitidos por código antes de invalidarlo"
+  },
+  {
+    "clave": "codigo_reenvio_segundos",
+    "valor": "60",
+    "tipo": "entero",
+    "descripcion": "Segundos de espera antes de poder pedir otro código"
+  },
+  {
+    "clave": "soporte_tamano_maximo_mb",
+    "valor": "2",
+    "tipo": "decimal",
+    "descripcion": "Tamaño máximo de cada documento soporte"
+  },
+  {
+    "clave": "soporte_tipos_permitidos",
+    "valor": "application/pdf",
+    "tipo": "texto",
+    "descripcion": "Tipos de archivo aceptados, separados por coma"
+  },
+  {
+    "clave": "invitacion_vigencia_dias",
+    "valor": "15",
+    "tipo": "entero",
+    "descripcion": "Días que dura el enlace de una invitación"
+  },
+  {
+    "clave": "sesion_inactividad_minutos",
+    "valor": "30",
+    "tipo": "entero",
+    "descripcion": "Minutos de inactividad antes de cerrar la sesión"
+  },
+  {
+    "clave": "prefijo_radicado",
+    "valor": "SRL",
+    "tipo": "texto",
+    "descripcion": "Prefijo del número de radicado"
+  }
+]

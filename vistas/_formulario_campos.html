@@ -1,0 +1,387 @@
+{#
+  _formulario_campos.html - Piezas del formulario SARLAFT del tercero.
+  Cada pregunta y cada seccion del cuestionario (tablas preguntas y
+  modulo_secciones de la base) se dibuja con una de estas macros.
+
+    pregunta(p)                         una pregunta segun su tipo
+    seccion_datos(s, tipo_persona)      bloques de campos fijos
+    seccion_personas(s, personas)       tabla de personas + dialogo para agregar
+    seccion_soportes(tipos)             documentos a cargar
+    seccion_firma(pasos)                resumen y firma con codigo
+
+  Las condiciones ("solo si respondio Si") se resuelven con CSS: el
+  elemento lleva data-depende="codigo=valor" y la plantilla del paso
+  genera la regla que lo oculta mientras esa respuesta no este marcada.
+#}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import documento, si_no %}
+
+{% macro depende(x) -%}
+{%- if x.depende_de %} data-depende="{{ x.depende_de }}={{ x.depende_de_valor }}"{% endif -%}
+{%- endmacro %}
+
+{% macro marca_obligatoria(si) -%}
+{%- if si %}<span class="obligatorio" aria-hidden="true">*</span>{% endif -%}
+{%- endmacro %}
+
+{# ------------------------------------------------------------ preguntas #}
+{% macro pregunta(p) %}
+{% set nombre = "p_" + p.codigo %}
+{% set id = "q-" + p.codigo %}
+{% if p.tipo == "aceptacion" %}
+<div class="declaracion"{{ depende(p) }}>
+  <label class="opcion">
+    <input type="checkbox" name="{{ nombre }}" value="si"{% if p.obligatoria %} required{% endif %}>
+    <span>{{ p.enunciado }}{{ marca_obligatoria(p.obligatoria) }}</span>
+  </label>
+</div>
+
+{% elif p.tipo in ["si_no", "seleccion", "multiple"] %}
+<fieldset class="grupo-opciones pregunta"{{ depende(p) }}>
+  <legend class="etiqueta">{{ p.enunciado }}{{ marca_obligatoria(p.obligatoria) }}
+    {% if p.relaciones %}<span class="pastilla">Solo {{ p.relaciones | replace(",", ", ") }}</span>{% endif %}</legend>
+  {% if p.ayuda %}<p class="campo-ayuda">{{ p.ayuda }}</p>{% endif %}
+  {% if p.tipo == "si_no" %}
+  <div class="opciones opciones--en-linea">
+    <label class="opcion"><input type="radio" name="{{ nombre }}" value="si">Sí</label>
+    <label class="opcion"><input type="radio" name="{{ nombre }}" value="no">No</label>
+  </div>
+  {% else %}
+  <div class="opciones{% if p.opciones | length > 10 %} opciones--compactas{% endif %}">
+    {% for o in p.opciones %}
+    <div class="opcion-con-detalle">
+      <label class="opcion">
+        <input type="{{ 'radio' if p.tipo == 'seleccion' else 'checkbox' }}" name="{{ nombre }}" value="{{ o.valor }}">{{ o.etiqueta }}
+      </label>
+      {% if o.pide_detalle %}
+      <input class="control opcion-detalle" aria-label="¿Cuál? ({{ p.enunciado }})" placeholder="¿Cuál?">
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</fieldset>
+
+{% else %}
+<div class="campo pregunta"{{ depende(p) }}>
+  <label for="{{ id }}">{{ p.enunciado }}{{ marca_obligatoria(p.obligatoria) }}</label>
+  {% if p.tipo == "texto_largo" %}
+  <textarea id="{{ id }}" name="{{ nombre }}" class="control"></textarea>
+  {% elif p.tipo == "fecha" %}
+  <input id="{{ id }}" name="{{ nombre }}" class="control" type="date">
+  {% elif p.tipo in ["numero", "moneda"] %}
+  <input id="{{ id }}" name="{{ nombre }}" class="control maquina" inputmode="numeric">
+  {% else %}
+  <input id="{{ id }}" name="{{ nombre }}" class="control">
+  {% endif %}
+  {% if p.ayuda %}<p class="campo-ayuda">{{ p.ayuda }}</p>{% endif %}
+</div>
+{% endif %}
+{% endmacro %}
+
+
+{# ----------------------------------------------------- campo de una linea #}
+{% macro campo(id, etiqueta, tipo="text", ancho=false, maquina=false, lista=null, ayuda=null, obligatorio=true, solo_lectura=false) %}
+<div class="campo{% if ancho %} campo--ancho{% endif %}">
+  <label for="{{ id }}">{{ etiqueta }}{{ marca_obligatoria(obligatorio) }}</label>
+  <input id="{{ id }}" class="control{% if maquina %} maquina{% endif %}" type="{{ tipo }}"
+         {% if lista %}list="{{ lista }}" placeholder="Escriba para buscar"{% endif %}
+         {% if maquina %}inputmode="numeric"{% endif %}{% if solo_lectura %} readonly placeholder="Se calcula solo"{% endif %}
+         {% if ayuda %}aria-describedby="{{ id }}-ayuda"{% endif %}>
+  {% if ayuda %}<p id="{{ id }}-ayuda" class="campo-ayuda">{{ ayuda }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro tipo_documento(id, catalogos, tipo_persona="natural") %}
+<div class="campo">
+  <label for="{{ id }}">Tipo de documento<span class="obligatorio" aria-hidden="true">*</span></label>
+  <select id="{{ id }}" class="control">
+    <option value="">Seleccione</option>
+    {% for t in catalogos.tipos_documento %}{% if t.tipo_persona == tipo_persona %}
+    <option>{{ t.nombre }}</option>
+    {% endif %}{% endfor %}
+  </select>
+</div>
+{% endmacro %}
+
+
+{# --------------------------------------------- secciones de campos fijos #}
+{% macro seccion_datos(s, tipo_persona, catalogos) %}
+{% set k = s.componente %}
+<section class="subseccion"{{ depende(s) }} aria-labelledby="s-{{ k }}">
+  <div class="subseccion-titulo">
+    <div>
+      <h2 id="s-{{ k }}">{{ s.titulo }}</h2>
+      {% if s.instrucciones %}<p>{{ s.instrucciones }}</p>{% endif %}
+    </div>
+  </div>
+  <div class="formulario-rejilla">
+  {% if k == "firmante" %}
+    {{ campo("f-nombre", "Nombres y apellidos", ancho=true) }}
+    {{ tipo_documento("f-tipo-doc", catalogos) }}
+    {{ campo("f-numero", "Número de documento", maquina=true) }}
+    {{ campo("f-cargo", "Cargo") }}
+    {{ campo("f-correo", "Correo electrónico", tipo="email") }}
+    {{ campo("f-celular", "Celular", tipo="tel", maquina=true, ayuda="Aquí llega el código para firmar.") }}
+
+  {% elif k == "representante_principal" %}
+    {{ campo("rl-nombre", "Nombres y apellidos", ancho=true) }}
+    {{ tipo_documento("rl-tipo-doc", catalogos) }}
+    {{ campo("rl-numero", "Número de documento", maquina=true) }}
+    {{ campo("rl-nacimiento", "Fecha de nacimiento", tipo="date") }}
+    {{ campo("rl-lugar", "Lugar de nacimiento", lista="lista-municipios") }}
+    {{ campo("rl-residencia", "Municipio de residencia", lista="lista-municipios") }}
+    {{ campo("rl-direccion", "Dirección de residencia") }}
+    {{ campo("rl-telefono", "Teléfono", tipo="tel", maquina=true) }}
+    {{ campo("rl-ocupacion", "Ocupación") }}
+
+  {% elif k == "datos_generales" %}
+    {% if tipo_persona == "juridica" %}
+    <div class="campo">
+      <label for="dg-forma">Tipo de sociedad<span class="obligatorio" aria-hidden="true">*</span></label>
+      <select id="dg-forma" class="control">
+        <option value="">Seleccione</option>
+        <option>Sociedad anónima (S.A.)</option><option>Sociedad por acciones simplificada (S.A.S.)</option>
+        <option>Sociedad limitada (Ltda.)</option><option>Sociedad en comandita simple</option>
+        <option>Sociedad en comandita por acciones</option><option>Empresa unipersonal</option>
+        <option>Entidad sin ánimo de lucro</option><option>Cooperativa</option>
+        <option>Entidad pública</option><option>Sucursal de sociedad extranjera</option><option>Otra</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label for="dg-naturaleza">Naturaleza<span class="obligatorio" aria-hidden="true">*</span></label>
+      <select id="dg-naturaleza" class="control">
+        <option value="">Seleccione</option><option>Privada</option><option>Pública</option><option>Mixta</option>
+      </select>
+    </div>
+    {% else %}
+    {{ campo("dg-nacimiento", "Fecha de nacimiento", tipo="date") }}
+    {{ campo("dg-lugar", "Lugar de nacimiento", lista="lista-municipios") }}
+    <div class="campo">
+      <label for="dg-nacionalidad">Nacionalidad<span class="obligatorio" aria-hidden="true">*</span></label>
+      <select id="dg-nacionalidad" class="control">
+        {% for p in catalogos.paises %}<option>{{ p.nombre }}</option>{% endfor %}
+      </select>
+    </div>
+    {{ campo("dg-ocupacion", "Ocupación u oficio") }}
+    {{ campo("dg-empresa", "Empresa donde trabaja", obligatorio=false) }}
+    {{ campo("dg-cargo", "Cargo", obligatorio=false) }}
+    {% endif %}
+    {{ campo("dg-ciiu", "Actividad económica (CIIU)", ancho=true, lista="lista-ciiu") }}
+    <div class="campo">
+      <label for="dg-pais">País<span class="obligatorio" aria-hidden="true">*</span></label>
+      <select id="dg-pais" class="control">
+        {% for p in catalogos.paises %}<option>{{ p.nombre }}</option>{% endfor %}
+      </select>
+    </div>
+    {{ campo("dg-municipio", "Municipio", lista="lista-municipios") }}
+    {{ campo("dg-direccion", "Dirección", ancho=true) }}
+    {{ campo("dg-telefono", "Teléfono", tipo="tel", maquina=true) }}
+    {% if tipo_persona == "juridica" %}{{ campo("dg-web", "Sitio web", tipo="url", obligatorio=false) }}{% endif %}
+
+  {% elif k == "financiero" %}
+    {{ campo("fi-corte", "Fecha de corte", tipo="date", ayuda="Fecha del último cierre contable.") }}
+    {{ campo("fi-activos", "Activos", maquina=true) }}
+    {{ campo("fi-pasivos", "Pasivos", maquina=true) }}
+    {{ campo("fi-patrimonio", "Patrimonio", maquina=true, solo_lectura=true, obligatorio=false, ayuda="Activos menos pasivos.") }}
+    {{ campo("fi-ingresos", "Ingresos anuales", maquina=true) }}
+    {{ campo("fi-egresos", "Egresos anuales", maquina=true) }}
+    {{ campo("fi-otros", "Otros ingresos", maquina=true, obligatorio=false) }}
+    {{ campo("fi-concepto", "Concepto de otros ingresos", obligatorio=false) }}
+  {% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+
+{# ------------------------------------------------- secciones de personas #}
+{# Columnas de cada tabla. Las mismas claves arman el dialogo para agregar. #}
+{% set COLUMNAS = {
+  "representantes_suplentes": ["nombre", "documento"],
+  "familiares_pep":           ["nombre", "parentesco", "documento"],
+  "accionistas":              ["nombre", "documento", "participacion", "pep"],
+  "junta_directiva":          ["nombre", "documento", "cargo", "pep"],
+  "beneficiarios_finales":    ["nombre", "documento", "participacion", "pep"],
+  "grupo_empresarial":        ["razon", "nit"],
+  "parientes_directivos":     ["nombre", "parentesco", "cargo"]
+} %}
+{% set TITULOS_COLUMNA = {
+  "nombre": "Nombre", "documento": "Documento", "parentesco": "Parentesco", "participacion": "Participación",
+  "pep": "¿Es PEP?", "cargo": "Cargo", "razon": "Razón social", "nit": "NIT"
+} %}
+
+{% macro tabla_personas(componente, personas, con_acciones=true) %}
+<div class="marco">
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead>
+        <tr>
+          {% for c in COLUMNAS[componente] %}<th scope="col"{% if c == "participacion" %} class="num"{% endif %}>{{ TITULOS_COLUMNA[c] }}</th>{% endfor %}
+          {% if con_acciones %}<th scope="col"><span class="solo-lectores">Acciones</span></th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in personas %}
+        <tr>
+          {% for c in COLUMNAS[componente] %}
+          {% if c in ["nombre", "razon"] %}<td>{{ p.nombre_completo }}</td>
+          {% elif c in ["documento", "nit"] %}<td class="sin-salto">{{ documento(p.tipo_documento, p.numero_documento) }}</td>
+          {% elif c == "parentesco" %}<td>{{ p.parentesco }}</td>
+          {% elif c == "participacion" %}<td class="num maquina">{% if p.participacion %}{{ p.participacion }} %{% else %}<span class="texto-suave">Falta</span>{% endif %}</td>
+          {% elif c == "pep" %}<td>{{ si_no(p.es_pep) }}</td>
+          {% elif c == "cargo" %}<td>{{ p.cargo }}</td>
+          {% endif %}
+          {% endfor %}
+          {% if con_acciones %}
+          <td class="celda-acciones">
+            <button type="button" class="boton boton--plano boton--icono boton--chico" aria-label="Editar a {{ p.nombre_completo }}">{{ icono("editar") }}</button>
+            <button type="button" class="boton boton--plano boton--icono boton--chico" aria-label="Quitar a {{ p.nombre_completo }}">{{ icono("papelera") }}</button>
+          </td>
+          {% endif %}
+        </tr>
+        {% else %}
+        <tr class="fila-vacia">
+          <td colspan="{{ COLUMNAS[componente] | length + (1 if con_acciones else 0) }}">
+            <div class="vacio vacio--compacto">
+              <span class="vacio-icono">{{ icono("usuarios", "icono--20") }}</span>
+              <p>Todavía no hay registros.</p>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro seccion_personas(s, personas, catalogos) %}
+{% set k = s.componente %}
+<section class="subseccion"{{ depende(s) }} aria-labelledby="s-{{ k }}">
+  <div class="subseccion-titulo">
+    <div>
+      <h2 id="s-{{ k }}">{{ s.titulo }}{{ marca_obligatoria(s.obligatoria) }}</h2>
+      {% if s.instrucciones %}<p>{{ s.instrucciones }}</p>{% endif %}
+      {% if s.minimo_filas %}<p>Debe registrar al menos {{ s.minimo_filas }}.</p>{% endif %}
+    </div>
+    <button type="button" class="boton boton--suave" data-abrir-dialogo="dlg-{{ k }}">{{ icono("mas") }}Agregar</button>
+  </div>
+  {{ tabla_personas(k, personas) }}
+</section>
+
+{# Dialogo para agregar. <form method="dialog"> cierra la ventana al enviar, sin JavaScript. #}
+<dialog id="dlg-{{ k }}" class="dialogo" aria-labelledby="dlg-{{ k }}-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-{{ k }}-titulo">Agregar: {{ s.titulo | lower }}</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <div class="formulario-rejilla">
+        {% for c in COLUMNAS[k] %}
+        {% if c == "nombre" %}{{ campo("dlg-" + k + "-nombre", "Nombres y apellidos", ancho=true) }}
+        {% elif c == "razon" %}{{ campo("dlg-" + k + "-razon", "Razón social", ancho=true) }}
+        {% elif c == "nit" %}{{ campo("dlg-" + k + "-nit", "NIT sin dígito de verificación", maquina=true) }}
+        {% elif c == "documento" %}
+          {{ tipo_documento("dlg-" + k + "-tipo", catalogos) }}
+          {{ campo("dlg-" + k + "-numero", "Número de documento", maquina=true) }}
+        {% elif c == "parentesco" %}
+          <div class="campo">
+            <label for="dlg-{{ k }}-parentesco">Parentesco<span class="obligatorio" aria-hidden="true">*</span></label>
+            <select id="dlg-{{ k }}-parentesco" class="control">
+              <option value="">Seleccione</option>
+              {% for p in catalogos.parentescos %}<option>{{ p.nombre }}</option>{% endfor %}
+            </select>
+          </div>
+        {% elif c == "participacion" %}{{ campo("dlg-" + k + "-participacion", "Participación (%)", maquina=true) }}
+        {% elif c == "cargo" %}{{ campo("dlg-" + k + "-cargo", "Cargo") }}
+        {% elif c == "pep" %}
+          <fieldset class="grupo-opciones campo--ancho">
+            <legend class="etiqueta">¿Es persona expuesta políticamente (PEP)?<span class="obligatorio" aria-hidden="true">*</span></legend>
+            <div class="opciones opciones--en-linea">
+              <label class="opcion"><input type="radio" name="dlg-{{ k }}-pep">Sí</label>
+              <label class="opcion"><input type="radio" name="dlg-{{ k }}-pep">No</label>
+            </div>
+          </fieldset>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">Agregar</button>
+    </div>
+  </form>
+</dialog>
+{% endmacro %}
+
+
+{# ------------------------------------------------------------ soportes #}
+{% macro seccion_soportes(s, tipos) %}
+<section class="subseccion" aria-labelledby="s-soportes">
+  <div class="subseccion-titulo">
+    <div>
+      <h2 id="s-soportes">{{ s.titulo }}</h2>
+      <p>Archivos PDF de máximo 2 MB.</p>
+    </div>
+  </div>
+  <div class="marco">
+    <div class="tabla-envoltura">
+      <table class="tabla">
+        <thead>
+          <tr><th scope="col">Documento</th><th scope="col">Requisito</th><th scope="col">Archivo</th></tr>
+        </thead>
+        <tbody>
+          {% for t in tipos %}
+          <tr>
+            <td>{{ t.nombre }}</td>
+            <td>
+              {% if t.obligatorio %}<span class="pastilla pastilla--atencion">Obligatorio</span>{% else %}<span class="pastilla">Opcional</span>{% endif %}
+              {% if t.vigencia_dias %}<span class="texto-suave texto-chico">Máximo {{ t.vigencia_dias }} días de expedido</span>{% endif %}
+            </td>
+            <td>
+              <label class="boton boton--chico boton--suave archivo">
+                {{ icono("adjunto") }}Elegir PDF
+                <input type="file" accept="application/pdf" class="solo-lectores">
+              </label>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+
+{# --------------------------------------------------------------- firma #}
+{% macro seccion_firma(s, pasos) %}
+<section class="subseccion" aria-labelledby="s-firma">
+  <div class="subseccion-titulo">
+    <div>
+      <h2 id="s-firma">{{ s.titulo }}</h2>
+      <p>Revise que todos los pasos estén completos. Al firmar, el formulario se envía al equipo de cumplimiento y ya no podrá modificarlo.</p>
+    </div>
+  </div>
+  <div class="marco marco--relleno pila">
+    <ol class="lista-revision">
+      {% for p in pasos %}{% if not loop.last %}
+      <li>{{ icono("check" if p.estado == "completo" else "alerta") }}<span>{{ p.nombre }}</span>
+        <span class="texto-suave texto-chico">{{ "Completo" if p.estado == "completo" else "Revisar" }}</span></li>
+      {% endif %}{% endfor %}
+    </ol>
+    <div class="nota nota--info">
+      {{ icono("info") }}
+      <p>Enviaremos un código de 6 dígitos al correo y al celular del firmante. Ese código es su firma electrónica.</p>
+    </div>
+    <div class="campo-firma">
+      <div class="campo">
+        <label for="firma-codigo">Código de firma</label>
+        <input id="firma-codigo" class="control control--codigo" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+      </div>
+      <button type="button" class="boton">{{ icono("enviar") }}Enviar código</button>
+    </div>
+  </div>
+</section>
+{% endmacro %}

@@ -1,0 +1,93 @@
+{% extends "base_acceso.html" %}
+{% from "_iconos.html" import icono %}
+{#
+  acceso_registro.html - Etapa 2 de 3: registro de un tercero nuevo.
+  Datos minimos para crear el acceso; el resto se pide en el formulario.
+  Recibe de la ruta: tipo ("juridica" o "natural"), documento y numero.
+#}
+{% set etapa = 2 %}
+{% block titulo %}Registro{% endblock %}
+{% block subtitulo %}Acceso de terceros{% endblock %}
+{% block clase_tarjeta %}portada-tarjeta--ancha{% endblock %}
+
+{% block contenido %}
+<div class="acceso">
+  <header class="acceso-encabezado">
+    <h1>Conocimiento de terceros</h1>
+  </header>
+
+  {% include "_acceso_etapas.html" %}
+
+  <form class="pila" action="/acceso/codigo" method="get">
+    <input type="hidden" name="tipo" value="{{ tipo }}">
+
+    <div class="etapa-titulo">
+      <h2>Registro</h2>
+      <p>Este documento aún no está registrado. Complete estos datos para crear su acceso; el resto de la información se pide en el formulario.</p>
+    </div>
+
+    <div class="dato-fijo">
+      <span>
+        <span class="etiqueta-dato">Documento</span>
+        <span class="maquina">{{ documento }} {{ numero }}</span>
+      </span>
+      <a class="enlace" href="/acceso">Cambiar</a>
+    </div>
+
+    <div class="formulario-rejilla">
+      {% if tipo == "juridica" %}
+      <div class="campo campo--ancho">
+        <label for="r-razon">Razón social<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="r-razon" class="control" autocomplete="organization" required>
+      </div>
+      <div class="campo campo--ancho">
+        <label for="r-contacto">Nombre de quien diligencia<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="r-contacto" class="control" autocomplete="name" required>
+      </div>
+      {% else %}
+      <div class="campo">
+        <label for="r-nombres">Nombres<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="r-nombres" class="control" autocomplete="given-name" required>
+      </div>
+      <div class="campo">
+        <label for="r-apellidos">Apellidos<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="r-apellidos" class="control" autocomplete="family-name" required>
+      </div>
+      {% endif %}
+
+      <div class="campo campo--ancho">
+        <label for="r-relacion">Relación con {{ ENTIDAD }}<span class="obligatorio" aria-hidden="true">*</span></label>
+        <select id="r-relacion" class="control" required>
+          <option value="">Seleccione</option>
+          <option>Proveedor</option>
+          <option>Cliente</option>
+          <option>Empleado o candidato</option>
+          <option>Accionista o asociado</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="r-correo">Correo electrónico<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="r-correo" class="control" type="email" autocomplete="email" required>
+      </div>
+      <div class="campo">
+        <label for="r-celular">Celular<span class="obligatorio" aria-hidden="true">*</span></label>
+        <input id="r-celular" class="control maquina" type="tel" inputmode="tel" autocomplete="tel-national"
+               pattern="3[0-9]{9}" maxlength="10" aria-describedby="r-celular-ayuda" required>
+        <p id="r-celular-ayuda" class="campo-ayuda">10 dígitos. Aquí llega el código.</p>
+      </div>
+    </div>
+
+    <label class="opcion">
+      <input type="checkbox" required>
+      <span>Autorizo el tratamiento de mis datos personales según la <a href="#">política de tratamiento de datos</a> de {{ ENTIDAD }}, conforme a la Ley 1581 de 2012.<span class="obligatorio" aria-hidden="true">*</span></span>
+    </label>
+
+    <div class="acciones acciones--extremos">
+      <a class="boton" href="/acceso">{{ icono("izquierda") }}Volver</a>
+      <button type="submit" class="boton boton--primario">Registrarme y enviar código</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

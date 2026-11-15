@@ -1,0 +1,6496 @@
+[
+  {
+    "formulario_id": 11,
+    "radicado": "SRL-2026-01490",
+    "periodo": 2026,
+    "tipo": "vinculacion",
+    "estado": "devuelto",
+    "nivel_riesgo": "sin_calificar",
+    "actualizado_en": "2026-10-30 09:15:00",
+    "vence_en": null,
+    "tercero_id": 11,
+    "tercero": "Servicios Médicos Integrales del Risaralda S.A.S.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 901733905-4",
+    "relaciones": [
+      "proveedor"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": "2026-10-28 10:30:00",
+    "revisado_en": "2026-10-30 09:15:00",
+    "observacion_revision": "Falta la certificación bancaria y el porcentaje de participación del beneficiario final.",
+    "revisor": "Carlos Mejía",
+    "porcentaje": 82,
+    "modulos_completos": 9,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 11,
+      "forma_juridica": "sas",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "8621",
+      "pais": "CO",
+      "municipio": "66682",
+      "ciudad_exterior": null,
+      "direccion": "Calle 12 # 15-22",
+      "telefono": "6063641188",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Actividades de la práctica médica, sin internación",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Santa Rosa de Cabal (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "financiero": {
+      "formulario_id": 11,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 2900000000,
+      "pasivos": 1100000000,
+      "patrimonio": 1800000000,
+      "ingresos_anuales": 5400000000,
+      "otros_ingresos": 0,
+      "concepto_otros_ingresos": null,
+      "egresos_anuales": 5050000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 35,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Óscar Valencia Cardona",
+        "tipo_documento": "CC",
+        "numero_documento": "18512345",
+        "correo": "juridica@smir.test",
+        "celular": "3189990022",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 36,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Óscar Valencia Cardona",
+        "tipo_documento": "CC",
+        "numero_documento": "18512345",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1977-10-09",
+        "municipio_nacimiento": "Santa Rosa de Cabal",
+        "municipio_residencia": "Santa Rosa de Cabal",
+        "direccion": "Carrera 14 # 10-05",
+        "telefono": "3189990022",
+        "ocupacion": "Médico"
+      },
+      {
+        "id": 37,
+        "rol": "accionista",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Óscar Valencia Cardona",
+        "tipo_documento": "CC",
+        "numero_documento": "18512345",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 100,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 38,
+        "rol": "beneficiario_final",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Óscar Valencia Cardona",
+        "tipo_documento": "CC",
+        "numero_documento": "18512345",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "productos_servicios": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Servicios de salud"
+        ],
+        "valores": [
+          "servicios_salud"
+        ]
+      },
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Desarrollo del objeto social"
+        ],
+        "valores": [
+          "objeto_social"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "grupo_pertenece": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_obligado_regulacion": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tiene_sistema": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "con_error"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "con_error"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 32,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-18",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-28 10:00:00"
+      },
+      {
+        "id": 33,
+        "tipo": "Certificado de existencia y representación legal",
+        "nombre_original": "camara_comercio.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-10-18",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-28 10:00:00"
+      },
+      {
+        "id": 34,
+        "tipo": "Documento de identidad del representante legal",
+        "nombre_original": "cedula_representante.pdf",
+        "tamano_bytes": 291000,
+        "fecha_expedicion": "2026-10-18",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-28 10:00:00"
+      },
+      {
+        "id": 35,
+        "tipo": "Estados financieros del último cierre",
+        "nombre_original": "estados_financieros.pdf",
+        "tamano_bytes": 328000,
+        "fecha_expedicion": "2026-10-18",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-28 10:00:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 199,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 187,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 193,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 200,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 194,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 188,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 196,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 184,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 190,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 197,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 185,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 191,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 201,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 195,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 189,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 192,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 186,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 198,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Óscar Valencia Cardona",
+        "documento_consultado": "18512345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:36:00"
+      },
+      {
+        "id": 52,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Servicios Médicos Integrales del Risaralda S.A.S.",
+        "documento_consultado": "901733905",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:35:00"
+      },
+      {
+        "id": 53,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Servicios Médicos Integrales del Risaralda S.A.S.",
+        "documento_consultado": "901733905",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:35:00"
+      },
+      {
+        "id": 49,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Servicios Médicos Integrales del Risaralda S.A.S.",
+        "documento_consultado": "901733905",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:35:00"
+      },
+      {
+        "id": 50,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Servicios Médicos Integrales del Risaralda S.A.S.",
+        "documento_consultado": "901733905",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:35:00"
+      },
+      {
+        "id": 54,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Servicios Médicos Integrales del Risaralda S.A.S.",
+        "documento_consultado": "901733905",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:35:00"
+      },
+      {
+        "id": 51,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Servicios Médicos Integrales del Risaralda S.A.S.",
+        "documento_consultado": "901733905",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-28 10:35:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-02 16:00"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-28 10:30"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "devuelto",
+        "usuario": "Carlos Mejía",
+        "observacion": "Falta la certificación bancaria y el porcentaje de participación del beneficiario final.",
+        "ocurrido_en": "2026-10-30 09:15"
+      }
+    ]
+  },
+  {
+    "formulario_id": 1,
+    "radicado": "SRL-2026-01482",
+    "periodo": 2026,
+    "tipo": "actualizacion",
+    "estado": "en_revision",
+    "nivel_riesgo": "bajo",
+    "actualizado_en": "2026-10-26 07:12:00",
+    "vence_en": null,
+    "tercero_id": 1,
+    "tercero": "Distribuciones Andinas del Café S.A.S.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 901482337-2",
+    "relaciones": [
+      "proveedor"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": "2026-10-26 07:12:00",
+    "revisado_en": null,
+    "observacion_revision": null,
+    "revisor": null,
+    "porcentaje": 100,
+    "modulos_completos": 11,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 1,
+      "forma_juridica": "sas",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "4645",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Carrera 7 # 18-45, oficina 302",
+      "telefono": "6063351200",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Comercio al por mayor de productos farmacéuticos, medicinales, cosméticos y de tocador",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "financiero": {
+      "formulario_id": 1,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 4850000000,
+      "pasivos": 1920000000,
+      "patrimonio": 2930000000,
+      "ingresos_anuales": 7300000000,
+      "otros_ingresos": 0,
+      "concepto_otros_ingresos": null,
+      "egresos_anuales": 6810000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 1,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Paula Andrea Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "42125588",
+        "correo": "compras@distribucionesandinas.test",
+        "celular": "3104567321",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 2,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Paula Andrea Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "42125588",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1979-03-14",
+        "municipio_nacimiento": "Pereira",
+        "municipio_residencia": "Pereira",
+        "direccion": "Calle 4 # 17-30, Álamos",
+        "telefono": "3104567321",
+        "ocupacion": "Administradora de empresas"
+      },
+      {
+        "id": 3,
+        "rol": "representante_suplente",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Juan Camilo Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "10138877",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1982-07-21",
+        "municipio_nacimiento": "Pereira",
+        "municipio_residencia": "Dosquebradas",
+        "direccion": "Carrera 16 # 32-08",
+        "telefono": "3112347788",
+        "ocupacion": "Ingeniero industrial"
+      },
+      {
+        "id": 4,
+        "rol": "accionista",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Paula Andrea Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "42125588",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 60,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 5,
+        "rol": "accionista",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "Juan Camilo Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "10138877",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 40,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 6,
+        "rol": "beneficiario_final",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Paula Andrea Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "42125588",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 60,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 7,
+        "rol": "beneficiario_final",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "Juan Camilo Gómez Restrepo",
+        "tipo_documento": "CC",
+        "numero_documento": "10138877",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 40,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "productos_servicios": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Suministros médicos o farmacéuticos"
+        ],
+        "valores": [
+          "suministros_medicos"
+        ]
+      },
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Desarrollo del objeto social"
+        ],
+        "valores": [
+          "objeto_social"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "grupo_pertenece": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_obligado_regulacion": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tiene_sistema": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "completo"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 1,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-16",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-26 06:42:00"
+      },
+      {
+        "id": 2,
+        "tipo": "Certificado de existencia y representación legal",
+        "nombre_original": "camara_comercio.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-10-16",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-26 06:42:00"
+      },
+      {
+        "id": 3,
+        "tipo": "Documento de identidad del representante legal",
+        "nombre_original": "cedula_representante.pdf",
+        "tamano_bytes": 291000,
+        "fecha_expedicion": "2026-10-16",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-26 06:42:00"
+      },
+      {
+        "id": 4,
+        "tipo": "Estados financieros del último cierre",
+        "nombre_original": "estados_financieros.pdf",
+        "tamano_bytes": 328000,
+        "fecha_expedicion": "2026-10-16",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-26 06:42:00"
+      },
+      {
+        "id": 5,
+        "tipo": "Certificación bancaria",
+        "nombre_original": "certificacion_bancaria.pdf",
+        "tamano_bytes": 365000,
+        "fecha_expedicion": "2026-10-16",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-26 06:42:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 4,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Distribuciones Andinas del Café S.A.S.",
+        "documento_consultado": "901482337",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:17:00"
+      },
+      {
+        "id": 5,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Distribuciones Andinas del Café S.A.S.",
+        "documento_consultado": "901482337",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:17:00"
+      },
+      {
+        "id": 1,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Distribuciones Andinas del Café S.A.S.",
+        "documento_consultado": "901482337",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:17:00"
+      },
+      {
+        "id": 2,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Distribuciones Andinas del Café S.A.S.",
+        "documento_consultado": "901482337",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:17:00"
+      },
+      {
+        "id": 6,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Distribuciones Andinas del Café S.A.S.",
+        "documento_consultado": "901482337",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:17:00"
+      },
+      {
+        "id": 3,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Distribuciones Andinas del Café S.A.S.",
+        "documento_consultado": "901482337",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:17:00"
+      },
+      {
+        "id": 91,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 79,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 92,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 80,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 76,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 88,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 89,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 77,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 93,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 81,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 90,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 78,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Juan Camilo Gómez Restrepo",
+        "documento_consultado": "10138877",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 73,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 67,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 85,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 74,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 68,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 86,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 82,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 64,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 70,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 83,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 65,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 71,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 87,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 69,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 75,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 84,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 66,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      },
+      {
+        "id": 72,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Paula Andrea Gómez Restrepo",
+        "documento_consultado": "42125588",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-26 07:18:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-20 08:00"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-26 07:12"
+      }
+    ]
+  },
+  {
+    "formulario_id": 2,
+    "radicado": null,
+    "periodo": 2026,
+    "tipo": "vinculacion",
+    "estado": "borrador",
+    "nivel_riesgo": "sin_calificar",
+    "actualizado_en": "2026-10-25 18:40:00",
+    "vence_en": null,
+    "tercero_id": 2,
+    "tercero": "Clínica Odontológica Los Alpes S.A.S.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 900771204-8",
+    "relaciones": [
+      "proveedor"
+    ],
+    "listas": "por_consultar",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": null,
+    "revisado_en": null,
+    "observacion_revision": null,
+    "revisor": null,
+    "porcentaje": 27,
+    "modulos_completos": 3,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 2,
+      "forma_juridica": "sas",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "8622",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Avenida Circunvalar # 9-12",
+      "telefono": "6063254411",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Actividades de la práctica odontológica",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "personas": [
+      {
+        "id": 8,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Ricardo Londoño Ceballos",
+        "tipo_documento": "CC",
+        "numero_documento": "9865412",
+        "correo": "administracion@losalpes.test",
+        "celular": "3117780045",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 9,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Ricardo Londoño Ceballos",
+        "tipo_documento": "CC",
+        "numero_documento": "9865412",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1975-09-30",
+        "municipio_nacimiento": "Pereira",
+        "municipio_residencia": "Pereira",
+        "direccion": "Avenida Sur # 22-14",
+        "telefono": "3117780045",
+        "ocupacion": "Odontólogo"
+      }
+    ],
+    "respuestas": {
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "con_error"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "pendiente"
+      }
+    ],
+    "soportes": [],
+    "consultas": [],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-25 18:00"
+      }
+    ]
+  },
+  {
+    "formulario_id": 3,
+    "radicado": "SRL-2026-01479",
+    "periodo": 2026,
+    "tipo": "actualizacion",
+    "estado": "aprobado",
+    "nivel_riesgo": "bajo",
+    "actualizado_en": "2026-10-25 16:05:00",
+    "vence_en": "2027-10-25",
+    "tercero_id": 3,
+    "tercero": "María Fernanda Ospina Gil",
+    "tipo_persona": "natural",
+    "documento": "CC 1088254961",
+    "relaciones": [
+      "empleado"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 2,
+    "enviado_en": "2026-10-25 09:10:00",
+    "revisado_en": "2026-10-25 16:05:00",
+    "observacion_revision": "Información completa y soportes vigentes.",
+    "revisor": "Laura Restrepo",
+    "porcentaje": 100,
+    "modulos_completos": 8,
+    "modulos_total": 8,
+    "datos_generales": {
+      "formulario_id": 3,
+      "forma_juridica": null,
+      "naturaleza": null,
+      "fecha_nacimiento": "1994-05-12",
+      "municipio_nacimiento": "66001",
+      "pais_nacimiento": "CO",
+      "nacionalidad": "CO",
+      "ocupacion": "Profesional de facturación",
+      "empresa_donde_trabaja": "La entidad",
+      "cargo": "Profesional",
+      "actividad_ciiu": "0010",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Calle 72 # 23-18, Cuba",
+      "telefono": "3159876543",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Asalariados",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": "Pereira"
+    },
+    "financiero": {
+      "formulario_id": 3,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 185000000,
+      "pasivos": 62000000,
+      "patrimonio": 123000000,
+      "ingresos_anuales": 58800000,
+      "otros_ingresos": 0,
+      "concepto_otros_ingresos": null,
+      "egresos_anuales": 41000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [],
+    "respuestas": {
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_familiar": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Salario"
+        ],
+        "valores": [
+          "salario"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Datos personales",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 6,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-15",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-25 08:40:00"
+      },
+      {
+        "id": 7,
+        "tipo": "Documento de identidad",
+        "nombre_original": "documento_identidad.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-10-15",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-25 08:40:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 10,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "María Fernanda Ospina Gil",
+        "documento_consultado": "1088254961",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-25 09:15:00"
+      },
+      {
+        "id": 11,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "María Fernanda Ospina Gil",
+        "documento_consultado": "1088254961",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-25 09:15:00"
+      },
+      {
+        "id": 7,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "María Fernanda Ospina Gil",
+        "documento_consultado": "1088254961",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-25 09:15:00"
+      },
+      {
+        "id": 8,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "María Fernanda Ospina Gil",
+        "documento_consultado": "1088254961",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-25 09:15:00"
+      },
+      {
+        "id": 12,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "María Fernanda Ospina Gil",
+        "documento_consultado": "1088254961",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-25 09:15:00"
+      },
+      {
+        "id": 9,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "María Fernanda Ospina Gil",
+        "documento_consultado": "1088254961",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-25 09:15:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-24 19:30"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-25 09:10"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "aprobado",
+        "usuario": "Laura Restrepo",
+        "observacion": "Información completa y soportes vigentes.",
+        "ocurrido_en": "2026-10-25 16:05"
+      }
+    ]
+  },
+  {
+    "formulario_id": 4,
+    "radicado": "SRL-2026-01477",
+    "periodo": 2026,
+    "tipo": "actualizacion",
+    "estado": "rechazado",
+    "nivel_riesgo": "medio",
+    "actualizado_en": "2026-10-25 11:27:00",
+    "vence_en": null,
+    "tercero_id": 4,
+    "tercero": "Transportes del Otún S.A.S.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 816004512-8",
+    "relaciones": [
+      "proveedor"
+    ],
+    "listas": "coincidencia_parcial",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": "2026-10-14 15:20:00",
+    "revisado_en": "2026-10-25 11:27:00",
+    "observacion_revision": "El certificado de existencia y representación legal tiene más de 30 días y los estados financieros no están firmados por el contador. Se pidió corregir el 17/10/2026 y no se recibió respuesta.",
+    "revisor": "Laura Restrepo",
+    "porcentaje": 100,
+    "modulos_completos": 11,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 4,
+      "forma_juridica": "sas",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "4923",
+      "pais": "CO",
+      "municipio": "66170",
+      "ciudad_exterior": null,
+      "direccion": "Calle 14 # 11-30, bodega 4",
+      "telefono": "6063328870",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Transporte de carga por carretera",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Dosquebradas (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "financiero": {
+      "formulario_id": 4,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 2140000000,
+      "pasivos": 1480000000,
+      "patrimonio": 660000000,
+      "ingresos_anuales": 3900000000,
+      "otros_ingresos": 120000000,
+      "concepto_otros_ingresos": "Arrendamiento de bodega",
+      "egresos_anuales": 3720000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 10,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Gustavo Arango Marín",
+        "tipo_documento": "CC",
+        "numero_documento": "10096321",
+        "correo": "gerencia@transotun.test",
+        "celular": "3006541122",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 11,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Gustavo Arango Marín",
+        "tipo_documento": "CC",
+        "numero_documento": "10096321",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1970-01-18",
+        "municipio_nacimiento": "Dosquebradas",
+        "municipio_residencia": "Dosquebradas",
+        "direccion": "Calle 50 # 14-02",
+        "telefono": "3006541122",
+        "ocupacion": "Gerente"
+      },
+      {
+        "id": 12,
+        "rol": "accionista",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Gustavo Arango Marín",
+        "tipo_documento": "CC",
+        "numero_documento": "10096321",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 100,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 13,
+        "rol": "beneficiario_final",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Gustavo Arango Marín",
+        "tipo_documento": "CC",
+        "numero_documento": "10096321",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 100,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "productos_servicios": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Otro: Transporte de carga refrigerada"
+        ],
+        "valores": [
+          "otro"
+        ]
+      },
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Desarrollo del objeto social"
+        ],
+        "valores": [
+          "objeto_social"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "grupo_pertenece": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_obligado_regulacion": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tiene_sistema": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "completo"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 8,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-04",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-14 14:50:00"
+      },
+      {
+        "id": 9,
+        "tipo": "Certificado de existencia y representación legal",
+        "nombre_original": "camara_comercio.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-08-30",
+        "estado": "rechazado",
+        "observacion": "Expedido hace más de 30 días",
+        "cargado_en": "2026-10-14 14:50:00"
+      },
+      {
+        "id": 10,
+        "tipo": "Documento de identidad del representante legal",
+        "nombre_original": "cedula_representante.pdf",
+        "tamano_bytes": 291000,
+        "fecha_expedicion": "2026-10-04",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-14 14:50:00"
+      },
+      {
+        "id": 11,
+        "tipo": "Estados financieros del último cierre",
+        "nombre_original": "estados_financieros.pdf",
+        "tamano_bytes": 328000,
+        "fecha_expedicion": "2026-10-04",
+        "estado": "rechazado",
+        "observacion": "Sin firma del contador",
+        "cargado_en": "2026-10-14 14:50:00"
+      },
+      {
+        "id": 12,
+        "tipo": "Certificación bancaria",
+        "nombre_original": "certificacion_bancaria.pdf",
+        "tamano_bytes": 365000,
+        "fecha_expedicion": "2026-10-04",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-14 14:50:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 109,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 97,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 103,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 110,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 104,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 98,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 106,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 94,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 100,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 107,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "coincidencia_parcial",
+        "detalle": "Antecedente a nombre de un homónimo con cédula distinta.",
+        "origen": "manual",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 95,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "coincidencia_parcial",
+        "detalle": "Antecedente a nombre de un homónimo con cédula distinta.",
+        "origen": "manual",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 101,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "coincidencia_parcial",
+        "detalle": "Antecedente a nombre de un homónimo con cédula distinta.",
+        "origen": "manual",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 111,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 105,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 99,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 102,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 96,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 108,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Gustavo Arango Marín",
+        "documento_consultado": "10096321",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:26:00"
+      },
+      {
+        "id": 16,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Transportes del Otún S.A.S.",
+        "documento_consultado": "816004512",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:25:00"
+      },
+      {
+        "id": 17,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Transportes del Otún S.A.S.",
+        "documento_consultado": "816004512",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:25:00"
+      },
+      {
+        "id": 13,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Transportes del Otún S.A.S.",
+        "documento_consultado": "816004512",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:25:00"
+      },
+      {
+        "id": 14,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Transportes del Otún S.A.S.",
+        "documento_consultado": "816004512",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:25:00"
+      },
+      {
+        "id": 18,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Transportes del Otún S.A.S.",
+        "documento_consultado": "816004512",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:25:00"
+      },
+      {
+        "id": 15,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Transportes del Otún S.A.S.",
+        "documento_consultado": "816004512",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-14 15:25:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-10 10:00"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-14 15:20"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "devuelto",
+        "usuario": "Laura Restrepo",
+        "observacion": "Actualice el certificado de existencia y los estados financieros firmados.",
+        "ocurrido_en": "2026-10-17 10:00"
+      },
+      {
+        "estado_anterior": "devuelto",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-20 08:15"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "rechazado",
+        "usuario": "Laura Restrepo",
+        "observacion": "El certificado de existencia y representación legal tiene más de 30 días y los estados financieros no están firmados por el contador. Se pidió corregir el 17/10/2026 y no se recibió respuesta.",
+        "ocurrido_en": "2026-10-25 11:27"
+      }
+    ]
+  },
+  {
+    "formulario_id": 5,
+    "radicado": "SRL-2026-01474",
+    "periodo": 2026,
+    "tipo": "actualizacion",
+    "estado": "aprobado",
+    "nivel_riesgo": "bajo",
+    "actualizado_en": "2026-10-24 15:58:00",
+    "vence_en": "2027-10-24",
+    "tercero_id": 5,
+    "tercero": "Comercializadora Quimbaya Ltda.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 900318840-1",
+    "relaciones": [
+      "cliente"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": "2026-10-21 11:40:00",
+    "revisado_en": "2026-10-24 15:58:00",
+    "observacion_revision": "Aprobado. Sin señales de alerta.",
+    "revisor": "Carlos Mejía",
+    "porcentaje": 100,
+    "modulos_completos": 11,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 5,
+      "forma_juridica": "ltda",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "4645",
+      "pais": "CO",
+      "municipio": "63001",
+      "ciudad_exterior": null,
+      "direccion": "Carrera 14 # 21-07",
+      "telefono": "6067412233",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Comercio al por mayor de productos farmacéuticos, medicinales, cosméticos y de tocador",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Armenia (Quindío)",
+      "municipio_nacimiento_nombre": null
+    },
+    "financiero": {
+      "formulario_id": 5,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 9620000000,
+      "pasivos": 4100000000,
+      "patrimonio": 5520000000,
+      "ingresos_anuales": 15400000000,
+      "otros_ingresos": 0,
+      "concepto_otros_ingresos": null,
+      "egresos_anuales": 14650000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 14,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Diana Marcela Ríos Patiño",
+        "tipo_documento": "CC",
+        "numero_documento": "41936655",
+        "correo": "contabilidad@quimbaya.test",
+        "celular": "3128890011",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 15,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Hernán Darío Patiño Ochoa",
+        "tipo_documento": "CC",
+        "numero_documento": "7543210",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1965-06-05",
+        "municipio_nacimiento": "Armenia",
+        "municipio_residencia": "Armenia",
+        "direccion": "Carrera 19 # 8N-30",
+        "telefono": "3128890000",
+        "ocupacion": "Comerciante"
+      },
+      {
+        "id": 16,
+        "rol": "accionista",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Hernán Darío Patiño Ochoa",
+        "tipo_documento": "CC",
+        "numero_documento": "7543210",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 70,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 17,
+        "rol": "accionista",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "Gloria Inés Ríos de Patiño",
+        "tipo_documento": "CC",
+        "numero_documento": "41890123",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 30,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 18,
+        "rol": "junta_directiva",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Hernán Darío Patiño Ochoa",
+        "tipo_documento": "CC",
+        "numero_documento": "7543210",
+        "correo": null,
+        "celular": null,
+        "cargo": "Presidente",
+        "participacion": null,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 19,
+        "rol": "junta_directiva",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "Gloria Inés Ríos de Patiño",
+        "tipo_documento": "CC",
+        "numero_documento": "41890123",
+        "correo": null,
+        "celular": null,
+        "cargo": "Miembro principal",
+        "participacion": null,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 20,
+        "rol": "beneficiario_final",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Hernán Darío Patiño Ochoa",
+        "tipo_documento": "CC",
+        "numero_documento": "7543210",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 70,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Desarrollo del objeto social"
+        ],
+        "valores": [
+          "objeto_social"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "grupo_pertenece": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_obligado_regulacion": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tiene_sistema": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "completo"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 13,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-11",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-21 11:10:00"
+      },
+      {
+        "id": 14,
+        "tipo": "Certificado de existencia y representación legal",
+        "nombre_original": "camara_comercio.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-10-11",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-21 11:10:00"
+      },
+      {
+        "id": 15,
+        "tipo": "Documento de identidad del representante legal",
+        "nombre_original": "cedula_representante.pdf",
+        "tamano_bytes": 291000,
+        "fecha_expedicion": "2026-10-11",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-21 11:10:00"
+      },
+      {
+        "id": 16,
+        "tipo": "Estados financieros del último cierre",
+        "nombre_original": "estados_financieros.pdf",
+        "tamano_bytes": 328000,
+        "fecha_expedicion": "2026-10-11",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-21 11:10:00"
+      },
+      {
+        "id": 17,
+        "tipo": "Certificación bancaria",
+        "nombre_original": "certificacion_bancaria.pdf",
+        "tamano_bytes": 365000,
+        "fecha_expedicion": "2026-10-11",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-10-21 11:10:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 22,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Comercializadora Quimbaya Ltda.",
+        "documento_consultado": "900318840",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:45:00"
+      },
+      {
+        "id": 23,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Comercializadora Quimbaya Ltda.",
+        "documento_consultado": "900318840",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:45:00"
+      },
+      {
+        "id": 19,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Comercializadora Quimbaya Ltda.",
+        "documento_consultado": "900318840",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:45:00"
+      },
+      {
+        "id": 20,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Comercializadora Quimbaya Ltda.",
+        "documento_consultado": "900318840",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:45:00"
+      },
+      {
+        "id": 24,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Comercializadora Quimbaya Ltda.",
+        "documento_consultado": "900318840",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:45:00"
+      },
+      {
+        "id": 21,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Comercializadora Quimbaya Ltda.",
+        "documento_consultado": "900318840",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:45:00"
+      },
+      {
+        "id": 127,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Gloria Inés Ríos de Patiño",
+        "documento_consultado": "41890123",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 128,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Gloria Inés Ríos de Patiño",
+        "documento_consultado": "41890123",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 124,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Gloria Inés Ríos de Patiño",
+        "documento_consultado": "41890123",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 125,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Gloria Inés Ríos de Patiño",
+        "documento_consultado": "41890123",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 129,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Gloria Inés Ríos de Patiño",
+        "documento_consultado": "41890123",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 126,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Gloria Inés Ríos de Patiño",
+        "documento_consultado": "41890123",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 121,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 133,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 115,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 122,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 116,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 134,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 118,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 130,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 112,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 119,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 113,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 131,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 123,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 117,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 135,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 120,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 114,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      },
+      {
+        "id": 132,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Hernán Darío Patiño Ochoa",
+        "documento_consultado": "7543210",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-21 11:46:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-18 09:00"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-21 11:40"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "aprobado",
+        "usuario": "Carlos Mejía",
+        "observacion": "Aprobado. Sin señales de alerta.",
+        "ocurrido_en": "2026-10-24 15:58"
+      }
+    ]
+  },
+  {
+    "formulario_id": 6,
+    "radicado": "SRL-2026-01471",
+    "periodo": 2026,
+    "tipo": "actualizacion",
+    "estado": "en_revision",
+    "nivel_riesgo": "medio",
+    "actualizado_en": "2026-10-24 09:31:00",
+    "vence_en": null,
+    "tercero_id": 6,
+    "tercero": "Jorge Iván Salazar Henao",
+    "tipo_persona": "natural",
+    "documento": "CC 10245873",
+    "relaciones": [
+      "accionista"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 1,
+    "cuestionario_id": 2,
+    "enviado_en": "2026-10-24 09:31:00",
+    "revisado_en": null,
+    "observacion_revision": null,
+    "revisor": null,
+    "porcentaje": 100,
+    "modulos_completos": 8,
+    "modulos_total": 8,
+    "datos_generales": {
+      "formulario_id": 6,
+      "forma_juridica": null,
+      "naturaleza": null,
+      "fecha_nacimiento": "1968-11-02",
+      "municipio_nacimiento": "66682",
+      "pais_nacimiento": "CO",
+      "nacionalidad": "CO",
+      "ocupacion": "Empresario",
+      "empresa_donde_trabaja": "Inversiones Salazar Henao S.A.S.",
+      "cargo": "Gerente",
+      "actividad_ciiu": "0090",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Carrera 15 # 5-40, Pinares",
+      "telefono": "3145551234",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Rentistas de capital, solo para personas naturales",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": "Santa Rosa de Cabal"
+    },
+    "financiero": {
+      "formulario_id": 6,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 3400000000,
+      "pasivos": 350000000,
+      "patrimonio": 3050000000,
+      "ingresos_anuales": 610000000,
+      "otros_ingresos": 240000000,
+      "concepto_otros_ingresos": "Dividendos",
+      "egresos_anuales": 280000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 21,
+        "rol": "familiar_pep",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Martha Lucía Henao de Salazar",
+        "tipo_documento": "CC",
+        "numero_documento": "24945120",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": "Cónyuge",
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 22,
+        "rol": "familiar_pep",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "Santiago Salazar Henao",
+        "tipo_documento": "CC",
+        "numero_documento": "1088301456",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": "Hijo(a)",
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_familiar": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Salario"
+        ],
+        "valores": [
+          "salario"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Datos personales",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 18,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-14",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-24 09:01:00"
+      },
+      {
+        "id": 19,
+        "tipo": "Documento de identidad",
+        "nombre_original": "documento_identidad.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-10-14",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-24 09:01:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 28,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Jorge Iván Salazar Henao",
+        "documento_consultado": "10245873",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-24 09:36:00"
+      },
+      {
+        "id": 29,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Jorge Iván Salazar Henao",
+        "documento_consultado": "10245873",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-24 09:36:00"
+      },
+      {
+        "id": 25,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Jorge Iván Salazar Henao",
+        "documento_consultado": "10245873",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-24 09:36:00"
+      },
+      {
+        "id": 26,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Jorge Iván Salazar Henao",
+        "documento_consultado": "10245873",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-24 09:36:00"
+      },
+      {
+        "id": 30,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Jorge Iván Salazar Henao",
+        "documento_consultado": "10245873",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-24 09:36:00"
+      },
+      {
+        "id": 27,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Jorge Iván Salazar Henao",
+        "documento_consultado": "10245873",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-24 09:36:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-22 20:10"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-24 09:31"
+      }
+    ]
+  },
+  {
+    "formulario_id": 8,
+    "radicado": null,
+    "periodo": 2026,
+    "tipo": "vinculacion",
+    "estado": "borrador",
+    "nivel_riesgo": "sin_calificar",
+    "actualizado_en": "2026-10-23 10:14:00",
+    "vence_en": null,
+    "tercero_id": 8,
+    "tercero": "Inversiones La Badea S.A.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 800936271-9",
+    "relaciones": [
+      "cliente"
+    ],
+    "listas": "por_consultar",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": null,
+    "revisado_en": null,
+    "observacion_revision": null,
+    "revisor": null,
+    "porcentaje": 18,
+    "modulos_completos": 2,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 8,
+      "forma_juridica": "sa",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "6420",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Carrera 13 # 15-20, oficina 801",
+      "telefono": "6063400200",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Actividades de sociedades de cartera",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "personas": [
+      {
+        "id": 27,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Felipe Arias Botero",
+        "tipo_documento": "CC",
+        "numero_documento": "1087654321",
+        "correo": "tesoreria@labadea.test",
+        "celular": "3016667788",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {},
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "pendiente"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "pendiente"
+      }
+    ],
+    "soportes": [],
+    "consultas": [],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-23 10:14"
+      }
+    ]
+  },
+  {
+    "formulario_id": 9,
+    "radicado": "SRL-2026-01459",
+    "periodo": 2026,
+    "tipo": "vinculacion",
+    "estado": "aprobado",
+    "nivel_riesgo": "bajo",
+    "actualizado_en": "2026-10-22 14:47:00",
+    "vence_en": "2027-10-22",
+    "tercero_id": 9,
+    "tercero": "Andrés Felipe Cardona Ríos",
+    "tipo_persona": "natural",
+    "documento": "CC 1087998112",
+    "relaciones": [
+      "empleado"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 2,
+    "enviado_en": "2026-09-03 12:00:00",
+    "revisado_en": "2026-10-22 14:47:00",
+    "observacion_revision": "Aprobado.",
+    "revisor": "Carlos Mejía",
+    "porcentaje": 100,
+    "modulos_completos": 8,
+    "modulos_total": 8,
+    "datos_generales": {
+      "formulario_id": 9,
+      "forma_juridica": null,
+      "naturaleza": null,
+      "fecha_nacimiento": "1998-02-27",
+      "municipio_nacimiento": "17001",
+      "pais_nacimiento": "CO",
+      "nacionalidad": "CO",
+      "ocupacion": "Técnico de sistemas",
+      "empresa_donde_trabaja": "La entidad",
+      "cargo": "Técnico",
+      "actividad_ciiu": "0010",
+      "pais": "CO",
+      "municipio": "66170",
+      "ciudad_exterior": null,
+      "direccion": "Manzana 4 casa 12, La Pradera",
+      "telefono": "3162223344",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Asalariados",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Dosquebradas (Risaralda)",
+      "municipio_nacimiento_nombre": "Manizales"
+    },
+    "financiero": {
+      "formulario_id": 9,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 42000000,
+      "pasivos": 18000000,
+      "patrimonio": 24000000,
+      "ingresos_anuales": 31200000,
+      "otros_ingresos": 0,
+      "concepto_otros_ingresos": null,
+      "egresos_anuales": 27000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [],
+    "respuestas": {
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_familiar": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Salario"
+        ],
+        "valores": [
+          "salario"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Datos personales",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 25,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-08-24",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-09-03 11:30:00"
+      },
+      {
+        "id": 26,
+        "tipo": "Documento de identidad",
+        "nombre_original": "documento_identidad.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-08-24",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2026-09-03 11:30:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 40,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Andrés Felipe Cardona Ríos",
+        "documento_consultado": "1087998112",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-09-03 12:05:00"
+      },
+      {
+        "id": 41,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Andrés Felipe Cardona Ríos",
+        "documento_consultado": "1087998112",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-09-03 12:05:00"
+      },
+      {
+        "id": 37,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Andrés Felipe Cardona Ríos",
+        "documento_consultado": "1087998112",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-09-03 12:05:00"
+      },
+      {
+        "id": 38,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Andrés Felipe Cardona Ríos",
+        "documento_consultado": "1087998112",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-09-03 12:05:00"
+      },
+      {
+        "id": 42,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Andrés Felipe Cardona Ríos",
+        "documento_consultado": "1087998112",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-09-03 12:05:00"
+      },
+      {
+        "id": 39,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Andrés Felipe Cardona Ríos",
+        "documento_consultado": "1087998112",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-09-03 12:05:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-09-01 08:30"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-09-03 12:00"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "aprobado",
+        "usuario": "Carlos Mejía",
+        "observacion": "Aprobado.",
+        "ocurrido_en": "2026-10-22 14:47"
+      }
+    ]
+  },
+  {
+    "formulario_id": 10,
+    "radicado": "SRL-2026-01455",
+    "periodo": 2026,
+    "tipo": "actualizacion",
+    "estado": "en_revision",
+    "nivel_riesgo": "medio",
+    "actualizado_en": "2026-10-22 08:20:00",
+    "vence_en": null,
+    "tercero_id": 10,
+    "tercero": "Suministros Hospitalarios Consota S.A.S.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 901220478-9",
+    "relaciones": [
+      "proveedor",
+      "cliente"
+    ],
+    "listas": "coincidencia_parcial",
+    "alertas_abiertas": 1,
+    "cuestionario_id": 1,
+    "enviado_en": "2026-10-22 08:20:00",
+    "revisado_en": null,
+    "observacion_revision": null,
+    "revisor": null,
+    "porcentaje": 100,
+    "modulos_completos": 11,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 10,
+      "forma_juridica": "sas",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "4645",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Avenida 30 de Agosto # 40-11",
+      "telefono": "6063202020",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Comercio al por mayor de productos farmacéuticos, medicinales, cosméticos y de tocador",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "financiero": {
+      "formulario_id": 10,
+      "fecha_corte": "2025-12-31",
+      "moneda": "COP",
+      "activos": 6380000000,
+      "pasivos": 3010000000,
+      "patrimonio": 3370000000,
+      "ingresos_anuales": 11200000000,
+      "otros_ingresos": 85000000,
+      "concepto_otros_ingresos": "Rendimientos financieros",
+      "egresos_anuales": 10600000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 28,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Luisa Fernanda Tabares Mejía",
+        "tipo_documento": "CC",
+        "numero_documento": "42098765",
+        "correo": "ventas@consota.test",
+        "celular": "3174448899",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 29,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Luisa Fernanda Tabares Mejía",
+        "tipo_documento": "CC",
+        "numero_documento": "42098765",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1981-04-22",
+        "municipio_nacimiento": "Pereira",
+        "municipio_residencia": "Pereira",
+        "direccion": "Calle 21 # 6-40",
+        "telefono": "3174448899",
+        "ocupacion": "Química farmacéutica"
+      },
+      {
+        "id": 30,
+        "rol": "accionista",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Luisa Fernanda Tabares Mejía",
+        "tipo_documento": "CC",
+        "numero_documento": "42098765",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 55,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 31,
+        "rol": "accionista",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "José Antonio Rendón Rendón",
+        "tipo_documento": "CC",
+        "numero_documento": "16210987",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 45,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 32,
+        "rol": "beneficiario_final",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Luisa Fernanda Tabares Mejía",
+        "tipo_documento": "CC",
+        "numero_documento": "42098765",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 55,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 33,
+        "rol": "beneficiario_final",
+        "orden": 2,
+        "tipo_persona": "natural",
+        "nombre_completo": "José Antonio Rendón Rendón",
+        "tipo_documento": "CC",
+        "numero_documento": "16210987",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 45,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 34,
+        "rol": "grupo_empresarial",
+        "orden": 1,
+        "tipo_persona": "juridica",
+        "nombre_completo": "Grupo Consota S.A.S.",
+        "tipo_documento": "NIT",
+        "numero_documento": "901220470",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "productos_servicios": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Suministros médicos o farmacéuticos"
+        ],
+        "valores": [
+          "suministros_medicos"
+        ]
+      },
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_tipos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Importaciones",
+          "Transferencias"
+        ],
+        "valores": [
+          "importaciones",
+          "transferencias"
+        ]
+      },
+      "opint_paises": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Ninguno"
+        ],
+        "valores": [
+          "ninguno"
+        ]
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Desarrollo del objeto social"
+        ],
+        "valores": [
+          "objeto_social"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "grupo_pertenece": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_obligado_regulacion": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tiene_sistema": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "completo"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 27,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2026-10-12",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-22 07:50:00"
+      },
+      {
+        "id": 28,
+        "tipo": "Certificado de existencia y representación legal",
+        "nombre_original": "camara_comercio.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2026-10-12",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-22 07:50:00"
+      },
+      {
+        "id": 29,
+        "tipo": "Documento de identidad del representante legal",
+        "nombre_original": "cedula_representante.pdf",
+        "tamano_bytes": 291000,
+        "fecha_expedicion": "2026-10-12",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-22 07:50:00"
+      },
+      {
+        "id": 30,
+        "tipo": "Estados financieros del último cierre",
+        "nombre_original": "estados_financieros.pdf",
+        "tamano_bytes": 328000,
+        "fecha_expedicion": "2026-10-12",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-22 07:50:00"
+      },
+      {
+        "id": 31,
+        "tipo": "Certificación bancaria",
+        "nombre_original": "certificacion_bancaria.pdf",
+        "tamano_bytes": 365000,
+        "fecha_expedicion": "2026-10-12",
+        "estado": "cargado",
+        "observacion": null,
+        "cargado_en": "2026-10-22 07:50:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 181,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 169,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 182,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "coincidencia_parcial",
+        "detalle": "Coincide el nombre con un registro de la lista SDN; el documento no coincide. Requiere análisis.",
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 170,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "coincidencia_parcial",
+        "detalle": "Coincide el nombre con un registro de la lista SDN; el documento no coincide. Requiere análisis.",
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 178,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 166,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 179,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 167,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 183,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 171,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 180,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 168,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "José Antonio Rendón Rendón",
+        "documento_consultado": "16210987",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 175,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 163,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 157,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 176,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 164,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 158,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 160,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 172,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 154,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 155,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 173,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 161,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 165,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 177,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 159,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 156,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 174,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 162,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Luisa Fernanda Tabares Mejía",
+        "documento_consultado": "42098765",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:26:00"
+      },
+      {
+        "id": 46,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Suministros Hospitalarios Consota S.A.S.",
+        "documento_consultado": "901220478",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:25:00"
+      },
+      {
+        "id": 47,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Suministros Hospitalarios Consota S.A.S.",
+        "documento_consultado": "901220478",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:25:00"
+      },
+      {
+        "id": 43,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Suministros Hospitalarios Consota S.A.S.",
+        "documento_consultado": "901220478",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:25:00"
+      },
+      {
+        "id": 44,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Suministros Hospitalarios Consota S.A.S.",
+        "documento_consultado": "901220478",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:25:00"
+      },
+      {
+        "id": 48,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Suministros Hospitalarios Consota S.A.S.",
+        "documento_consultado": "901220478",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:25:00"
+      },
+      {
+        "id": 45,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Suministros Hospitalarios Consota S.A.S.",
+        "documento_consultado": "901220478",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2026-10-22 08:25:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-15 07:50"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2026-10-22 08:20"
+      }
+    ]
+  },
+  {
+    "formulario_id": 7,
+    "radicado": "SRL-2025-00873",
+    "periodo": 2025,
+    "tipo": "actualizacion",
+    "estado": "aprobado",
+    "nivel_riesgo": "bajo",
+    "actualizado_en": "2025-10-15 17:02:00",
+    "vence_en": "2026-10-15",
+    "tercero_id": 7,
+    "tercero": "Laboratorio Bioanálisis del Eje S.A.S.",
+    "tipo_persona": "juridica",
+    "documento": "NIT 901655012-8",
+    "relaciones": [
+      "proveedor"
+    ],
+    "listas": "sin_coincidencia",
+    "alertas_abiertas": 0,
+    "cuestionario_id": 1,
+    "enviado_en": "2025-10-08 10:12:00",
+    "revisado_en": "2025-10-15 17:02:00",
+    "observacion_revision": "Aprobado.",
+    "revisor": "Laura Restrepo",
+    "porcentaje": 100,
+    "modulos_completos": 11,
+    "modulos_total": 11,
+    "datos_generales": {
+      "formulario_id": 7,
+      "forma_juridica": "sas",
+      "naturaleza": "privada",
+      "fecha_nacimiento": null,
+      "municipio_nacimiento": null,
+      "pais_nacimiento": null,
+      "nacionalidad": null,
+      "ocupacion": null,
+      "empresa_donde_trabaja": null,
+      "cargo": null,
+      "actividad_ciiu": "8691",
+      "pais": "CO",
+      "municipio": "66001",
+      "ciudad_exterior": null,
+      "direccion": "Calle 19 # 9-50, piso 2",
+      "telefono": "6063346677",
+      "sitio_web": null,
+      "actualizado_en": "2026-11-06 11:48:52",
+      "actividad": "Actividades de apoyo diagnóstico",
+      "pais_nombre": "Colombia",
+      "municipio_nombre": "Pereira (Risaralda)",
+      "municipio_nacimiento_nombre": null
+    },
+    "financiero": {
+      "formulario_id": 7,
+      "fecha_corte": "2024-12-31",
+      "moneda": "COP",
+      "activos": 1760000000,
+      "pasivos": 690000000,
+      "patrimonio": 1070000000,
+      "ingresos_anuales": 2950000000,
+      "otros_ingresos": 0,
+      "concepto_otros_ingresos": null,
+      "egresos_anuales": 2700000000,
+      "actualizado_en": "2026-11-06 11:48:52"
+    },
+    "personas": [
+      {
+        "id": 23,
+        "rol": "firmante",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Natalia Quintero Duque",
+        "tipo_documento": "CC",
+        "numero_documento": "1088012345",
+        "correo": "calidad@bioanalisiseje.test",
+        "celular": "3208874411",
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 24,
+        "rol": "representante_principal",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Natalia Quintero Duque",
+        "tipo_documento": "CC",
+        "numero_documento": "1088012345",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": null,
+        "es_pep": null,
+        "parentesco": null,
+        "fecha_nacimiento": "1988-12-01",
+        "municipio_nacimiento": "Pereira",
+        "municipio_residencia": "Pereira",
+        "direccion": "Carrera 8 # 23-15",
+        "telefono": "3208874411",
+        "ocupacion": "Bacterióloga"
+      },
+      {
+        "id": 25,
+        "rol": "accionista",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Natalia Quintero Duque",
+        "tipo_documento": "CC",
+        "numero_documento": "1088012345",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 100,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      },
+      {
+        "id": 26,
+        "rol": "beneficiario_final",
+        "orden": 1,
+        "tipo_persona": "natural",
+        "nombre_completo": "Natalia Quintero Duque",
+        "tipo_documento": "CC",
+        "numero_documento": "1088012345",
+        "correo": null,
+        "celular": null,
+        "cargo": null,
+        "participacion": 100,
+        "es_pep": 0,
+        "parentesco": null,
+        "fecha_nacimiento": null,
+        "municipio_nacimiento": null,
+        "municipio_residencia": null,
+        "direccion": null,
+        "telefono": null,
+        "ocupacion": null
+      }
+    ],
+    "respuestas": {
+      "productos_servicios": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Servicios de salud"
+        ],
+        "valores": [
+          "servicios_salud"
+        ]
+      },
+      "pep_recursos_publicos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_reconocimiento": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_poder_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_servidor_publico": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "pep_decreto_830": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_realiza": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "opint_cuentas": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_fiat": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_entre": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_transferencias": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_custodia": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_servicios_emisor": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "av_otro_servicio": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "origen_fondos": {
+        "booleano": null,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [
+          "Desarrollo del objeto social"
+        ],
+        "valores": [
+          "objeto_social"
+        ]
+      },
+      "origen_licito": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "grupo_pertenece": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_parentesco_directivos": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_obligado_regulacion": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tiene_sistema": {
+        "booleano": false,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_veracidad": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_tratamiento_datos": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      },
+      "decl_anticorrupcion": {
+        "booleano": true,
+        "texto": null,
+        "numero": null,
+        "fecha": null,
+        "opciones": [],
+        "valores": []
+      }
+    },
+    "modulos": [
+      {
+        "orden": 1,
+        "nombre": "Identificación",
+        "estado": "completo"
+      },
+      {
+        "orden": 2,
+        "nombre": "Información general",
+        "estado": "completo"
+      },
+      {
+        "orden": 3,
+        "nombre": "Representante legal",
+        "estado": "completo"
+      },
+      {
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "estado": "completo"
+      },
+      {
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "estado": "completo"
+      },
+      {
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "estado": "completo"
+      },
+      {
+        "orden": 7,
+        "nombre": "Información financiera",
+        "estado": "completo"
+      },
+      {
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "estado": "completo"
+      },
+      {
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "estado": "completo"
+      },
+      {
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "estado": "completo"
+      },
+      {
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "estado": "completo"
+      }
+    ],
+    "soportes": [
+      {
+        "id": 20,
+        "tipo": "Registro Único Tributario (RUT)",
+        "nombre_original": "rut.pdf",
+        "tamano_bytes": 217000,
+        "fecha_expedicion": "2025-09-28",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2025-10-08 09:42:00"
+      },
+      {
+        "id": 21,
+        "tipo": "Certificado de existencia y representación legal",
+        "nombre_original": "camara_comercio.pdf",
+        "tamano_bytes": 254000,
+        "fecha_expedicion": "2025-09-28",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2025-10-08 09:42:00"
+      },
+      {
+        "id": 22,
+        "tipo": "Documento de identidad del representante legal",
+        "nombre_original": "cedula_representante.pdf",
+        "tamano_bytes": 291000,
+        "fecha_expedicion": "2025-09-28",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2025-10-08 09:42:00"
+      },
+      {
+        "id": 23,
+        "tipo": "Estados financieros del último cierre",
+        "nombre_original": "estados_financieros.pdf",
+        "tamano_bytes": 328000,
+        "fecha_expedicion": "2025-09-28",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2025-10-08 09:42:00"
+      },
+      {
+        "id": 24,
+        "tipo": "Certificación bancaria",
+        "nombre_original": "certificacion_bancaria.pdf",
+        "tamano_bytes": 365000,
+        "fecha_expedicion": "2025-09-28",
+        "estado": "aceptado",
+        "observacion": null,
+        "cargado_en": "2025-10-08 09:42:00"
+      }
+    ],
+    "consultas": [
+      {
+        "id": 34,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Laboratorio Bioanálisis del Eje S.A.S.",
+        "documento_consultado": "901655012",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:17:00"
+      },
+      {
+        "id": 35,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Laboratorio Bioanálisis del Eje S.A.S.",
+        "documento_consultado": "901655012",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:17:00"
+      },
+      {
+        "id": 31,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Laboratorio Bioanálisis del Eje S.A.S.",
+        "documento_consultado": "901655012",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:17:00"
+      },
+      {
+        "id": 32,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Laboratorio Bioanálisis del Eje S.A.S.",
+        "documento_consultado": "901655012",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:17:00"
+      },
+      {
+        "id": 36,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Laboratorio Bioanálisis del Eje S.A.S.",
+        "documento_consultado": "901655012",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:17:00"
+      },
+      {
+        "id": 33,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Laboratorio Bioanálisis del Eje S.A.S.",
+        "documento_consultado": "901655012",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:17:00"
+      },
+      {
+        "id": 151,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 139,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 145,
+        "lista": "ONU",
+        "lista_nombre": "Lista consolidada del Consejo de Seguridad",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 152,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 140,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 146,
+        "lista": "OFAC",
+        "lista_nombre": "Lista SDN (Specially Designated Nationals)",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 142,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 148,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 136,
+        "lista": "UE",
+        "lista_nombre": "Lista consolidada de sanciones financieras",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 143,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 149,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 137,
+        "lista": "PROCURADURIA",
+        "lista_nombre": "Antecedentes disciplinarios",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 141,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 147,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 153,
+        "lista": "CONTRALORIA",
+        "lista_nombre": "Boletín de responsables fiscales",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 144,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 138,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      },
+      {
+        "id": 150,
+        "lista": "POLICIA",
+        "lista_nombre": "Antecedentes judiciales",
+        "nombre_consultado": "Natalia Quintero Duque",
+        "documento_consultado": "1088012345",
+        "resultado": "sin_coincidencia",
+        "detalle": null,
+        "origen": "automatica",
+        "consultado_en": "2025-10-08 10:18:00"
+      }
+    ],
+    "historial": [
+      {
+        "estado_anterior": null,
+        "estado_nuevo": "borrador",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2025-10-01 08:30"
+      },
+      {
+        "estado_anterior": "borrador",
+        "estado_nuevo": "en_revision",
+        "usuario": null,
+        "observacion": null,
+        "ocurrido_en": "2025-10-08 10:12"
+      },
+      {
+        "estado_anterior": "en_revision",
+        "estado_nuevo": "aprobado",
+        "usuario": "Laura Restrepo",
+        "observacion": "Aprobado.",
+        "ocurrido_en": "2025-10-15 17:02"
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+{% extends "base_acceso.html" %}
+{% from "_iconos.html" import icono %}
+{#
+  ingreso.html - Ingreso del equipo interno (oficial de cumplimiento,
+  analistas, auditores).
+
+  VISTA: el boton lleva al inicio sin validar nada. La validacion del
+  usuario y la contrasena contra la tabla usuarios es funcionalidad de
+  un sprint posterior.
+
+  Los terceros NO entran por aqui: entran por /acceso con su documento
+  y un codigo, sin contrasena.
+#}
+{% block titulo %}Ingresar{% endblock %}
+{% block subtitulo %}Equipo de cumplimiento{% endblock %}
+
+{% block contenido %}
+<div class="acceso">
+  <header class="acceso-encabezado">
+    <h1>Ingresar</h1>
+    <p>Con su usuario del equipo de cumplimiento.</p>
+  </header>
+
+  {# Los campos no tienen "name": en la vista no se envia nada al servidor #}
+  <form class="pila" action="/" method="get">
+    <div class="campo">
+      <label for="g-usuario">Usuario</label>
+      <input id="g-usuario" class="control" autocomplete="username"
+             autocapitalize="none" spellcheck="false" required autofocus>
+    </div>
+
+    <div class="campo">
+      <label for="g-clave">Contraseña</label>
+      <input id="g-clave" class="control" type="password" autocomplete="current-password" required>
+    </div>
+
+    <button type="submit" class="boton boton--primario boton--ancho">Ingresar</button>
+  </form>
+
+  <div class="nota nota--atencion no-imprimir">
+    {{ icono("info") }}
+    <p><strong>Vista de demostración.</strong> Escriba cualquier usuario y contraseña para ver el sistema interno.</p>
+  </div>
+
+  <p class="acceso-pie">¿Es proveedor, cliente o empleado? <a href="/acceso">Diligencie su formulario aquí</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{# ajustes_parametros.html - Parametros editables (tabla parametros). Recibe: parametros. #}
+{% block titulo %}Parámetros{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Parámetros</h1>
+    <p class="subtitulo-pagina">Valores que controlan el funcionamiento del sistema</p>
+  </div>
+</header>
+
+<form class="marco" action="" method="get">
+  <div class="marco-cuerpo">
+    <div class="formulario-rejilla formulario-rejilla--parametros">
+      {% for p in parametros %}
+      <div class="campo">
+        <label for="par-{{ p.clave }}">{{ p.descripcion }}</label>
+        <input id="par-{{ p.clave }}" class="control maquina" value="{{ p.valor }}"{% if p.tipo in ["entero", "decimal"] %} inputmode="numeric"{% endif %}>
+        <p class="campo-ayuda maquina">{{ p.clave }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="marco-pie">
+    <span>Los cambios quedan en la auditoría con el usuario que los hizo.</span>
+    <button type="button" class="boton boton--primario">{{ icono("guardar") }}Guardar parámetros</button>
+  </div>
+</form>
+{% endblock %}

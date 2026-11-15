@@ -1,0 +1,201 @@
+[
+  {
+    "id": 9,
+    "tipo_persona": "natural",
+    "tipo_documento": "CC",
+    "numero_documento": "1087998112",
+    "digito_verificacion": null,
+    "nombre": "Andrés Felipe Cardona Ríos",
+    "contacto_nombre": null,
+    "correo": "andres.cardona@correo.test",
+    "celular": "3162223344",
+    "estado": "activo",
+    "nivel_riesgo": "bajo",
+    "creado_en": "2026-09-01 08:00:00",
+    "relaciones": [
+      "empleado"
+    ],
+    "documento": "CC 1087998112"
+  },
+  {
+    "id": 2,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "900771204",
+    "digito_verificacion": 8,
+    "nombre": "Clínica Odontológica Los Alpes S.A.S.",
+    "contacto_nombre": "Ricardo Londoño",
+    "correo": "administracion@losalpes.test",
+    "celular": "3117780045",
+    "estado": "activo",
+    "nivel_riesgo": "sin_calificar",
+    "creado_en": "2026-10-25 17:55:00",
+    "relaciones": [
+      "proveedor"
+    ],
+    "documento": "NIT 900771204-8"
+  },
+  {
+    "id": 5,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "900318840",
+    "digito_verificacion": 1,
+    "nombre": "Comercializadora Quimbaya Ltda.",
+    "contacto_nombre": "Diana Marcela Ríos",
+    "correo": "contabilidad@quimbaya.test",
+    "celular": "3128890011",
+    "estado": "activo",
+    "nivel_riesgo": "bajo",
+    "creado_en": "2023-08-29 14:12:00",
+    "relaciones": [
+      "cliente"
+    ],
+    "documento": "NIT 900318840-1"
+  },
+  {
+    "id": 1,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "901482337",
+    "digito_verificacion": 2,
+    "nombre": "Distribuciones Andinas del Café S.A.S.",
+    "contacto_nombre": "Paula Andrea Gómez",
+    "correo": "compras@distribucionesandinas.test",
+    "celular": "3104567321",
+    "estado": "activo",
+    "nivel_riesgo": "bajo",
+    "creado_en": "2024-03-11 09:20:00",
+    "relaciones": [
+      "proveedor"
+    ],
+    "documento": "NIT 901482337-2"
+  },
+  {
+    "id": 8,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "800936271",
+    "digito_verificacion": 9,
+    "nombre": "Inversiones La Badea S.A.",
+    "contacto_nombre": "Felipe Arias",
+    "correo": "tesoreria@labadea.test",
+    "celular": "3016667788",
+    "estado": "activo",
+    "nivel_riesgo": "sin_calificar",
+    "creado_en": "2026-10-23 10:05:00",
+    "relaciones": [
+      "cliente"
+    ],
+    "documento": "NIT 800936271-9"
+  },
+  {
+    "id": 6,
+    "tipo_persona": "natural",
+    "tipo_documento": "CC",
+    "numero_documento": "10245873",
+    "digito_verificacion": null,
+    "nombre": "Jorge Iván Salazar Henao",
+    "contacto_nombre": null,
+    "correo": "jorgeivan.salazar@correo.test",
+    "celular": "3145551234",
+    "estado": "activo",
+    "nivel_riesgo": "medio",
+    "creado_en": "2022-04-01 11:00:00",
+    "relaciones": [
+      "accionista"
+    ],
+    "documento": "CC 10245873"
+  },
+  {
+    "id": 7,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "901655012",
+    "digito_verificacion": 8,
+    "nombre": "Laboratorio Bioanálisis del Eje S.A.S.",
+    "contacto_nombre": "Natalia Quintero",
+    "correo": "calidad@bioanalisiseje.test",
+    "celular": "3208874411",
+    "estado": "activo",
+    "nivel_riesgo": "bajo",
+    "creado_en": "2024-09-12 16:30:00",
+    "relaciones": [
+      "proveedor"
+    ],
+    "documento": "NIT 901655012-8"
+  },
+  {
+    "id": 3,
+    "tipo_persona": "natural",
+    "tipo_documento": "CC",
+    "numero_documento": "1088254961",
+    "digito_verificacion": null,
+    "nombre": "María Fernanda Ospina Gil",
+    "contacto_nombre": null,
+    "correo": "mafe.ospina@correo.test",
+    "celular": "3159876543",
+    "estado": "activo",
+    "nivel_riesgo": "bajo",
+    "creado_en": "2025-02-03 08:10:00",
+    "relaciones": [
+      "empleado"
+    ],
+    "documento": "CC 1088254961"
+  },
+  {
+    "id": 11,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "901733905",
+    "digito_verificacion": 4,
+    "nombre": "Servicios Médicos Integrales del Risaralda S.A.S.",
+    "contacto_nombre": "Óscar Valencia",
+    "correo": "juridica@smir.test",
+    "celular": "3189990022",
+    "estado": "activo",
+    "nivel_riesgo": "sin_calificar",
+    "creado_en": "2026-10-02 15:40:00",
+    "relaciones": [
+      "proveedor"
+    ],
+    "documento": "NIT 901733905-4"
+  },
+  {
+    "id": 10,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "901220478",
+    "digito_verificacion": 9,
+    "nombre": "Suministros Hospitalarios Consota S.A.S.",
+    "contacto_nombre": "Luisa Fernanda Tabares",
+    "correo": "ventas@consota.test",
+    "celular": "3174448899",
+    "estado": "activo",
+    "nivel_riesgo": "medio",
+    "creado_en": "2025-01-20 09:45:00",
+    "relaciones": [
+      "proveedor",
+      "cliente"
+    ],
+    "documento": "NIT 901220478-9"
+  },
+  {
+    "id": 4,
+    "tipo_persona": "juridica",
+    "tipo_documento": "NIT",
+    "numero_documento": "816004512",
+    "digito_verificacion": 8,
+    "nombre": "Transportes del Otún S.A.S.",
+    "contacto_nombre": "Gustavo Arango",
+    "correo": "gerencia@transotun.test",
+    "celular": "3006541122",
+    "estado": "activo",
+    "nivel_riesgo": "medio",
+    "creado_en": "2025-06-17 10:00:00",
+    "relaciones": [
+      "proveedor"
+    ],
+    "documento": "NIT 816004512-8"
+  }
+]

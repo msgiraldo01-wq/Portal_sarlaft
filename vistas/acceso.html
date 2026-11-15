@@ -1,0 +1,80 @@
+{% extends "base_acceso.html" %}
+{% from "_iconos.html" import icono %}
+{#
+  acceso.html - Entrada de los terceros, etapa 1 de 3: identificacion.
+    1. acceso.html           tipo de persona y documento
+    2. acceso_registro.html  datos minimos, si el documento es nuevo
+    3. acceso_codigo.html    codigo de un solo uso al correo y al celular
+
+  VISTA: el formulario solo pasa a la siguiente pantalla. Revisar si el
+  documento ya existe y enviar el codigo es funcionalidad de un sprint
+  posterior. Los campos de persona natural o juridica se muestran u
+  ocultan solo con CSS (ver ".solo-natural" en estilo.css).
+#}
+{% set etapa = 1 %}
+{% block titulo %}Acceso de terceros{% endblock %}
+{% block subtitulo %}Acceso de terceros{% endblock %}
+{% block clase_tarjeta %}portada-tarjeta--ancha{% endblock %}
+
+{% block contenido %}
+<div class="acceso">
+  <header class="acceso-encabezado">
+    <h1>Conocimiento de terceros</h1>
+    <p>Proveedores, clientes, empleados y accionistas de {{ ENTIDAD }} diligencian aquí su información SARLAFT.</p>
+  </header>
+
+  {% include "_acceso_etapas.html" %}
+
+  <form class="pila con-tipo-persona" action="/acceso/registro" method="get">
+    <div class="etapa-titulo">
+      <h2>¿Quién diligencia el formulario?</h2>
+      <p>Revisaremos si ya está registrado.</p>
+    </div>
+
+    <fieldset class="grupo-opciones">
+      <legend class="etiqueta">Tipo de persona</legend>
+      <div class="tarjetas-opcion">
+        <label class="tarjeta-opcion">
+          <input type="radio" name="tipo" value="juridica" checked>
+          <strong>Persona jurídica</strong>
+          <span>Empresa, entidad o asociación con NIT.</span>
+        </label>
+        <label class="tarjeta-opcion">
+          <input type="radio" name="tipo" value="natural">
+          <strong>Persona natural</strong>
+          <span>Persona con cédula, cédula de extranjería, PPT o pasaporte.</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="campo solo-natural">
+      <label for="a-tipo-doc">Tipo de documento</label>
+      <select id="a-tipo-doc" name="documento" class="control">
+        {% for t in catalogos.tipos_documento %}{% if t.tipo_persona == "natural" %}
+        <option value="{{ t.codigo }}">{{ t.nombre }}</option>
+        {% endif %}{% endfor %}
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="a-numero">
+        <span class="solo-juridica">NIT sin dígito de verificación</span>
+        <span class="solo-natural">Número de documento</span>
+      </label>
+      <input id="a-numero" name="numero" class="control maquina" inputmode="numeric"
+             pattern="[0-9]{5,12}" maxlength="12" autocomplete="off" aria-describedby="a-numero-ayuda" required>
+      <p id="a-numero-ayuda" class="campo-ayuda">Solo números, sin puntos, guiones ni espacios.</p>
+    </div>
+
+    <button type="submit" class="boton boton--primario boton--ancho">Continuar</button>
+  </form>
+
+  <div class="nota nota--atencion no-imprimir">
+    {{ icono("info") }}
+    <p><strong>Vista de demostración.</strong> Cualquier número de 5 a 12 dígitos pasa al registro.
+      <a href="/acceso/codigo?tipo=juridica">Ver la pantalla del código</a> (cuando el tercero ya está registrado).</p>
+  </div>
+
+  <p class="acceso-pie">¿Trabaja en {{ ENTIDAD }}? <a href="/ingreso">Ingreso del equipo</a></p>
+</div>
+{% endblock %}

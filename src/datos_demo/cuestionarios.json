@@ -1,0 +1,1594 @@
+[
+  {
+    "id": 1,
+    "nombre": "Formulario de vinculación y actualización de persona jurídica",
+    "tipo_persona": "juridica",
+    "version": 1,
+    "estado": "publicado",
+    "publicado_en": "2026-11-06 00:00:00",
+    "notas": "Versión inicial. Circular Externa 009 de 2016 de la Supersalud y sus modificaciones; Decreto 830 de 2021 (PEP); Resolución DIAN 164 de 2021 (beneficiario final).",
+    "modulos": [
+      {
+        "id": 101,
+        "orden": 1,
+        "nombre": "Identificación",
+        "descripcion": "Datos de quien firma el formulario en nombre de la empresa.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "firmante",
+            "titulo": "Representante legal o apoderado que firmará",
+            "instrucciones": "Recibirá en su celular y su correo el código para firmar.",
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "orden": 2,
+        "nombre": "Información general",
+        "descripcion": "Ubicación y actividad económica de la empresa.",
+        "preguntas": [
+          {
+            "id": 1001,
+            "orden": 10,
+            "codigo": "productos_servicios",
+            "enunciado": "¿Qué tipo de producto o servicio ofrece a la entidad?",
+            "ayuda": null,
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": "proveedor",
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "suministros_medicos",
+                "etiqueta": "Suministros médicos o farmacéuticos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "servicios_salud",
+                "etiqueta": "Servicios de salud",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "tecnologia",
+                "etiqueta": "Tecnología y sistemas de información",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "administrativos",
+                "etiqueta": "Servicios administrativos o de gestión",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "consultoria",
+                "etiqueta": "Consultoría o asesoría especializada",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "otro",
+                "etiqueta": "Otro",
+                "pide_detalle": 1,
+                "excluyente": 0
+              }
+            ]
+          }
+        ],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "datos_generales",
+            "titulo": "Datos generales de la empresa",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      },
+      {
+        "id": 103,
+        "orden": 3,
+        "nombre": "Representante legal",
+        "descripcion": "Datos del representante legal principal y de sus suplentes, como figuran en el certificado de existencia y representación legal.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "representante_principal",
+            "titulo": "Representante legal principal",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": null,
+            "depende_de_valor": null
+          },
+          {
+            "orden": 2,
+            "componente": "representantes_suplentes",
+            "titulo": "Representantes legales suplentes",
+            "instrucciones": "Opcional. Agregue a cada suplente que figure en el certificado.",
+            "obligatoria": 0,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      },
+      {
+        "id": 104,
+        "orden": 4,
+        "nombre": "Personas expuestas políticamente",
+        "descripcion": "Preguntas sobre el representante legal, los miembros de junta directiva, los accionistas y los beneficiarios finales.",
+        "preguntas": [
+          {
+            "id": 1002,
+            "orden": 10,
+            "codigo": "pep_recursos_publicos",
+            "enunciado": "¿Alguno de ellos maneja recursos públicos?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1003,
+            "orden": 20,
+            "codigo": "pep_reconocimiento",
+            "enunciado": "¿Alguno de ellos goza de reconocimiento público?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1004,
+            "orden": 30,
+            "codigo": "pep_poder_publico",
+            "enunciado": "¿Alguno de ellos ejerce algún grado de poder público?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1005,
+            "orden": 40,
+            "codigo": "pep_servidor_publico",
+            "enunciado": "¿Alguno de ellos es servidor público?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1006,
+            "orden": 50,
+            "codigo": "pep_decreto_830",
+            "enunciado": "¿Alguno de ellos está clasificado como Persona Expuesta Políticamente (PEP) según el Decreto 830 de 2021?",
+            "ayuda": "Son PEP, entre otros, los servidores públicos que ordenan gasto, contratan o dirigen proyectos de inversión; por ejemplo: presidente, ministros, congresistas, gobernadores, alcaldes, concejales y diputados.",
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          }
+        ],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "familiares_pep",
+            "titulo": "Familiares y asociados de la persona PEP",
+            "instrucciones": "Relacione al cónyuge o compañero permanente y a los familiares hasta segundo grado de consanguinidad, segundo de afinidad y primero civil.",
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": "pep_decreto_830",
+            "depende_de_valor": "si"
+          }
+        ]
+      },
+      {
+        "id": 105,
+        "orden": 5,
+        "nombre": "Operaciones internacionales",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 1007,
+            "orden": 10,
+            "codigo": "opint_realiza",
+            "enunciado": "¿La empresa realiza operaciones en moneda extranjera o con el exterior?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 1008,
+            "orden": 20,
+            "codigo": "opint_tipos",
+            "enunciado": "¿Qué tipo de operaciones realiza?",
+            "ayuda": null,
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": "opint_realiza",
+            "depende_de_valor": "si",
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "importaciones",
+                "etiqueta": "Importaciones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "exportaciones",
+                "etiqueta": "Exportaciones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "inversiones",
+                "etiqueta": "Inversiones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "prestamos",
+                "etiqueta": "Préstamos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "giros",
+                "etiqueta": "Giros",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "transferencias",
+                "etiqueta": "Transferencias",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "pago_servicios",
+                "etiqueta": "Pago de servicios",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "otro",
+                "etiqueta": "Otro",
+                "pide_detalle": 1,
+                "excluyente": 0
+              }
+            ]
+          },
+          {
+            "id": 1009,
+            "orden": 30,
+            "codigo": "opint_paises",
+            "enunciado": "¿Alguna de esas operaciones es con los siguientes países?",
+            "ayuda": "Jurisdicciones de mayor riesgo según el GAFI. La lista se actualiza después de cada plenaria del GAFI.",
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": "opint_realiza",
+            "depende_de_valor": "si",
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "ninguno",
+                "etiqueta": "Ninguno",
+                "pide_detalle": 0,
+                "excluyente": 1
+              },
+              {
+                "valor": "DZ",
+                "etiqueta": "Argelia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "AO",
+                "etiqueta": "Angola",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "BO",
+                "etiqueta": "Bolivia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "BG",
+                "etiqueta": "Bulgaria",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "CM",
+                "etiqueta": "Camerún",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "CI",
+                "etiqueta": "Costa de Marfil",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "KP",
+                "etiqueta": "Corea del Norte",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "HT",
+                "etiqueta": "Haití",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "IR",
+                "etiqueta": "Irán",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "VG",
+                "etiqueta": "Islas Vírgenes Británicas",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "KE",
+                "etiqueta": "Kenia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "LA",
+                "etiqueta": "Laos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "LB",
+                "etiqueta": "Líbano",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "MC",
+                "etiqueta": "Mónaco",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "MM",
+                "etiqueta": "Myanmar",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "NA",
+                "etiqueta": "Namibia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "NP",
+                "etiqueta": "Nepal",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "PG",
+                "etiqueta": "Papúa Nueva Guinea",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "CD",
+                "etiqueta": "República Democrática del Congo",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "SY",
+                "etiqueta": "Siria",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "SS",
+                "etiqueta": "Sudán del Sur",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "VE",
+                "etiqueta": "Venezuela",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "VN",
+                "etiqueta": "Vietnam",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "YE",
+                "etiqueta": "Yemen",
+                "pide_detalle": 0,
+                "excluyente": 0
+              }
+            ]
+          },
+          {
+            "id": 1010,
+            "orden": 40,
+            "codigo": "opint_cuentas",
+            "enunciado": "¿La empresa tiene cuentas o productos financieros en el exterior?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 1011,
+            "orden": 50,
+            "codigo": "opint_cuentas_detalle",
+            "enunciado": "Indique entidad, país y moneda de cada cuenta o producto",
+            "ayuda": null,
+            "tipo": "texto_largo",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": "opint_cuentas",
+            "depende_de_valor": "si",
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": []
+      },
+      {
+        "id": 106,
+        "orden": 6,
+        "nombre": "Activos virtuales",
+        "descripcion": "Los activos virtuales son representaciones digitales de valor que se pueden comercializar, transferir o usar como medio de pago o inversión, sin respaldo de una moneda de curso legal; por ejemplo, criptomonedas, tokens y monedas estables. Responda si realiza alguna de estas operaciones.",
+        "preguntas": [
+          {
+            "id": 1012,
+            "orden": 10,
+            "codigo": "av_fiat",
+            "enunciado": "¿Intercambia activos virtuales por dinero de curso legal (pesos, dólares u otras monedas)?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1013,
+            "orden": 20,
+            "codigo": "av_entre",
+            "enunciado": "¿Intercambia una forma de activo virtual por otra?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1014,
+            "orden": 30,
+            "codigo": "av_transferencias",
+            "enunciado": "¿Hace transferencias de activos virtuales?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1015,
+            "orden": 40,
+            "codigo": "av_custodia",
+            "enunciado": "¿Custodia o administra activos virtuales, o instrumentos que permitan controlarlos?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1016,
+            "orden": 50,
+            "codigo": "av_servicios_emisor",
+            "enunciado": "¿Participa o presta servicios financieros relacionados con la oferta de un emisor o la venta de un activo virtual?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1017,
+            "orden": 60,
+            "codigo": "av_otro_servicio",
+            "enunciado": "¿Ha prestado algún otro servicio relacionado con activos virtuales?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          }
+        ],
+        "secciones": []
+      },
+      {
+        "id": 107,
+        "orden": 7,
+        "nombre": "Información financiera",
+        "descripcion": "Cifras del último cierre contable, en pesos colombianos.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "financiero",
+            "titulo": "Información financiera",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      },
+      {
+        "id": 108,
+        "orden": 8,
+        "nombre": "Origen de fondos",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 1018,
+            "orden": 10,
+            "codigo": "origen_fondos",
+            "enunciado": "Los bienes y recursos de la empresa provienen de:",
+            "ayuda": null,
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "objeto_social",
+                "etiqueta": "Desarrollo del objeto social",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "inversiones",
+                "etiqueta": "Inversiones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "rentas",
+                "etiqueta": "Rentas o arrendamientos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "prestamos",
+                "etiqueta": "Préstamos o financiación",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "aportes_socios",
+                "etiqueta": "Aportes de socios",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "otro",
+                "etiqueta": "Otro",
+                "pide_detalle": 1,
+                "excluyente": 0
+              }
+            ]
+          },
+          {
+            "id": 1019,
+            "orden": 20,
+            "codigo": "origen_licito",
+            "enunciado": "Declaro que los recursos de la empresa provienen de actividades lícitas y que no se destinarán a la financiación del terrorismo ni de la proliferación de armas de destrucción masiva.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": []
+      },
+      {
+        "id": 109,
+        "orden": 9,
+        "nombre": "Accionistas y beneficiarios",
+        "descripcion": "Composición de la empresa. Si la entidad es pública, deje vacías las secciones que no apliquen.",
+        "preguntas": [
+          {
+            "id": 1020,
+            "orden": 10,
+            "codigo": "grupo_pertenece",
+            "enunciado": "¿La empresa hace parte de un grupo empresarial?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "accionistas",
+            "titulo": "Accionistas o asociados",
+            "instrucciones": "Si son muchos, relacione los de mayor participación y adjunte la composición accionaria.",
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": null,
+            "depende_de_valor": null
+          },
+          {
+            "orden": 2,
+            "componente": "junta_directiva",
+            "titulo": "Miembros de la junta directiva",
+            "instrucciones": null,
+            "obligatoria": 0,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          },
+          {
+            "orden": 3,
+            "componente": "beneficiarios_finales",
+            "titulo": "Beneficiarios finales",
+            "instrucciones": "Personas naturales que, directa o indirectamente, son dueñas o controlan la empresa (Resolución DIAN 164 de 2021).",
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": null,
+            "depende_de_valor": null
+          },
+          {
+            "orden": 4,
+            "componente": "grupo_empresarial",
+            "titulo": "Empresas del grupo empresarial",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": "grupo_pertenece",
+            "depende_de_valor": "si"
+          }
+        ]
+      },
+      {
+        "id": 110,
+        "orden": 10,
+        "nombre": "Declaraciones",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 1021,
+            "orden": 10,
+            "codigo": "decl_parentesco_directivos",
+            "enunciado": "¿Algún empleado de la empresa tiene parentesco con directivos o colaboradores de la entidad que puedan influir en la contratación?",
+            "ayuda": "Incluya parentesco hasta cuarto grado de consanguinidad, segundo de afinidad y primero civil.",
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 1022,
+            "orden": 20,
+            "codigo": "decl_obligado_regulacion",
+            "enunciado": "¿La empresa está obligada a cumplir alguna regulación de prevención del lavado de activos, la financiación del terrorismo o el soborno?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 1023,
+            "orden": 30,
+            "codigo": "decl_tiene_sistema",
+            "enunciado": "¿La empresa tiene implementado un sistema o medidas para prevenir el lavado de activos, la financiación del terrorismo y el soborno?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 1024,
+            "orden": 40,
+            "codigo": "decl_veracidad",
+            "enunciado": "Declaro que la información de este formulario es veraz, completa y verificable, y me comprometo a actualizarla cuando cambie o al menos una vez al año.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 1025,
+            "orden": 50,
+            "codigo": "decl_tratamiento_datos",
+            "enunciado": "Autorizo el tratamiento de los datos personales de este formulario para el conocimiento de terceros y la prevención del lavado de activos, la financiación del terrorismo y la proliferación de armas de destrucción masiva, conforme a la Ley 1581 de 2012 y la política de tratamiento de datos de la entidad.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 1026,
+            "orden": 60,
+            "codigo": "decl_anticorrupcion",
+            "enunciado": "Declaro que no he ofrecido ni ofreceré pagos, dádivas o beneficios indebidos a trabajadores de la entidad, que no me encuentro en causales de inhabilidad o incompatibilidad para contratar con ella y que acataré sus políticas de prevención del soborno y la corrupción.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "parientes_directivos",
+            "titulo": "Parientes en la entidad",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": "decl_parentesco_directivos",
+            "depende_de_valor": "si"
+          }
+        ]
+      },
+      {
+        "id": 111,
+        "orden": 11,
+        "nombre": "Soportes y firma",
+        "descripcion": "Cargue los documentos y firme con el código que le enviaremos.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "soportes",
+            "titulo": "Documentos soporte",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          },
+          {
+            "orden": 2,
+            "componente": "firma",
+            "titulo": "Firma y envío",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Formulario de vinculación y actualización de persona natural",
+    "tipo_persona": "natural",
+    "version": 1,
+    "estado": "publicado",
+    "publicado_en": "2026-11-06 00:00:00",
+    "notas": "Versión inicial. Circular Externa 009 de 2016 de la Supersalud y sus modificaciones; Decreto 830 de 2021 (PEP); Resolución DIAN 164 de 2021 (beneficiario final).",
+    "modulos": [
+      {
+        "id": 201,
+        "orden": 1,
+        "nombre": "Datos personales",
+        "descripcion": "Sus datos personales, ubicación y actividad económica.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "datos_generales",
+            "titulo": "Datos personales",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      },
+      {
+        "id": 202,
+        "orden": 2,
+        "nombre": "Personas expuestas políticamente",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 2001,
+            "orden": 10,
+            "codigo": "pep_recursos_publicos",
+            "enunciado": "¿Maneja recursos públicos?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2002,
+            "orden": 20,
+            "codigo": "pep_reconocimiento",
+            "enunciado": "¿Goza de reconocimiento público?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2003,
+            "orden": 30,
+            "codigo": "pep_poder_publico",
+            "enunciado": "¿Ejerce algún grado de poder público?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2004,
+            "orden": 40,
+            "codigo": "pep_servidor_publico",
+            "enunciado": "¿Es servidor público?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2005,
+            "orden": 50,
+            "codigo": "pep_decreto_830",
+            "enunciado": "¿Está clasificado como Persona Expuesta Políticamente (PEP) según el Decreto 830 de 2021?",
+            "ayuda": "Son PEP, entre otros, los servidores públicos que ordenan gasto, contratan o dirigen proyectos de inversión; por ejemplo: presidente, ministros, congresistas, gobernadores, alcaldes, concejales y diputados.",
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2006,
+            "orden": 60,
+            "codigo": "pep_familiar",
+            "enunciado": "¿Es familiar o asociado cercano de una Persona Expuesta Políticamente?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          }
+        ],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "familiares_pep",
+            "titulo": "Sus familiares",
+            "instrucciones": "Relacione a su cónyuge o compañero permanente y a sus familiares hasta segundo grado de consanguinidad, segundo de afinidad y primero civil.",
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": "pep_decreto_830",
+            "depende_de_valor": "si"
+          }
+        ]
+      },
+      {
+        "id": 203,
+        "orden": 3,
+        "nombre": "Operaciones internacionales",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 2007,
+            "orden": 10,
+            "codigo": "opint_realiza",
+            "enunciado": "¿Usted realiza operaciones en moneda extranjera o con el exterior?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 2008,
+            "orden": 20,
+            "codigo": "opint_tipos",
+            "enunciado": "¿Qué tipo de operaciones realiza?",
+            "ayuda": null,
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": "opint_realiza",
+            "depende_de_valor": "si",
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "importaciones",
+                "etiqueta": "Importaciones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "exportaciones",
+                "etiqueta": "Exportaciones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "inversiones",
+                "etiqueta": "Inversiones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "prestamos",
+                "etiqueta": "Préstamos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "giros",
+                "etiqueta": "Giros",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "transferencias",
+                "etiqueta": "Transferencias",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "pago_servicios",
+                "etiqueta": "Pago de servicios",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "otro",
+                "etiqueta": "Otro",
+                "pide_detalle": 1,
+                "excluyente": 0
+              }
+            ]
+          },
+          {
+            "id": 2009,
+            "orden": 30,
+            "codigo": "opint_paises",
+            "enunciado": "¿Alguna de esas operaciones es con los siguientes países?",
+            "ayuda": "Jurisdicciones de mayor riesgo según el GAFI. La lista se actualiza después de cada plenaria del GAFI.",
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": "opint_realiza",
+            "depende_de_valor": "si",
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "ninguno",
+                "etiqueta": "Ninguno",
+                "pide_detalle": 0,
+                "excluyente": 1
+              },
+              {
+                "valor": "DZ",
+                "etiqueta": "Argelia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "AO",
+                "etiqueta": "Angola",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "BO",
+                "etiqueta": "Bolivia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "BG",
+                "etiqueta": "Bulgaria",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "CM",
+                "etiqueta": "Camerún",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "CI",
+                "etiqueta": "Costa de Marfil",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "KP",
+                "etiqueta": "Corea del Norte",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "HT",
+                "etiqueta": "Haití",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "IR",
+                "etiqueta": "Irán",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "VG",
+                "etiqueta": "Islas Vírgenes Británicas",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "KE",
+                "etiqueta": "Kenia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "LA",
+                "etiqueta": "Laos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "LB",
+                "etiqueta": "Líbano",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "MC",
+                "etiqueta": "Mónaco",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "MM",
+                "etiqueta": "Myanmar",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "NA",
+                "etiqueta": "Namibia",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "NP",
+                "etiqueta": "Nepal",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "PG",
+                "etiqueta": "Papúa Nueva Guinea",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "CD",
+                "etiqueta": "República Democrática del Congo",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "SY",
+                "etiqueta": "Siria",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "SS",
+                "etiqueta": "Sudán del Sur",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "VE",
+                "etiqueta": "Venezuela",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "VN",
+                "etiqueta": "Vietnam",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "YE",
+                "etiqueta": "Yemen",
+                "pide_detalle": 0,
+                "excluyente": 0
+              }
+            ]
+          },
+          {
+            "id": 2010,
+            "orden": 40,
+            "codigo": "opint_cuentas",
+            "enunciado": "¿Usted tiene cuentas o productos financieros en el exterior?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 2011,
+            "orden": 50,
+            "codigo": "opint_cuentas_detalle",
+            "enunciado": "Indique entidad, país y moneda de cada cuenta o producto",
+            "ayuda": null,
+            "tipo": "texto_largo",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": "opint_cuentas",
+            "depende_de_valor": "si",
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": []
+      },
+      {
+        "id": 204,
+        "orden": 4,
+        "nombre": "Activos virtuales",
+        "descripcion": "Los activos virtuales son representaciones digitales de valor que se pueden comercializar, transferir o usar como medio de pago o inversión, sin respaldo de una moneda de curso legal; por ejemplo, criptomonedas, tokens y monedas estables. Responda si realiza alguna de estas operaciones.",
+        "preguntas": [
+          {
+            "id": 2012,
+            "orden": 10,
+            "codigo": "av_fiat",
+            "enunciado": "¿Intercambia activos virtuales por dinero de curso legal (pesos, dólares u otras monedas)?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2013,
+            "orden": 20,
+            "codigo": "av_entre",
+            "enunciado": "¿Intercambia una forma de activo virtual por otra?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2014,
+            "orden": 30,
+            "codigo": "av_transferencias",
+            "enunciado": "¿Hace transferencias de activos virtuales?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2015,
+            "orden": 40,
+            "codigo": "av_custodia",
+            "enunciado": "¿Custodia o administra activos virtuales, o instrumentos que permitan controlarlos?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2016,
+            "orden": 50,
+            "codigo": "av_servicios_emisor",
+            "enunciado": "¿Participa o presta servicios financieros relacionados con la oferta de un emisor o la venta de un activo virtual?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2017,
+            "orden": 60,
+            "codigo": "av_otro_servicio",
+            "enunciado": "¿Ha prestado algún otro servicio relacionado con activos virtuales?",
+            "ayuda": null,
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          }
+        ],
+        "secciones": []
+      },
+      {
+        "id": 205,
+        "orden": 5,
+        "nombre": "Información financiera",
+        "descripcion": "Cifras de su último año, en pesos colombianos.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "financiero",
+            "titulo": "Información financiera",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      },
+      {
+        "id": 206,
+        "orden": 6,
+        "nombre": "Origen de fondos",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 2018,
+            "orden": 10,
+            "codigo": "origen_fondos",
+            "enunciado": "Sus bienes y recursos provienen de:",
+            "ayuda": null,
+            "tipo": "multiple",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": [
+              {
+                "valor": "salario",
+                "etiqueta": "Salario",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "honorarios",
+                "etiqueta": "Honorarios o actividades independientes",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "pension",
+                "etiqueta": "Pensión",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "inversiones",
+                "etiqueta": "Inversiones",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "rentas",
+                "etiqueta": "Rentas o arrendamientos",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "herencia",
+                "etiqueta": "Herencia o donación",
+                "pide_detalle": 0,
+                "excluyente": 0
+              },
+              {
+                "valor": "otro",
+                "etiqueta": "Otro",
+                "pide_detalle": 1,
+                "excluyente": 0
+              }
+            ]
+          },
+          {
+            "id": 2019,
+            "orden": 20,
+            "codigo": "origen_licito",
+            "enunciado": "Declaro que mis recursos provienen de actividades lícitas y que no se destinarán a la financiación del terrorismo ni de la proliferación de armas de destrucción masiva.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": []
+      },
+      {
+        "id": 207,
+        "orden": 7,
+        "nombre": "Declaraciones",
+        "descripcion": null,
+        "preguntas": [
+          {
+            "id": 2020,
+            "orden": 10,
+            "codigo": "decl_parentesco_directivos",
+            "enunciado": "¿Tiene parentesco con directivos o colaboradores de la entidad que puedan influir en su vinculación o contratación?",
+            "ayuda": "Incluya parentesco hasta cuarto grado de consanguinidad, segundo de afinidad y primero civil.",
+            "tipo": "si_no",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": "si",
+            "opciones": []
+          },
+          {
+            "id": 2021,
+            "orden": 20,
+            "codigo": "decl_veracidad",
+            "enunciado": "Declaro que la información de este formulario es veraz, completa y verificable, y me comprometo a actualizarla cuando cambie o al menos una vez al año.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 2022,
+            "orden": 30,
+            "codigo": "decl_tratamiento_datos",
+            "enunciado": "Autorizo el tratamiento de los datos personales de este formulario para el conocimiento de terceros y la prevención del lavado de activos, la financiación del terrorismo y la proliferación de armas de destrucción masiva, conforme a la Ley 1581 de 2012 y la política de tratamiento de datos de la entidad.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          },
+          {
+            "id": 2023,
+            "orden": 40,
+            "codigo": "decl_anticorrupcion",
+            "enunciado": "Declaro que no he ofrecido ni ofreceré pagos, dádivas o beneficios indebidos a trabajadores de la entidad, que no me encuentro en causales de inhabilidad o incompatibilidad para contratar con ella y que acataré sus políticas de prevención del soborno y la corrupción.",
+            "ayuda": null,
+            "tipo": "aceptacion",
+            "obligatoria": 1,
+            "relaciones": null,
+            "depende_de": null,
+            "depende_de_valor": null,
+            "alerta_si_valor": null,
+            "opciones": []
+          }
+        ],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "parientes_directivos",
+            "titulo": "Parientes en la entidad",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 1,
+            "depende_de": "decl_parentesco_directivos",
+            "depende_de_valor": "si"
+          }
+        ]
+      },
+      {
+        "id": 208,
+        "orden": 8,
+        "nombre": "Soportes y firma",
+        "descripcion": "Cargue los documentos y firme con el código que le enviaremos.",
+        "preguntas": [],
+        "secciones": [
+          {
+            "orden": 1,
+            "componente": "soportes",
+            "titulo": "Documentos soporte",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          },
+          {
+            "orden": 2,
+            "componente": "firma",
+            "titulo": "Firma y envío",
+            "instrucciones": null,
+            "obligatoria": 1,
+            "minimo_filas": 0,
+            "depende_de": null,
+            "depende_de_valor": null
+          }
+        ]
+      }
+    ]
+  }
+]

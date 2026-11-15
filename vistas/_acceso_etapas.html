@@ -1,0 +1,8 @@
+{# Indicador de etapas del acceso. La pagina define "etapa": 1, 2 o 3. #}
+{% set nombres = ["Identificación", "Registro", "Código"] %}
+<ol class="etapas" aria-label="Etapas del acceso">
+  {% for nombre in nombres %}
+  <li data-estado="{% if loop.index < etapa %}completo{% elif loop.index == etapa %}actual{% else %}pendiente{% endif %}"
+      {% if loop.index == etapa %}aria-current="step"{% endif %}>{{ nombre }}</li>
+  {% endfor %}
+</ol>

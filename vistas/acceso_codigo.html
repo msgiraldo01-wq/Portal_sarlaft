@@ -1,0 +1,47 @@
+{% extends "base_acceso.html" %}
+{% from "_iconos.html" import icono %}
+{#
+  acceso_codigo.html - Etapa 3 de 3: codigo de verificacion.
+  VISTA: cualquier codigo de 6 digitos lleva al formulario. Generar,
+  enviar y verificar el codigo es funcionalidad de un sprint posterior.
+#}
+{% set etapa = 3 %}
+{% block titulo %}Código de verificación{% endblock %}
+{% block subtitulo %}Acceso de terceros{% endblock %}
+{% block clase_tarjeta %}portada-tarjeta--ancha{% endblock %}
+
+{% block contenido %}
+<div class="acceso">
+  <header class="acceso-encabezado">
+    <h1>Conocimiento de terceros</h1>
+  </header>
+
+  {% include "_acceso_etapas.html" %}
+
+  <form class="pila" action="/formulario/{{ tipo }}/paso/1" method="get">
+    <div class="etapa-titulo">
+      <h2>Escriba el código</h2>
+      <p>Enviamos un código de 6 dígitos a <span class="maquina">co*****@empresa.co</span> y al celular terminado en <span class="maquina">7321</span>.</p>
+    </div>
+
+    <div class="campo">
+      <label for="c-codigo">Código de verificación</label>
+      <input id="c-codigo" class="control control--codigo" inputmode="numeric" autocomplete="one-time-code"
+             maxlength="6" pattern="[0-9]{6}" aria-describedby="c-codigo-ayuda" required autofocus>
+      <p id="c-codigo-ayuda" class="campo-ayuda">El código vence en 10 minutos.</p>
+    </div>
+
+    <button type="submit" class="boton boton--primario boton--ancho">Verificar e ingresar</button>
+
+    <div class="acciones acciones--extremos texto-chico">
+      <a class="enlace" href="/acceso">Usar otro documento</a>
+      <span class="texto-suave">Reenviar código en <span class="maquina">60 s</span></span>
+    </div>
+  </form>
+
+  <div class="nota nota--atencion no-imprimir">
+    {{ icono("info") }}
+    <p><strong>Vista de demostración.</strong> Cualquier código de 6 dígitos abre el formulario.</p>
+  </div>
+</div>
+{% endblock %}

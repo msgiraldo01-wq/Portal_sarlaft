@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_tablas.html" import tabla_formularios %}
+{#
+  bandeja.html - Lista de formularios de un grupo de estados.
+  La misma vista sirve para Pendientes, En revision y Aprobados.
+  Recibe: bandeja (titulo, detalle) y formularios.
+#}
+{% block titulo %}{{ bandeja.titulo }}{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>{{ bandeja.titulo }}</h1>
+    <p class="subtitulo-pagina">{{ bandeja.detalle }}</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton">{{ icono("descargar") }}Exportar a Excel</button>
+  </div>
+</header>
+
+<section class="marco" aria-label="{{ bandeja.titulo }}">
+  <form class="filtros no-imprimir" role="search" action="" method="get">
+    <label class="solo-lectores" for="filtro-texto">Filtrar por nombre, documento o radicado</label>
+    <span class="campo-icono">
+      {{ icono("buscar") }}
+      <input id="filtro-texto" class="control" type="search" placeholder="Nombre, documento o radicado">
+    </span>
+    <label class="solo-lectores" for="filtro-relacion">Relación</label>
+    <select id="filtro-relacion" class="control">
+      <option>Todas las relaciones</option><option>Proveedor</option><option>Cliente</option><option>Empleado</option><option>Accionista</option>
+    </select>
+    <label class="solo-lectores" for="filtro-listas">Resultado en listas</label>
+    <select id="filtro-listas" class="control">
+      <option>Cualquier resultado en listas</option><option>Con coincidencias</option><option>Sin coincidencias</option><option>Por consultar</option>
+    </select>
+  </form>
+  {{ tabla_formularios(formularios) }}
+  <div class="marco-pie">
+    <span>{{ formularios | length }} formulario{{ "s" if formularios | length != 1 }}</span>
+  </div>
+</section>
+{% endblock %}

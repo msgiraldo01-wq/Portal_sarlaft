@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_formulario, resultado_lista, nivel_riesgo, estado_alerta, severidad, si_no, RESULTADOS_LISTA %}
+{% from "_formulario_campos.html" import tabla_personas %}
+{#
+  revision.html - El equipo de cumplimiento revisa un formulario enviado.
+  Recibe: f (formulario con todo su detalle), cuestionario, alertas.
+  VISTA: Aprobar, Devolver y Rechazar abren su dialogo, pero no guardan.
+#}
+{% set LISTAS = ["representantes_suplentes", "familiares_pep", "accionistas", "junta_directiva",
+                 "beneficiarios_finales", "grupo_empresarial", "parientes_directivos"] %}
+{% set ROL = {
+  "representantes_suplentes": "representante_suplente", "familiares_pep": "familiar_pep",
+  "accionistas": "accionista", "junta_directiva": "junta_directiva", "beneficiarios_finales": "beneficiario_final",
+  "grupo_empresarial": "grupo_empresarial", "parientes_directivos": "pariente_directivo"
+} %}
+{% set dg = f.datos_generales %}
+{% set fin = f.financiero %}
+
+{% block titulo %}{{ f.radicado or "Borrador" }} · {{ f.tercero }}{% endblock %}
+
+{% block contenido %}
+<nav class="migas no-imprimir" aria-label="Ubicación">
+  <a href="/formularios/revision">Formularios</a> <span aria-hidden="true">/</span> <span>{{ f.radicado or "Borrador" }}</span>
+</nav>
+
+<header class="encabezado-pagina">
+  <div>
+    <h1>{{ f.tercero }}</h1>
+    <p class="subtitulo-pagina">
+      <span class="maquina">{{ f.documento }}</span> ·
+      {{ "Persona jurídica" if f.tipo_persona == "juridica" else "Persona natural" }} ·
+      {{ f.relaciones | join(", ") | capitalize }}
+    </p>
+  </div>
+  <div class="acciones no-imprimir">
+    {% if f.estado == "en_revision" %}
+    <button type="button" class="boton boton--peligro" data-abrir-dialogo="dlg-rechazar">Rechazar</button>
+    <button type="button" class="boton" data-abrir-dialogo="dlg-devolver">Devolver para corregir</button>
+    <button type="button" class="boton boton--primario" data-abrir-dialogo="dlg-aprobar">{{ icono("aprobado") }}Aprobar</button>
+    {% else %}
+    <button type="button" class="boton" onclick="window.print()">{{ icono("descargar") }}Imprimir</button>
+    {% endif %}
+  </div>
+</header>
+
+{% if f.observacion_revision %}
+<div class="nota nota--{{ 'ok' if f.estado == 'aprobado' else 'atencion' }}">
+  {{ icono("info") }}
+  <p><strong>{{ "Decisión" if f.estado in ["aprobado", "rechazado"] else "Devuelto al tercero" }}
+    ({{ f.revisor }}, <span class="maquina">{{ f.revisado_en | fecha }}</span>).</strong> {{ f.observacion_revision }}</p>
+</div>
+{% endif %}
+{% for a in alertas %}{% if a.estado in ["abierta", "en_analisis"] %}
+<div class="nota nota--peligro seccion">
+  {{ icono("alerta") }}
+  <p><strong>Alerta {{ a.estado | replace("_", " ") }}:</strong> {{ a.descripcion }}</p>
+  <div class="acciones no-imprimir"><a class="boton boton--chico" href="/diligencia/alertas/{{ a.id }}">Ver alerta</a></div>
+</div>
+{% endif %}{% endfor %}
+
+<div class="rejilla-lateral">
+  <div class="pila">
+
+    <nav class="pestanas no-imprimir" aria-label="Secciones del formulario">
+      <a href="#datos">Datos</a><a href="#personas">Personas</a><a href="#respuestas">Respuestas</a>
+      <a href="#soportes">Soportes</a><a href="#listas">Listas</a><a href="#historial">Historial</a>
+    </nav>
+
+    {# -------------------------------------------------- datos generales #}
+    <section class="marco" id="datos" aria-labelledby="t-datos">
+      <div class="marco-cabecera"><h2 id="t-datos">Datos generales</h2></div>
+      {% if dg %}
+      <dl class="definiciones marco-cuerpo">
+        {% if f.tipo_persona == "juridica" %}
+        <div><dt>Tipo de sociedad</dt><dd>{{ dg.forma_juridica | upper }}</dd></div>
+        <div><dt>Naturaleza</dt><dd>{{ dg.naturaleza | capitalize }}</dd></div>
+        {% else %}
+        <div><dt>Fecha de nacimiento</dt><dd class="maquina">{{ dg.fecha_nacimiento | fecha }}</dd></div>
+        <div><dt>Lugar de nacimiento</dt><dd>{{ dg.municipio_nacimiento_nombre }}</dd></div>
+        <div><dt>Ocupación</dt><dd>{{ dg.ocupacion }}</dd></div>
+        <div><dt>Empresa y cargo</dt><dd>{{ dg.empresa_donde_trabaja }} · {{ dg.cargo }}</dd></div>
+        {% endif %}
+        <div class="definiciones-ancho"><dt>Actividad económica</dt><dd><span class="maquina">{{ dg.actividad_ciiu }}</span> {{ dg.actividad }}</dd></div>
+        <div><dt>Ubicación</dt><dd>{{ dg.municipio_nombre or dg.ciudad_exterior }}, {{ dg.pais_nombre }}</dd></div>
+        <div><dt>Dirección</dt><dd>{{ dg.direccion }}</dd></div>
+        <div><dt>Teléfono</dt><dd class="maquina">{{ dg.telefono }}</dd></div>
+      </dl>
+      {% else %}
+      <div class="vacio vacio--compacto"><p>El tercero aún no ha diligenciado este paso.</p></div>
+      {% endif %}
+    </section>
+
+    {# --------------------------------------------- informacion financiera #}
+    <section class="marco" aria-labelledby="t-financiero">
+      <div class="marco-cabecera">
+        <h2 id="t-financiero">Información financiera</h2>
+        {% if fin %}<span class="marco-detalle">Corte <span class="maquina">{{ fin.fecha_corte | fecha }}</span></span>{% endif %}
+      </div>
+      {% if fin %}
+      <dl class="definiciones definiciones--cifras marco-cuerpo">
+        <div><dt>Activos</dt><dd>{{ fin.activos | moneda }}</dd></div>
+        <div><dt>Pasivos</dt><dd>{{ fin.pasivos | moneda }}</dd></div>
+        <div><dt>Patrimonio</dt><dd>{{ fin.patrimonio | moneda }}</dd></div>
+        <div><dt>Ingresos anuales</dt><dd>{{ fin.ingresos_anuales | moneda }}</dd></div>
+        <div><dt>Egresos anuales</dt><dd>{{ fin.egresos_anuales | moneda }}</dd></div>
+        <div><dt>Otros ingresos</dt><dd>{{ fin.otros_ingresos | moneda }}{% if fin.concepto_otros_ingresos %}<span class="texto-suave texto-chico"> · {{ fin.concepto_otros_ingresos }}</span>{% endif %}</dd></div>
+      </dl>
+      {% else %}
+      <div class="vacio vacio--compacto"><p>El tercero aún no ha diligenciado este paso.</p></div>
+      {% endif %}
+    </section>
+
+    {# ----------------------------------------------------------- personas #}
+    <section class="marco" id="personas" aria-labelledby="t-personas">
+      <div class="marco-cabecera"><h2 id="t-personas">Personas vinculadas</h2></div>
+      <div class="marco-cuerpo pila">
+        {% for p in f.personas %}{% if p.rol in ["firmante", "representante_principal"] %}
+        <div class="persona-destacada">
+          <span class="etiqueta-dato">{{ "Firmante" if p.rol == "firmante" else "Representante legal principal" }}</span>
+          <strong>{{ p.nombre_completo }}</strong>
+          <span class="texto-suave texto-chico"><span class="maquina">{{ p.tipo_documento }} {{ p.numero_documento }}</span>
+            {% if p.correo %} · {{ p.correo }}{% endif %}{% if p.ocupacion %} · {{ p.ocupacion }}{% endif %}{% if p.municipio_residencia %} · {{ p.municipio_residencia }}{% endif %}</span>
+        </div>
+        {% endif %}{% endfor %}
+
+        {% for m in cuestionario.modulos %}{% for s in m.secciones %}{% if s.componente in LISTAS %}
+        {% set filas = f.personas | donde("rol", ROL[s.componente]) %}
+        {# Una seccion condicionada ("solo si respondio Si") se muestra solo si tiene filas #}
+        {% if filas | length or (s.obligatoria and not s.depende_de) %}
+        <div class="pila pila--chica">
+          <h3>{{ s.titulo }}</h3>
+          {{ tabla_personas(s.componente, filas, false) }}
+        </div>
+        {% endif %}
+        {% endif %}{% endfor %}{% endfor %}
+      </div>
+    </section>
+
+    {# --------------------------------------------------------- respuestas #}
+    <section class="marco" id="respuestas" aria-labelledby="t-respuestas">
+      <div class="marco-cabecera"><h2 id="t-respuestas">Respuestas</h2></div>
+      {% for m in cuestionario.modulos %}{% if m.preguntas | length %}
+      <div class="bloque-respuestas">
+        <h3>{{ m.orden }}. {{ m.nombre }}</h3>
+        <dl class="respuestas">
+          {% for p in m.preguntas %}
+          {% set r = f.respuestas[p.codigo] %}
+          <div{% if r and p.alerta_si_valor == "si" and r.booleano === true %} class="respuesta-alerta"{% endif %}>
+            <dt>{{ p.enunciado }}</dt>
+            <dd>
+              {% if not r %}<span class="texto-suave">{{ "No aplica" if p.depende_de else "Sin responder" }}</span>
+              {% elif p.tipo == "aceptacion" %}{{ "Aceptada" if r.booleano else "No aceptada" }}
+              {% elif p.tipo == "si_no" %}<strong>{{ si_no(r.booleano) }}</strong>
+              {% elif r.opciones | length %}{{ r.opciones | join(" · ") }}
+              {% else %}{{ r.texto or r.numero or (r.fecha | fecha) }}{% endif %}
+            </dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </div>
+      {% endif %}{% endfor %}
+    </section>
+
+    {# ----------------------------------------------------------- soportes #}
+    <section class="marco" id="soportes" aria-labelledby="t-soportes">
+      <div class="marco-cabecera"><h2 id="t-soportes">Soportes</h2></div>
+      <div class="tabla-envoltura">
+        <table class="tabla">
+          <thead><tr><th scope="col">Documento</th><th scope="col">Archivo</th><th scope="col">Expedición</th><th scope="col">Estado</th><th scope="col"><span class="solo-lectores">Ver</span></th></tr></thead>
+          <tbody>
+            {% for s in f.soportes %}
+            <tr>
+              <td>{{ s.tipo }}</td>
+              <td><span class="maquina">{{ s.nombre_original }}</span> <span class="texto-suave texto-chico">{{ s.tamano_bytes | tamano }}</span></td>
+              <td class="sin-salto"><span class="maquina">{{ s.fecha_expedicion | fecha }}</span></td>
+              <td>
+                <span class="pastilla{{ ' pastilla--ok' if s.estado == 'aceptado' else (' pastilla--peligro' if s.estado == 'rechazado' else '') }}">{{ s.estado | capitalize }}</span>
+                {% if s.observacion %}<span class="texto-suave texto-chico">{{ s.observacion }}</span>{% endif %}
+              </td>
+              <td class="celda-acciones"><button type="button" class="boton boton--plano boton--icono boton--chico" aria-label="Ver {{ s.tipo }}">{{ icono("ojo") }}</button></td>
+            </tr>
+            {% else %}
+            <tr class="fila-vacia"><td colspan="5"><div class="vacio vacio--compacto"><p>Sin soportes cargados.</p></div></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {# ------------------------------------------------- listas restrictivas #}
+    <section class="marco" id="listas" aria-labelledby="t-listas">
+      <div class="marco-cabecera">
+        <h2 id="t-listas">Consultas en listas restrictivas</h2>
+        <span class="marco-detalle">{{ consultas | length }} consultas</span>
+      </div>
+      <div class="tabla-envoltura">
+        <table class="tabla">
+          <thead><tr><th scope="col">Persona consultada</th><th scope="col">Documento</th><th scope="col">Lista</th><th scope="col">Resultado</th></tr></thead>
+          <tbody>
+            {% for c in consultas %}{% if c.resultado != "sin_coincidencia" or c.lista == "ONU" %}
+            <tr>
+              <td>{{ c.nombre_consultado }}</td>
+              <td class="sin-salto"><span class="maquina">{{ c.documento_consultado }}</span></td>
+              <td>{{ c.lista }}</td>
+              <td>{{ resultado_lista(c.resultado) }}{% if c.detalle %}<div class="texto-suave texto-chico">{{ c.detalle }}</div>{% endif %}</td>
+            </tr>
+            {% endif %}{% else %}
+            <tr class="fila-vacia"><td colspan="4"><div class="vacio vacio--compacto"><p>Se consulta automáticamente al enviar el formulario.</p></div></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if consultas | length %}<div class="marco-pie"><span>Se muestran las coincidencias y la lista ONU (vinculante). El detalle completo está en Listas restrictivas.</span></div>{% endif %}
+    </section>
+
+    {# ---------------------------------------------------------- historial #}
+    <section class="marco" id="historial" aria-labelledby="t-historial">
+      <div class="marco-cabecera"><h2 id="t-historial">Historial</h2></div>
+      <ol class="linea-tiempo marco-cuerpo">
+        {% for h in f.historial | reverse %}
+        <li>
+          <span class="maquina texto-suave texto-chico">{{ h.ocurrido_en | fecha }}</span>
+          <span>{{ h.usuario or "El tercero" }} → {{ estado_formulario(h.estado_nuevo) }}</span>
+          {% if h.observacion %}<span class="texto-suave texto-chico">{{ h.observacion }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+  </div>
+
+  {# ------------------------------------------------------------ lateral #}
+  <aside class="pila">
+    <section class="marco" aria-labelledby="t-resumen">
+      <div class="marco-cabecera"><h2 id="t-resumen">Resumen</h2>{{ estado_formulario(f.estado) }}</div>
+      <dl class="definiciones definiciones--una marco-cuerpo">
+        <div><dt>Radicado</dt><dd class="maquina">{{ f.radicado or "Sin enviar" }}</dd></div>
+        <div><dt>Periodo</dt><dd>{{ f.periodo }} · {{ f.tipo | capitalize }}</dd></div>
+        <div><dt>Enviado</dt><dd class="maquina">{{ (f.enviado_en | fecha) or "—" }}</dd></div>
+        <div><dt>Avance</dt><dd>{{ f.modulos_completos }} de {{ f.modulos_total }} pasos ({{ f.porcentaje }} %)</dd></div>
+        <div><dt>Listas restrictivas</dt><dd>{{ resultado_lista(f.listas) }}</dd></div>
+        <div><dt>Nivel de riesgo</dt><dd>{{ nivel_riesgo(f.nivel_riesgo) }}</dd></div>
+        {% if f.vence_en %}<div><dt>Vence</dt><dd class="maquina">{{ f.vence_en | fecha }}</dd></div>{% endif %}
+      </dl>
+      <div class="marco-pie"><a href="/terceros/ficha/{{ f.tercero_id }}">Ver ficha del tercero</a></div>
+    </section>
+
+    <section class="marco" aria-labelledby="t-pasos">
+      <div class="marco-cabecera"><h2 id="t-pasos">Pasos</h2></div>
+      <ol class="lista-pasos lista-pasos--compacta">
+        {% for m in f.modulos %}
+        <li>
+          <span class="paso-marca paso-marca--{{ m.estado }}" aria-hidden="true">{% if m.estado == "completo" %}{{ icono("check") }}{% elif m.estado == "con_error" %}!{% else %}{{ m.orden }}{% endif %}</span>
+          <span class="lista-pasos-nombre">{{ m.nombre }}</span>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+  </aside>
+</div>
+
+{# -------------------------------------------- dialogos de decision #}
+{% for d in [
+  ["aprobar", "Aprobar formulario", "El tercero queda vinculado. Deberá actualizar su información en 12 meses.", "Observación (opcional)", "boton--primario", "Aprobar"],
+  ["devolver", "Devolver para corregir", "El tercero recibe un correo con lo que debe corregir y el formulario vuelve a quedar editable.", "Qué debe corregir", "boton--primario", "Devolver"],
+  ["rechazar", "Rechazar formulario", "El rechazo es definitivo para este periodo. Indique el motivo.", "Motivo del rechazo", "boton--peligro", "Rechazar"]
+] %}
+<dialog id="dlg-{{ d[0] }}" class="dialogo" aria-labelledby="dlg-{{ d[0] }}-titulo">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="dlg-{{ d[0] }}-titulo">{{ d[1] }}</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <p>{{ d[2] }}</p>
+      <div class="campo">
+        <label for="dlg-{{ d[0] }}-obs">{{ d[3] }}</label>
+        <textarea id="dlg-{{ d[0] }}-obs" class="control"{% if d[0] != "aprobar" %} required{% endif %}></textarea>
+      </div>
+      {% if d[0] == "aprobar" %}
+      <div class="campo seccion">
+        <label for="dlg-aprobar-riesgo">Nivel de riesgo</label>
+        <select id="dlg-aprobar-riesgo" class="control"><option>Bajo</option><option>Medio</option><option>Alto</option></select>
+      </div>
+      {% endif %}
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton {{ d[4] }}">{{ d[5] }}</button>
+    </div>
+  </form>
+</dialog>
+{% endfor %}
+{% endblock %}

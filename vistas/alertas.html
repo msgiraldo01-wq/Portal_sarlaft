@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_alerta, severidad, ORIGENES_ALERTA %}
+{#
+  alertas.html - Senales de alerta y su estado de analisis.
+  Informacion reservada: el tercero nunca ve esta pantalla.
+  Recibe: alertas.
+#}
+{% block titulo %}Alertas{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Alertas</h1>
+    <p class="subtitulo-pagina">Señales de alerta para analizar. Información reservada: el tercero no las ve.</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton">{{ icono("mas") }}Registrar alerta manual</button>
+  </div>
+</header>
+
+<section class="marco" aria-label="Alertas">
+  <div class="filtros no-imprimir">
+    <select class="control" aria-label="Estado"><option>Abiertas y en análisis</option><option>Todas</option><option>Descartadas</option><option>Reportadas a la UIAF</option></select>
+    <select class="control" aria-label="Severidad"><option>Cualquier severidad</option><option>Alta</option><option>Media</option><option>Baja</option></select>
+  </div>
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead><tr><th scope="col">Tercero</th><th scope="col">Origen</th><th scope="col">Descripción</th><th scope="col">Severidad</th><th scope="col">Estado</th><th scope="col">Asignada a</th><th scope="col">Creada</th><th scope="col"><span class="solo-lectores">Abrir</span></th></tr></thead>
+      <tbody>
+        {% for a in alertas %}
+        <tr>
+          <td class="recortar"><a href="/diligencia/alertas/{{ a.id }}" title="{{ a.tercero }}">{{ a.tercero }}</a></td>
+          <td>{{ ORIGENES_ALERTA[a.origen] }}</td>
+          <td class="recortar recortar--ancho" title="{{ a.descripcion }}">{{ a.descripcion }}</td>
+          <td>{{ severidad(a.severidad) }}</td>
+          <td>{{ estado_alerta(a.estado) }}</td>
+          <td>{{ a.asignada_a }}</td>
+          <td class="sin-salto"><span class="maquina">{{ a.creada_en | fecha }}</span></td>
+          <td class="celda-acciones"><a class="boton boton--plano boton--icono boton--chico" href="/diligencia/alertas/{{ a.id }}" aria-label="Abrir alerta de {{ a.tercero }}">{{ icono("derecha") }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

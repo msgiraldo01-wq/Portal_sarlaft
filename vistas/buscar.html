@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import nivel_riesgo %}
+{# buscar.html - Resultados del buscador del menu. Recibe: busqueda, terceros. #}
+{% block titulo %}Buscar{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Buscar terceros</h1>
+    {% if busqueda %}<p class="subtitulo-pagina">{{ terceros | length }} resultado{{ "s" if terceros | length != 1 }} para «{{ busqueda }}»</p>{% endif %}
+  </div>
+</header>
+
+<section class="marco">
+  {% if terceros | length %}
+  <div class="tabla-envoltura">
+    <table class="tabla">
+      <thead><tr><th scope="col">Tercero</th><th scope="col">Documento</th><th scope="col">Relación</th><th scope="col">Riesgo</th></tr></thead>
+      <tbody>
+        {% for t in terceros %}
+        <tr>
+          <td><a href="/terceros/ficha/{{ t.id }}">{{ t.nombre }}</a></td>
+          <td class="sin-salto"><span class="maquina">{{ t.documento }}</span></td>
+          <td>{{ t.relaciones | join(", ") | capitalize }}</td>
+          <td>{{ nivel_riesgo(t.nivel_riesgo) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="vacio">
+    <span class="vacio-icono">{{ icono("buscar", "icono--20") }}</span>
+    <h3>{{ "Sin resultados" if busqueda else "Escriba un nombre o un documento" }}</h3>
+    <p>Use el buscador del menú: busca por nombre, razón social o número de documento.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

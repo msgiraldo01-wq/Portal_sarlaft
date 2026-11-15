@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import estado_alerta, severidad %}
+{% from "_tablas.html" import tabla_formularios %}
+{#
+  inicio.html - Tablero del equipo de cumplimiento: lo que hay que atender hoy.
+  Recibe: resumen, recientes, alertas, vencimientos.
+#}
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Inicio</h1>
+    <p class="subtitulo-pagina">Vinculación y actualización de terceros</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton boton--primario" data-abrir-dialogo="dialogo-invitar">{{ icono("enviar") }}Invitar tercero</button>
+  </div>
+</header>
+
+<section class="marco resumen" aria-label="Resumen">
+  <a class="resumen-item" href="/formularios/pendientes">
+    <span class="resumen-etiqueta">Pendientes de envío</span>
+    <span class="resumen-valor">{{ resumen.pendientes }}</span>
+    <span class="pastilla pastilla--atencion">Borradores y devueltos</span>
+  </a>
+  <a class="resumen-item" href="/formularios/revision">
+    <span class="resumen-etiqueta">En revisión</span>
+    <span class="resumen-valor">{{ resumen.revision }}</span>
+    <span class="pastilla pastilla--info">Esperan al equipo</span>
+  </a>
+  <a class="resumen-item" href="/formularios/aprobados">
+    <span class="resumen-etiqueta">Aprobados</span>
+    <span class="resumen-valor">{{ resumen.aprobados }}</span>
+    <span class="pastilla pastilla--ok">Vigentes</span>
+  </a>
+  <a class="resumen-item" href="/reportes#vencimientos">
+    <span class="resumen-etiqueta">Actualizaciones vencidas</span>
+    <span class="resumen-valor">{{ resumen.vencidos }}</span>
+    <span class="pastilla pastilla--peligro">Deben actualizar</span>
+  </a>
+</section>
+
+{% for v in vencimientos %}
+<div class="nota nota--{{ 'peligro' if v.situacion == 'vencido' else 'atencion' }} seccion">
+  {{ icono("alerta") }}
+  <p><strong>{{ v.tercero }}</strong> {{ "tiene la actualización vencida desde el" if v.situacion == "vencido" else "debe actualizar antes del" }}
+    <span class="maquina">{{ v.vence_en | fecha }}</span>.</p>
+  <div class="acciones no-imprimir"><a class="boton boton--chico" href="/terceros/ficha/{{ v.tercero_id }}">Ver tercero</a></div>
+</div>
+{% endfor %}
+
+<div class="rejilla-lateral">
+  <section class="marco" aria-labelledby="titulo-recientes">
+    <div class="marco-cabecera">
+      <h2 id="titulo-recientes">Formularios recientes</h2>
+      <span class="marco-detalle">Ordenados por última actualización</span>
+    </div>
+    {{ tabla_formularios(recientes) }}
+    <div class="marco-pie">
+      <span>Los {{ recientes | length }} más recientes</span>
+      <a class="boton boton--chico no-imprimir" href="/formularios/revision">Ir a la bandeja</a>
+    </div>
+  </section>
+
+  <section class="marco" aria-labelledby="titulo-alertas">
+    <div class="marco-cabecera">
+      <h2 id="titulo-alertas">Alertas por atender</h2>
+      <a class="marco-detalle" href="/diligencia/alertas">Ver todas</a>
+    </div>
+    {% if alertas | length %}
+    <ul class="lista-tarjetas">
+      {% for a in alertas %}
+      <li>
+        <a href="/diligencia/alertas/{{ a.id }}">
+          <span class="lista-tarjetas-titulo">{{ a.tercero }}</span>
+          <span class="texto-suave texto-chico">{{ a.descripcion }}</span>
+          <span class="acciones">{{ severidad(a.severidad) }}{{ estado_alerta(a.estado) }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="vacio vacio--compacto">
+      <span class="vacio-icono">{{ icono("bandeja", "icono--20") }}</span>
+      <h3>No hay alertas pendientes</h3>
+    </div>
+    {% endif %}
+  </section>
+</div>
+
+{# Dialogo para invitar a un tercero. VISTA: "Enviar" solo cierra la ventana. #}
+<dialog id="dialogo-invitar" class="dialogo" aria-labelledby="titulo-invitar">
+  <form method="dialog">
+    <div class="dialogo-cabecera">
+      <h2 id="titulo-invitar">Invitar tercero</h2>
+      <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+    </div>
+    <div class="dialogo-cuerpo">
+      <p>El tercero recibe un enlace para diligenciar su formulario. El enlace vence en 15 días.</p>
+      <div class="formulario-rejilla">
+        <div class="campo">
+          <label for="i-relacion">Relación<span class="obligatorio" aria-hidden="true">*</span></label>
+          <select id="i-relacion" class="control" required>
+            <option value="">Seleccione</option>
+            <option>Proveedor</option><option>Cliente</option><option>Empleado</option><option>Accionista</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="i-documento">NIT o cédula<span class="obligatorio" aria-hidden="true">*</span></label>
+          <input id="i-documento" class="control maquina" inputmode="numeric" pattern="[0-9]{5,12}" required>
+        </div>
+        <div class="campo campo--ancho">
+          <label for="i-correo">Correo<span class="obligatorio" aria-hidden="true">*</span></label>
+          <input id="i-correo" class="control" type="email" placeholder="nombre@empresa.com" required>
+        </div>
+      </div>
+    </div>
+    <div class="dialogo-pie">
+      <button type="button" class="boton" data-cerrar-dialogo>Cancelar</button>
+      <button type="submit" class="boton boton--primario">{{ icono("enviar") }}Enviar invitación</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

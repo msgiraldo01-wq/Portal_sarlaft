@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_componentes.html" import ESTADOS_FORMULARIO, NIVELES_RIESGO, RESULTADOS_LISTA %}
+{#
+  reportes.html - Indicadores para el oficial de cumplimiento y para los
+  informes a la junta directiva. Recibe: conteos por estado, riesgo y
+  resultado de listas, y los vencimientos.
+  Las barras son solo CSS: el ancho es el porcentaje del total.
+#}
+{% macro barras(titulo, conteo, nombres, total) %}
+<section class="marco" aria-label="{{ titulo }}">
+  <div class="marco-cabecera"><h2>{{ titulo }}</h2><span class="marco-detalle">Total {{ total }}</span></div>
+  <ul class="barras marco-cuerpo">
+    {% for clave, par in nombres %}
+    {% set n = conteo[clave] or 0 %}
+    <li>
+      <span class="barras-etiqueta">{{ par[0] }}</span>
+      <span class="barras-pista"><span class="barras-valor barras-valor--{{ par[1] or 'neutro' }}" style="width: {{ (n / total * 100) | round(1) if total else 0 }}%"></span></span>
+      <span class="barras-numero maquina">{{ n }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endmacro %}
+
+{% block titulo %}Reportes{% endblock %}
+
+{% block contenido %}
+<header class="encabezado-pagina">
+  <div>
+    <h1>Reportes</h1>
+    <p class="subtitulo-pagina">Estado del conocimiento de terceros</p>
+  </div>
+  <div class="acciones no-imprimir">
+    <button type="button" class="boton" onclick="window.print()">{{ icono("descargar") }}Imprimir</button>
+    <button type="button" class="boton boton--primario">{{ icono("descargar") }}Exportar a Excel</button>
+  </div>
+</header>
+
+<div class="rejilla-2">
+  {{ barras("Formularios por estado", porEstado, ESTADOS_FORMULARIO, total) }}
+  {{ barras("Terceros por nivel de riesgo", porRiesgo, NIVELES_RIESGO, totalTerceros) }}
+  {{ barras("Consultas en listas por resultado", porResultado, RESULTADOS_LISTA, totalConsultas) }}
+
+  <section class="marco" id="vencimientos" aria-labelledby="t-venc">
+    <div class="marco-cabecera"><h2 id="t-venc">Vencimientos de actualización</h2></div>
+    <div class="tabla-envoltura">
+      <table class="tabla">
+        <thead><tr><th scope="col">Tercero</th><th scope="col">Vence</th><th scope="col" class="num">Días</th><th scope="col">Situación</th></tr></thead>
+        <tbody>
+          {% for v in vencimientos %}
+          <tr>
+            <td class="recortar"><a href="/terceros/ficha/{{ v.tercero_id }}" title="{{ v.tercero }}">{{ v.tercero }}</a></td>
+            <td class="sin-salto maquina">{{ v.vence_en | fecha }}</td>
+            <td class="num maquina">{{ v.dias_restantes }}</td>
+            <td><span class="pastilla pastilla--{{ 'peligro' if v.situacion == 'vencido' else ('atencion' if v.situacion == 'por_vencer' else 'ok') }}">{{ v.situacion | replace("_", " ") | capitalize }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+{% endblock %}

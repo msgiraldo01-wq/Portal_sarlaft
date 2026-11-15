@@ -1,0 +1,160 @@
+{% extends "base_publico.html" %}
+{% from "_iconos.html" import icono %}
+{% from "_formulario_campos.html" import pregunta, seccion_datos, seccion_personas, seccion_soportes, seccion_firma %}
+{#
+  formulario_paso.html - Un paso (modulo) del formulario SARLAFT.
+  La MISMA plantilla dibuja los 11 pasos de persona juridica y los 8 de
+  persona natural: lee las preguntas y secciones del cuestionario que
+  esta en la base (tablas modulos, preguntas, modulo_secciones).
+
+  Recibe de la ruta:
+    tipo            "juridica" o "natural"
+    cuestionario    el cuestionario con sus modulos
+    modulo          el paso que se muestra
+    n               numero del paso (1, 2, ...)
+    pasos           todos los pasos con su estado (completo, actual, pendiente)
+    personas        personas de ejemplo por seccion
+    tipos_soporte   documentos que aplican a este tipo de persona
+
+  VISTA: "Siguiente" y "Anterior" solo navegan; nada se guarda todavia.
+#}
+{% set total = pasos | length %}
+{% set FIJAS = ["firmante", "datos_generales", "representante_principal", "financiero"] %}
+{% set LISTAS = ["representantes_suplentes", "familiares_pep", "accionistas", "junta_directiva",
+                 "beneficiarios_finales", "grupo_empresarial", "parientes_directivos"] %}
+{% set base_url = "/formulario/" + tipo + "/paso/" %}
+
+{% block titulo %}{{ modulo.nombre }}{% endblock %}
+{% block subtitulo %}{{ "Persona jurídica" if tipo == "juridica" else "Persona natural" }}{% endblock %}
+
+{% block cabeza %}
+{# Reglas que ocultan lo que depende de otra respuesta, mientras esa respuesta no este marcada #}
+<style>
+{% for p in modulo.preguntas %}{% if p.depende_de %}
+  .paso-cuerpo:not(:has([name="p_{{ p.depende_de }}"][value="{{ p.depende_de_valor }}"]:checked)) [data-depende="{{ p.depende_de }}={{ p.depende_de_valor }}"] { display: none; }
+{% endif %}{% endfor %}
+{% for s in modulo.secciones %}{% if s.depende_de %}
+  .paso-cuerpo:not(:has([name="p_{{ s.depende_de }}"][value="{{ s.depende_de_valor }}"]:checked)) [data-depende="{{ s.depende_de }}={{ s.depende_de_valor }}"] { display: none; }
+{% endif %}{% endfor %}
+</style>
+{% endblock %}
+
+{% block acciones_cabecera %}
+<button type="button" class="boton boton--plano" data-abrir-dialogo="dialogo-ayuda">{{ icono("interrogacion") }}<span>Ayuda</span></button>
+{% endblock %}
+
+{% block contenido %}
+<div class="flujo">
+
+  {# ------------------------------------------------------------- pasos #}
+  <aside class="flujo-pasos no-imprimir">
+    <details class="pasos-plegable marco">
+      <summary>
+        <span class="resumen-pasos">
+          <span class="texto-suave texto-chico">Paso {{ n }} de {{ total }}</span>
+          <strong>{{ modulo.nombre }}</strong>
+        </span>
+        {{ icono("abajo", "grupo-flecha") }}
+      </summary>
+      <div class="pasos-cuerpo">
+        <div class="pasos-progreso">
+          <span>{{ n - 1 }} de {{ total }} pasos completos</span>
+          <span class="barra-progreso" role="progressbar" aria-label="Avance del formulario"
+                aria-valuemin="0" aria-valuemax="{{ total }}" aria-valuenow="{{ n - 1 }}">
+            <span style="width: {{ ((n - 1) / total * 100) | round(1) }}%"></span>
+          </span>
+        </div>
+        <ol class="pasos" aria-label="Pasos del formulario">
+          {% for paso in pasos %}
+          <li class="paso" data-estado="{{ paso.estado }}">
+            <a href="{{ base_url }}{{ loop.index }}"{% if paso.estado == "actual" %} aria-current="step"{% endif %}>
+              <span class="paso-marca" aria-hidden="true">{% if paso.estado == "completo" %}{{ icono("check") }}{% else %}{{ loop.index }}{% endif %}</span>
+              <span>{{ paso.nombre }}{% if paso.estado == "completo" %}<span class="solo-lectores">, completo</span>{% endif %}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </details>
+  </aside>
+
+  {# --------------------------------------------------------- contenido #}
+  <section class="marco" aria-labelledby="titulo-paso">
+    <header class="paso-encabezado">
+      <p class="paso-contador">Paso {{ n }} de {{ total }}</p>
+      <h1 id="titulo-paso">{{ modulo.nombre }}</h1>
+      {% if modulo.descripcion %}<p>{{ modulo.descripcion }}</p>{% endif %}
+    </header>
+
+    <div class="paso-cuerpo">
+      {% if n == 1 %}
+      <div class="nota nota--info">
+        {{ icono("info") }}
+        <p>Su avance se guarda como borrador cada vez que cambia de paso. Puede cerrar esta página y continuar después con el mismo documento.</p>
+      </div>
+      {% endif %}
+
+      {# 1. Bloques de campos fijos #}
+      {% for s in modulo.secciones %}{% if s.componente in FIJAS %}
+        {{ seccion_datos(s, tipo, catalogos) }}
+      {% endif %}{% endfor %}
+
+      {# 2. Preguntas parametrizables #}
+      {% if modulo.preguntas | length %}
+      <div class="preguntas">
+        {% for p in modulo.preguntas %}{{ pregunta(p) }}{% endfor %}
+      </div>
+      {% endif %}
+
+      {# 3. Listas de personas #}
+      {% for s in modulo.secciones %}{% if s.componente in LISTAS %}
+        {{ seccion_personas(s, personas[s.componente] or [], catalogos) }}
+      {% endif %}{% endfor %}
+
+      {# 4. Soportes y firma #}
+      {% for s in modulo.secciones %}
+        {% if s.componente == "soportes" %}{{ seccion_soportes(s, tipos_soporte) }}{% endif %}
+        {% if s.componente == "firma" %}{{ seccion_firma(s, pasos) }}{% endif %}
+      {% endfor %}
+
+      <datalist id="lista-municipios">
+        {% for m in catalogos.municipios %}<option value="{{ m.nombre }} ({{ m.departamento }})">{% endfor %}
+      </datalist>
+      <datalist id="lista-ciiu">
+        {% for c in catalogos.actividades_ciiu %}<option value="{{ c.codigo }} {{ c.descripcion }}">{% endfor %}
+      </datalist>
+    </div>
+
+    <footer class="barra-paso no-imprimir">
+      {% if n > 1 %}
+      <a class="boton" href="{{ base_url }}{{ n - 1 }}">{{ icono("izquierda") }}<span class="ocultar-en-movil">Anterior</span></a>
+      {% endif %}
+      <span class="estado-guardado">{{ icono("aprobado") }}Borrador guardado a las <span class="maquina">10:42</span></span>
+      <div class="acciones">
+        <button type="button" class="boton boton--suave">Guardar borrador</button>
+        {% if n < total %}
+        <a class="boton boton--primario" href="{{ base_url }}{{ n + 1 }}">Siguiente{{ icono("derecha") }}</a>
+        {% else %}
+        <a class="boton boton--primario" href="/formulario/enviado">{{ icono("enviar") }}Firmar y enviar</a>
+        {% endif %}
+      </div>
+    </footer>
+  </section>
+</div>
+
+<dialog id="dialogo-ayuda" class="dialogo" aria-labelledby="titulo-ayuda">
+  <div class="dialogo-cabecera">
+    <h2 id="titulo-ayuda">Cómo diligenciar el formulario</h2>
+    <button type="button" class="boton boton--plano boton--icono" data-cerrar-dialogo aria-label="Cerrar">{{ icono("cerrar") }}</button>
+  </div>
+  <div class="dialogo-cuerpo pila">
+    <p>El formulario tiene {{ total }} pasos. Puede llenarlos en cualquier orden y volver a los anteriores.</p>
+    <div class="nota">{{ icono("guardar") }}<p><strong>Borrador.</strong> Su avance se guarda al cambiar de paso. Un borrador no cuenta como enviado.</p></div>
+    <div class="nota">{{ icono("adjunto") }}<p><strong>Soportes.</strong> Los documentos se cargan en PDF en el último paso.</p></div>
+    <div class="nota">{{ icono("enviar") }}<p><strong>Envío.</strong> El formulario queda enviado cuando lo firma con el código que llega a su celular.</p></div>
+  </div>
+  <div class="dialogo-pie">
+    <button type="button" class="boton boton--primario" data-cerrar-dialogo>Entendido</button>
+  </div>
+</dialog>
+{% endblock %}

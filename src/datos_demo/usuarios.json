@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "usuario": "admin.sistemas",
+    "nombre": "Administrador del sistema",
+    "correo": "sistemas@entidad.test",
+    "rol": "administrador",
+    "activo": 1,
+    "ultimo_ingreso_en": "2026-11-05 08:02"
+  },
+  {
+    "id": 2,
+    "usuario": "laura.restrepo",
+    "nombre": "Laura Restrepo",
+    "correo": "laura.restrepo@entidad.test",
+    "rol": "oficial_cumplimiento",
+    "activo": 1,
+    "ultimo_ingreso_en": "2026-11-06 07:30"
+  },
+  {
+    "id": 3,
+    "usuario": "carlos.mejia",
+    "nombre": "Carlos Mejía",
+    "correo": "carlos.mejia@entidad.test",
+    "rol": "analista",
+    "activo": 1,
+    "ultimo_ingreso_en": "2026-11-06 07:45"
+  },
+  {
+    "id": 4,
+    "usuario": "auditoria.interna",
+    "nombre": "Auditoría interna",
+    "correo": "auditoria@entidad.test",
+    "rol": "auditor",
+    "activo": 1,
+    "ultimo_ingreso_en": null
+  }
+]

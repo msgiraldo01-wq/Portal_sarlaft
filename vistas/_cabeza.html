@@ -1,0 +1,26 @@
+{#
+  _cabeza.html - Lo que comparten las dos plantillas base dentro de <head>.
+  El <title> NO va aqui: cada base lo arma con su bloque "titulo".
+#}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171B22" media="(prefers-color-scheme: dark)">
+<script>
+  /* Aplica el tema guardado ANTES de pintar, para que no parpadee.
+     Si la persona no ha elegido, manda el tema del sistema operativo. */
+  (function () {
+    try {
+      var tema = localStorage.getItem("sarlaft.tema");
+      if (tema === "claro" || tema === "oscuro") {
+        document.documentElement.setAttribute("data-tema", tema);
+      }
+    } catch (e) { /* almacenamiento bloqueado: se usa el tema del sistema */ }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{{ estatico('css/estilo.css') }}">
+<link rel="icon" href="{{ estatico('img/favicon.svg') }}" type="image/svg+xml">
