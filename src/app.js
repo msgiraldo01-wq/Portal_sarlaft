@@ -33,6 +33,7 @@ function crearApp() {
 }));
 
   app.use("/", require("./rutas/autenticacion"));
+  app.use("/", require("./rutas/acceso"));
 
   // Pantallas
   app.use("/", require("./rutas/paginas"));
