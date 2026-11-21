@@ -1,16 +1,6 @@
 {% extends "base_acceso.html" %}
 {% from "_iconos.html" import icono %}
-{#
-ingreso.html - Ingreso del equipo interno (oficial de cumplimiento,
-analistas, auditores).
 
-VISTA: el boton lleva al inicio sin validar nada. La validacion del
-usuario y la contrasena contra la tabla usuarios es funcionalidad de
-un sprint posterior.
-
-Los terceros NO entran por aqui: entran por /acceso con su documento
-y un codigo, sin contrasena.
-#}
 {% block titulo %}Ingresar{% endblock %}
 {% block subtitulo %}Equipo de cumplimiento{% endblock %}
 
