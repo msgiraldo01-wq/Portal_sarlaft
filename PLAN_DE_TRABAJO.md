@@ -59,6 +59,23 @@ Alcance pedido por el docente: login, registro (persona jurídica y natural) y p
 - [ ] Pasos 8–9. Clientes desde MySQL.
 - [ ] Paso 10. Auditoría.
 
+Estado al 21/11/2026
+[x] Paso 0. Git iniciado.
+[x] Paso 1. Conexión Node → MySQL. src/bd.js con mysql2/promise (pool), variables DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME en .env; dotenv cargado en la primera línea de servidor.js. Ruta GET /api/salud en src/app.js responde la versión (MySQL 8.0.43). Usuario MySQL portal_sarlaft con SELECT/INSERT/UPDATE/DELETE.
+[x] Paso 2. Formulario de ingreso por POST. express.urlencoded en app.js; src/rutas/autenticacion.js con POST /ingreso que valida campos vacíos (con .trim()) y vuelve a mostrar la vista con error y usuarioEscrito.
+[x] Paso 3. Ingreso real (probado el 21/11):
+SELECT id, nombre, rol, clave_hash, activo FROM usuarios WHERE usuario = ?;
+bcrypt.compare con bcryptjs;
+el mismo mensaje cuando el usuario no existe, está inactivo o la clave no coincide;
+UPDATE usuarios SET ultimo_ingreso_en = NOW() WHERE id = ?;
+redirección PRG a /;
+un try/catch que muestra un mensaje genérico a la persona y deja el error real en la terminal (probado dañando una variable del .env).
+Contraseña de prueba de los usuarios de 03_datos_prueba.sql: Demo2026*. Pendiente de cierre: corregir res.redirect("/inicio") → "/", quitar la nota «Vista de demostración» de ingreso.html, escribir la bitácora y hacer el commit.
+[ ] Paso 4. Sesión (express-session), proteger rutas internas, salir, mostrar en el menú al usuario real (hoy sale siempre la demo «Laura Restrepo» de res.locals).
+[ ] Pasos 5–7. Registro de terceros (validación, DV del NIT, transacción, código de verificación).
+[ ] Pasos 8–9. Clientes desde MySQL.
+[ ] Paso 10. Auditoría.
+
 ## Aprendizajes y tropiezos del autor (para repasar)
 
 - Diferencia entre `node archivo` y `npm run script`.
@@ -68,6 +85,25 @@ Alcance pedido por el docente: login, registro (persona jurídica y natural) y p
 - `app.get("ruta", función)`: con un solo argumento lee una configuración y no crea ruta.
 - Choque de nombres con `res.locals.usuario` (objeto del menú) → `[object Object]`; se usó `usuarioEscrito`.
 - Propiedad abreviada `{ x }` equivale a `{ x: x }`.
+
+Herramientas y configuración
+
+Diferencia entre node archivo y npm run script.
+Los nombres del .env deben coincidir exactamente con process.env.X. npm run dev no se reinicia al cambiar el .env.
+Depuración del «Access denied»: se comparó la longitud de la clave que leía Node (11) con la real (9); sobraban paréntesis en el .env. Las comillas sí las quita dotenv.
+Paquete no instalado → Cannot find module 'bcryptjs'; se resuelve con npm install bcryptjs.
+Workbench: el error 1046 (no hay base seleccionada) se evita con USE portal_sarlaft; o con doble clic en el esquema.
+
+Express
+
+Alcance (scope): app solo existe dentro de crearApp().
+app.get("ruta", función): con un solo argumento lee una configuración y no crea ninguna ruta.
+La dirección de res.redirect debe existir: redirigir a /inicio dio 404, porque el inicio es /.
+
+JavaScript
+
+Choque de nombres con res.locals.usuario (el objeto del menú) → aparecía [object Object]; se usó usuarioEscrito.
+La propiedad abreviada { x } equivale a { x: x }.
 
 
 Anote aquí, con sus palabras, qué hizo en cada paso y qué aprendió.

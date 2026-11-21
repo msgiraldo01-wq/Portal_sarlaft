@@ -10,9 +10,37 @@ const demo = require("../datos_demo");
 
 const rutas = express.Router();
 
+/* Nombre legible de cada rol (en la base se guarda el código) */
+const ROLES = {
+  administrador: "Administrador",
+  oficial_cumplimiento: "Oficial de cumplimiento",
+  analista: "Analista",
+  auditor: "Auditor",
+};
+
+/* "Laura Restrepo" → "LR" */
+function iniciales(nombre) {
+  return nombre
+    .split(" ")
+    .filter((parte) => parte !== "")
+    .slice(0, 2)
+    .map((parte) => parte[0])
+    .join("")
+    .toUpperCase();
+}
+
 /* Variables que necesitan todas las vistas (menu, usuario, catalogos) */
+
 rutas.use((req, res, next) => {
-  res.locals.usuario = demo.usuarioActual;
+
+  const enSesion = req.session.usuario;
+  res.locals.usuario = enSesion
+    ? {
+      nombre: enSesion.nombre,
+      rol: ROLES[enSesion.rol] || enSesion.rol,
+      iniciales: iniciales(enSesion.nombre),
+    }
+    : null;
   res.locals.contadores = demo.contadores;
   res.locals.catalogos = demo.catalogos;
   next();
@@ -101,8 +129,19 @@ rutas.get("/ingreso", (req, res) => {
   res.render("ingreso.html");
 });
 
-rutas.get("/salir", (req, res) => {
-  res.redirect("/ingreso");
+//Cerrar sesion: borrar la sesion del servidor y la cookie del navegador
+
+rutas.get("/ingreso", (req, res) => {
+  res.render("ingreso.html");
+});
+
+
+/* De aquí hacia abajo, solo el equipo con sesión iniciada */
+rutas.use((req, res, next) => {
+  if (!req.session.usuario) {
+    return res.redirect("/ingreso");
+  }
+  next();
 });
 
 rutas.get("/", (req, res) => {

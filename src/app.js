@@ -5,6 +5,7 @@ const path = require("path");
 const express = require("express");
 const { configurarVistas } = require("./vistas");
 const pool = require("./bd");
+const session = require("express-session");
 
 function crearApp() {
   const app = express();
@@ -15,6 +16,22 @@ function crearApp() {
   // Archivos de publico/ (CSS, JS, imagenes) se sirven en /publico
   app.use("/publico", express.static(path.join(__dirname, "..", "publico")));
   app.use(express.urlencoded({ extended: false }));
+  
+  // session: recuerda quien ingreso, por medio de una cookie firmada
+
+  app.use(session({
+    name: "sarlaft.sid",
+    secret: process.env.SESION_SECRETO,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 30 * 60 * 1000, // 1 día
+    },
+
+}));
+
   app.use("/", require("./rutas/autenticacion"));
 
   // Pantallas
@@ -36,6 +53,12 @@ function crearApp() {
       });
     }
   });
+
+  // temporal: prueba de la session
+  app.get("/api/sesion", (req, res) => {
+    res.json(req.session);
+  });
+
 
   // Direccion que no existe
   app.use((req, res) => {
