@@ -7,8 +7,8 @@
 */
 const express = require("express");
 const demo = require("../datos_demo");
-
 const rutas = express.Router();
+const pool = require("../bd");
 
 /* Nombre legible de cada rol (en la base se guarda el código) */
 const ROLES = {
@@ -129,12 +129,6 @@ rutas.get("/ingreso", (req, res) => {
   res.render("ingreso.html");
 });
 
-//Cerrar sesion: borrar la sesion del servidor y la cookie del navegador
-
-rutas.get("/ingreso", (req, res) => {
-  res.render("ingreso.html");
-});
-
 
 /* De aquí hacia abajo, solo el equipo con sesión iniciada */
 rutas.use((req, res, next) => {
@@ -200,7 +194,7 @@ rutas.get("/formularios/:id", (req, res) => {
   });
 });
 
-/* Terceros por relacion: /terceros/proveedores */
+/* Terceros por relación: /terceros/proveedores */
 const RELACIONES = {
   clientes: ["cliente", "Clientes"],
   proveedores: ["proveedor", "Proveedores"],
@@ -208,14 +202,59 @@ const RELACIONES = {
   accionistas: ["accionista", "Accionistas"],
 };
 
-for (const [clave, [relacion, titulo]] of Object.entries(RELACIONES)) {
-  rutas.get(`/terceros/${clave}`, (req, res) => {
-    const terceros = demo.terceros
-      .filter((t) => t.relaciones.includes(relacion))
-      .map((t) => ({ ...t, ultimo: demo.formularios.find((f) => f.tercero_id === t.id) }));
-    res.render("terceros.html", { seccion: clave, titulo, relacion, terceros });
-  });
-}
+
+/* Terceros de una relación, con el estado de su formulario más reciente */
+const SQL_TERCEROS = `
+  SELECT t.id, t.tipo_persona, t.nombre, t.correo, t.nivel_riesgo,
+         CONCAT(t.tipo_documento, ' ', t.numero_documento,
+                IF(t.digito_verificacion IS NULL, '', CONCAT('-', t.digito_verificacion))) AS documento,
+         f.estado  AS ultimo_estado,
+         f.periodo AS ultimo_periodo
+  FROM terceros t
+  JOIN tercero_relaciones r
+       ON r.tercero_id = t.id AND r.relacion = ? AND r.activa = TRUE
+  LEFT JOIN formularios f
+       ON f.tercero_id = t.id
+            AND f.periodo = (SELECT MAX(f2.periodo) FROM formularios f2 WHERE f2.tercero_id = t.id)`;;
+
+            const NIVELES_RIESGO = ["bajo", "medio", "alto", "sin_calificar"];
+
+            for (const [clave, [relacion, titulo]] of Object.entries(RELACIONES)) {
+              rutas.get(`/terceros/${clave}`, async (req, res) => {
+                // Filtros que llegan en la dirección: ?q=texto&riesgo=bajo
+                const q = String(req.query.q || "").trim();
+                const riesgo = NIVELES_RIESGO.includes(req.query.riesgo) ? req.query.riesgo : "";
+            
+                // Armar el WHERE solo con los filtros que se usaron
+                let sql = SQL_TERCEROS;
+                const parametros = [relacion];
+                const condiciones = [];
+            
+                if (q) {
+                  condiciones.push("(t.nombre LIKE ? OR t.numero_documento LIKE ?)");
+                  parametros.push(`%${q}%`, `%${q}%`);
+                }
+                if (riesgo) {
+                  condiciones.push("t.nivel_riesgo = ?");
+                  parametros.push(riesgo);
+                }
+                if (condiciones.length > 0) {
+                  sql += " WHERE " + condiciones.join(" AND ");
+                }
+                sql += " ORDER BY t.nombre";
+            
+                try {
+                  const [terceros] = await pool.query(sql, parametros);
+                  res.render("terceros.html", { seccion: clave, titulo, relacion, terceros, q, riesgo });
+                } catch (error) {
+                  console.error(`Error al listar ${clave}:`, error);
+                  res.status(500).render("terceros.html", {
+                    seccion: clave, titulo, relacion, terceros: [], q, riesgo,
+                    error: "No se pudo cargar la lista. Intente de nuevo.",
+                  });
+                }
+              });
+            }
 
 /* Ficha de un tercero: /terceros/ficha/1 */
 rutas.get("/terceros/ficha/:id", (req, res) => {

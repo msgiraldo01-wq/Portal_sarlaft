@@ -17,17 +17,23 @@
     <button type="button" class="boton">{{ icono("descargar") }}Exportar</button>
   </div>
 </header>
-
+{% if error %}<p class="campo-error" role="alert">{{ icono("error") }}{{ error }}</p>{% endif %}
 <section class="marco" aria-label="{{ titulo }}">
-  <div class="filtros no-imprimir">
+  <form class="filtros no-imprimir" method="get" action="/terceros/{{ seccion }}">
     <span class="campo-icono">
       {{ icono("buscar") }}
-      <input class="control" type="search" placeholder="Nombre o documento" aria-label="Filtrar por nombre o documento">
+      <input class="control" type="search" name="q" value="{{ q }}" placeholder="Nombre o documento" aria-label="Filtrar por nombre o documento">
     </span>
-    <select class="control" aria-label="Nivel de riesgo">
-      <option>Cualquier nivel de riesgo</option><option>Bajo</option><option>Medio</option><option>Alto</option><option>Sin calificar</option>
+    {% set niveles = [["bajo", "Bajo"], ["medio", "Medio"], ["alto", "Alto"], ["sin_calificar", "Sin calificar"]] %}
+    <select class="control" name="riesgo" aria-label="Nivel de riesgo">
+      <option value="">Cualquier nivel de riesgo</option>
+      {% for n in niveles %}
+      <option value="{{ n[0] }}" {% if riesgo == n[0] %}selected{% endif %}>{{ n[1] }}</option>
+      {% endfor %}
     </select>
-  </div>
+    <button type="submit" class="boton">Filtrar</button>
+    {% if q or riesgo %}<a class="enlace" href="/terceros/{{ seccion }}">Quitar filtros</a>{% endif %}
+  </form>
   <div class="tabla-envoltura">
     <table class="tabla">
       <thead>
@@ -45,12 +51,12 @@
           <td class="sin-salto"><span class="maquina">{{ t.documento }}</span></td>
           <td class="recortar"><span title="{{ t.correo }}">{{ t.correo }}</span></td>
           <td>{{ nivel_riesgo(t.nivel_riesgo) }}</td>
-          <td class="sin-salto">{% if t.ultimo %}{{ estado_formulario(t.ultimo.estado) }} <span class="maquina texto-suave texto-chico">{{ t.ultimo.periodo }}</span>{% endif %}</td>
+          <td class="sin-salto">{% if t.ultimo_estado %}{{ estado_formulario(t.ultimo_estado) }} <span class="maquina texto-suave texto-chico">{{ t.ultimo_periodo }}</span>{% else %}<span class="texto-suave">Sin formulario</span>{% endif %}</td>
           <td class="celda-acciones"><a class="boton boton--plano boton--icono boton--chico" href="/terceros/ficha/{{ t.id }}" aria-label="Abrir ficha de {{ t.nombre }}">{{ icono("derecha") }}</a></td>
         </tr>
         {% else %}
         <tr class="fila-vacia"><td colspan="7"><div class="vacio vacio--compacto">
-          <span class="vacio-icono">{{ icono("usuarios", "icono--20") }}</span><p>No hay terceros con esta relación.</p>
+          <p>{% if q or riesgo %}Ningún tercero coincide con los filtros.{% else %}No hay terceros con esta relación.{% endif %}</p>
         </div></td></tr>
         {% endfor %}
       </tbody>
