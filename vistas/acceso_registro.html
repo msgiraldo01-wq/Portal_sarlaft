@@ -18,8 +18,10 @@
 
   {% include "_acceso_etapas.html" %}
 
-  <form class="pila" action="/acceso/codigo" method="get">
+  <form class="pila" action="/acceso/registro" method="post">
     <input type="hidden" name="tipo" value="{{ tipo }}">
+    <input type="hidden" name="documento" value="{{ documento }}">
+    <input type="hidden" name="numero" value="{{ numero }}">
 
     <div class="etapa-titulo">
       <h2>Registro</h2>
@@ -38,51 +40,58 @@
       {% if tipo == "juridica" %}
       <div class="campo campo--ancho">
         <label for="r-razon">Razón social<span class="obligatorio" aria-hidden="true">*</span></label>
-        <input id="r-razon" class="control" autocomplete="organization" required>
+        <input id="r-razon" name="razon_social" value="{{ datos.razon_social }}" class="control" maxlength="200" autocomplete="organization" required>
       </div>
       <div class="campo campo--ancho">
         <label for="r-contacto">Nombre de quien diligencia<span class="obligatorio" aria-hidden="true">*</span></label>
-        <input id="r-contacto" class="control" autocomplete="name" required>
+        <input id="r-contacto" name="contacto_nombre" value="{{ datos.contacto_nombre }}" class="control" maxlength="150" autocomplete="name" required>
       </div>
       {% else %}
       <div class="campo">
         <label for="r-nombres">Nombres<span class="obligatorio" aria-hidden="true">*</span></label>
-        <input id="r-nombres" class="control" autocomplete="given-name" required>
+        <input id="r-nombres" name="nombres" value="{{ datos.nombres }}" class="control" maxlength="100" autocomplete="given-name" required>
       </div>
       <div class="campo">
         <label for="r-apellidos">Apellidos<span class="obligatorio" aria-hidden="true">*</span></label>
-        <input id="r-apellidos" class="control" autocomplete="family-name" required>
+        <input id="r-apellidos" name="apellidos" value="{{ datos.apellidos }}" class="control" maxlength="100" autocomplete="family-name" required>
       </div>
       {% endif %}
 
       <div class="campo campo--ancho">
         <label for="r-relacion">Relación con {{ ENTIDAD }}<span class="obligatorio" aria-hidden="true">*</span></label>
-        <select id="r-relacion" class="control" required>
+        {% set relaciones = [
+          ["proveedor", "Proveedor"],
+          ["cliente", "Cliente"],
+          ["empleado", "Empleado o candidato"],
+          ["accionista", "Accionista o asociado"],
+          ["otro", "Otro"]
+        ] %}
+        <select id="r-relacion" name="relacion" class="control" required>
           <option value="">Seleccione</option>
-          <option>Proveedor</option>
-          <option>Cliente</option>
-          <option>Empleado o candidato</option>
-          <option>Accionista o asociado</option>
-          <option>Otro</option>
+          {% for r in relaciones %}
+          <option value="{{ r[0] }}" {% if datos.relacion == r[0] %}selected{% endif %}>{{ r[1] }}</option>
+          {% endfor %}
         </select>
       </div>
 
       <div class="campo">
         <label for="r-correo">Correo electrónico<span class="obligatorio" aria-hidden="true">*</span></label>
-        <input id="r-correo" class="control" type="email" autocomplete="email" required>
+        <input id="r-correo" name="correo" value="{{ datos.correo }}" class="control" type="email" maxlength="150" autocomplete="email" required>
       </div>
       <div class="campo">
         <label for="r-celular">Celular<span class="obligatorio" aria-hidden="true">*</span></label>
-        <input id="r-celular" class="control maquina" type="tel" inputmode="tel" autocomplete="tel-national"
+        <input id="r-celular" name="celular" value="{{ datos.celular }}" class="control maquina" type="tel" inputmode="tel" autocomplete="tel-national"
                pattern="3[0-9]{9}" maxlength="10" aria-describedby="r-celular-ayuda" required>
         <p id="r-celular-ayuda" class="campo-ayuda">10 dígitos. Aquí llega el código.</p>
       </div>
     </div>
 
     <label class="opcion">
-      <input type="checkbox" required>
+      <input type="checkbox" name="autoriza" value="si" required>
       <span>Autorizo el tratamiento de mis datos personales según la <a href="#">política de tratamiento de datos</a> de {{ ENTIDAD }}, conforme a la Ley 1581 de 2012.<span class="obligatorio" aria-hidden="true">*</span></span>
     </label>
+
+    {% if error %}<p class="campo-error" role="alert">{{ icono("error") }}{{ error }}</p>{% endif %}
 
     <div class="acciones acciones--extremos">
       <a class="boton" href="/acceso">{{ icono("izquierda") }}Volver</a>
