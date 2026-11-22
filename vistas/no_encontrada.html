@@ -8,8 +8,8 @@
   <section class="marco">
     <div class="vacio">
       <span class="vacio-icono">{{ icono("alerta", "icono--20") }}</span>
-      <h3>Esta dirección no existe</h3>
-      <p>Revise el enlace o vuelva al inicio.</p>
+      <h3>{{ titulo_error or "Esta dirección no existe" }}</h3>
+      <p>{{ mensaje_error or "Revise el enlace o vuelva al inicio." }}</p>
       <div class="acciones">
         <a class="boton" href="/">{{ icono("izquierda") }}Ir al inicio</a>
         <a class="boton boton--suave" href="/acceso">Acceso de terceros</a>

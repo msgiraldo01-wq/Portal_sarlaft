@@ -256,18 +256,74 @@ const SQL_TERCEROS = `
               });
             }
 
-/* Ficha de un tercero: /terceros/ficha/1 */
-rutas.get("/terceros/ficha/:id", (req, res) => {
-  const t = demo.terceros.find((x) => x.id === Number(req.params.id));
-  if (!t) return res.status(404).render("no_encontrada.html");
-  res.render("tercero.html", {
-    // Marca en el menu la lista a la que pertenece (proveedores, clientes...)
-    seccion: Object.keys(RELACIONES).find((clave) => RELACIONES[clave][0] === t.relaciones[0]) || "",
-    t,
-    formularios: demo.formularios.filter((f) => f.tercero_id === t.id),
-    alertas: demo.alertas.filter((a) => a.tercero_id === t.id),
-    vencimiento: demo.vencimientos.find((v) => v.tercero_id === t.id),
-  });
+/* Ficha de un tercero: /terceros/ficha/12 */
+rutas.get("/terceros/ficha/:id", async (req, res) => {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(404).render("no_encontrada.html");
+  }
+
+  try {
+    // 1. Datos del tercero y sus relaciones activas
+    const [filas] = await pool.query(
+      `SELECT t.id, t.tipo_persona, t.nombre, t.contacto_nombre, t.correo, t.celular,
+              t.estado, t.nivel_riesgo, t.creado_en,
+              CONCAT(t.tipo_documento, ' ', t.numero_documento,
+                     IF(t.digito_verificacion IS NULL, '', CONCAT('-', t.digito_verificacion))) AS documento,
+              GROUP_CONCAT(r.relacion ORDER BY r.relacion) AS relaciones
+       FROM terceros t
+       LEFT JOIN tercero_relaciones r ON r.tercero_id = t.id AND r.activa = TRUE
+       WHERE t.id = ?
+       GROUP BY t.id`,
+      [id]
+    );
+    const t = filas[0];
+    if (!t) {
+      return res.status(404).render("no_encontrada.html");
+    }
+    // "proveedor,cliente" → ["proveedor", "cliente"]
+    t.relaciones = t.relaciones ? t.relaciones.split(",") : [];
+
+    // 2. Sus formularios, del más reciente al más antiguo, con el peor resultado en listas
+    const [formularios] = await pool.query(
+      `SELECT f.id AS formulario_id, f.periodo, f.tipo, f.radicado, f.estado, f.vence_en,
+              COALESCE((SELECT c.resultado FROM consultas_listas c
+                        WHERE c.formulario_id = f.id
+                        ORDER BY c.resultado DESC LIMIT 1), 'por_consultar') AS listas
+       FROM formularios f
+       WHERE f.tercero_id = ?
+       ORDER BY f.periodo DESC`,
+      [id]
+    );
+
+    // 3. Sus alertas, la más reciente primero
+    const [alertas] = await pool.query(
+      "SELECT id, descripcion, severidad, estado, creada_en FROM alertas WHERE tercero_id = ? ORDER BY creada_en DESC",
+      [id]
+    );
+
+    // 4. Vencimiento de su actualización (vista SQL del sprint 1)
+    const [vencimientos] = await pool.query(
+      "SELECT situacion, vence_en FROM v_vencimientos WHERE tercero_id = ?",
+      [id]
+    );
+
+    res.render("tercero.html", {
+      // Marca en el menú la lista a la que pertenece (proveedores, clientes...)
+      seccion: Object.keys(RELACIONES).find((clave) => RELACIONES[clave][0] === t.relaciones[0]) || "",
+      t,
+      formularios,
+      alertas,
+      vencimiento: vencimientos[0],
+    });
+
+  } catch (error) {
+    console.error("Error al abrir la ficha del tercero:", error);
+    res.status(500).render("no_encontrada.html", {
+      titulo_error: "No se pudo cargar la ficha",
+      mensaje_error: "Intente de nuevo en unos minutos.",
+    });
+  }
 });
 
 rutas.get("/buscar", (req, res) => {

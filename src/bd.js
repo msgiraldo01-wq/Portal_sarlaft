@@ -9,6 +9,7 @@ const pool = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     charset: 'utf8mb4',                             // soporte tildes, ñ y emojis
+    dateStrings: true,   // fechas como texto "AAAA-MM-DD hh:mm:ss", sin convertir zonas horarias
 
     waitForConnections: true,                       // si no hay conexiones libres espera en vez de fallar
     connectionLimit: 10,                            // maximo de conexiones simultaneas

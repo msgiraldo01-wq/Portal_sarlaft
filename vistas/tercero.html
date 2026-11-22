@@ -29,13 +29,15 @@
             {% for f in formularios %}
             <tr>
               <td class="maquina">{{ f.periodo }}</td>
-              <td>{{ f.tipo | capitalize }}</td>
+              <td>{{ "Vinculación" if f.tipo == "vinculacion" else "Actualización" }}</td>
               <td class="sin-salto"><span class="maquina">{{ f.radicado or "—" }}</span></td>
               <td>{{ estado_formulario(f.estado) }}</td>
               <td>{{ resultado_lista(f.listas) }}</td>
               <td class="sin-salto maquina">{{ f.vence_en | fecha }}</td>
               <td class="celda-acciones"><a class="boton boton--plano boton--icono boton--chico" href="/formularios/{{ f.formulario_id }}" aria-label="Abrir formulario {{ f.periodo }}">{{ icono("derecha") }}</a></td>
             </tr>
+            {% else %}
+            <tr class="fila-vacia"><td colspan="7"><div class="vacio vacio--compacto"><p>Este tercero aún no tiene formularios.</p></div></td></tr>
             {% endfor %}
           </tbody>
         </table>

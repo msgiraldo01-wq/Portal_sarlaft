@@ -1,34 +1,88 @@
-# Portal SARLAFT · Sprint 1: vistas y base de datos
+# Portal SARLAFT
 
 Sistema para que proveedores, clientes, empleados y accionistas diligencien su
 información SARLAFT (Circular Externa 009 de 2016 de la Supersalud y sus
 modificaciones), y para que el equipo de cumplimiento la revise.
 
-**Esta entrega contiene:**
+## Estado del proyecto
 
-- **Vistas:** todas las pantallas de la plataforma, navegables, con datos de
-  ejemplo tomados de la base de datos de prueba.
-- **Base de datos:** modelo entidad-relación (MER) y scripts SQL para MySQL 8.
+| Entrega | Contenido | Estado |
+|---|---|---|
+| Sprint 1 | Vistas de todas las pantallas y base de datos (MER y scripts SQL) | Terminado |
+| Sprint 2 | Lógica: ingreso del equipo, registro de terceros (persona jurídica y natural) y listas de terceros desde MySQL | Terminado |
+| Siguiente | Código de verificación del tercero, ficha del tercero y formularios desde MySQL, auditoría | Pendiente |
 
-**Fuera de esta entrega (siguientes sprints):** la lógica de negocio. En esta
-versión los botones navegan entre pantallas o abren sus ventanas, pero nada se
-guarda, se valida contra la base ni se envía por correo.
+El avance paso a paso y la bitácora están en **`PLAN_DE_TRABAJO.md`**.
 
-## Estado actual
+### Qué funciona con datos reales
 
-Las pantallas y la base de datos están terminadas. La lógica se está
-desarrollando paso a paso: ver **`PLAN_DE_TRABAJO.md`**.
+- **Ingreso del equipo** (`/ingreso`):
+  - Usuario y contraseña verificados contra MySQL con bcrypt.
+  - Sesión con cookie firmada (`httpOnly`, `sameSite`, vence a los 30 minutos).
+  - Pantallas internas protegidas.
+  - Cierre de sesión.
+- **Identificación del tercero** (`/acceso`):
+  - Valida el documento en el servidor.
+  - Revisa en la base si ya está registrado.
+- **Registro del tercero** (`/acceso/registro`):
+  - Persona jurídica (NIT, con dígito de verificación calculado con el algoritmo de la DIAN) o persona natural.
+  - Validación de todos los campos en el servidor.
+  - Autorización de tratamiento de datos (Ley 1581 de 2012) con fecha e IP.
+  - Guardado en `terceros` y `tercero_relaciones` dentro de una transacción.
+- **Listas de terceros** (`/terceros/clientes`, `/proveedores`, `/empleados`, `/accionistas`):
+  - Leídas de MySQL, con el estado del formulario más reciente.
+  - Búsqueda por nombre o documento y filtro por nivel de riesgo.
+
+Las demás pantallas siguen mostrando datos de ejemplo (`src/datos_demo/*.json`).
 
 ## Cómo ejecutarlo
 
-Requiere Node.js 20 o superior.
+Requiere **Node.js 20** o superior y **MySQL 8**.
 
-```bash
-npm install
-npm run dev
-```
+1. Instalar las dependencias:
+   ```bash
+   npm install
+   ```
+2. Crear la base de datos. En la consola `mysql` o en MySQL Workbench, ejecute cada archivo completo, en este orden:
+   1. `bd/01_esquema.sql`: tablas, restricciones, disparadores y vistas SQL.
+   2. `bd/02_catalogos.sql`: catálogos, parámetros y los dos cuestionarios.
+   3. `bd/03_datos_prueba.sql`: datos ficticios. **Solo en desarrollo.**
+   4. `bd/04_usuario_aplicacion.sql`: usuario de MySQL para la aplicación, con permisos mínimos. Cambie la contraseña antes de ejecutarlo.
 
-Abrir http://localhost:3000/ingreso (cualquier usuario y contraseña).
+   `bd/00_reiniciar_desarrollo.sql` borra la base completa para empezar de cero.
+3. Configurar el entorno: copie `.env.ejemplo` como `.env` y complete los valores (la contraseña del paso 2.4 y un secreto de sesión).
+4. Arrancar:
+   ```bash
+   npm run dev
+   ```
+5. Abrir http://localhost:3000/ingreso.
+
+**Usuarios de prueba** (solo con `03_datos_prueba.sql`; la contraseña de todos es `Demo2026*`):
+
+| Usuario | Rol |
+|---|---|
+| `laura.restrepo` | Oficial de cumplimiento |
+| `carlos.mejia` | Analista |
+| `admin.sistemas` | Administrador |
+| `auditoria.interna` | Auditor |
+
+Los terceros entran por http://localhost:3000/acceso, sin usuario.
+
+## Seguridad
+
+- Las contraseñas se guardan con **bcrypt** (hash con sal, costo 12); nunca en texto claro.
+- Si el usuario no existe o la clave está mal, el mensaje es el mismo, para no revelar qué usuarios existen.
+- Todas las consultas usan **parámetros (`?`)**, lo que evita la inyección SQL. Los filtros de búsqueda arman el `WHERE` solo con fragmentos fijos.
+- Validación en el **servidor**: la del navegador solo ayuda a la persona; la que protege es la del servidor.
+- Sesión:
+  - se **regenera al ingresar**, contra la fijación de sesión;
+  - la cookie es `httpOnly` y `sameSite: lax`;
+  - vence a los 30 minutos;
+  - se destruye al salir.
+- El servidor **no arranca** si falta `SESION_SECRETO`.
+- La aplicación se conecta con un usuario de MySQL con permisos mínimos, no con `root`.
+- Los errores técnicos se escriben en la terminal; la persona solo ve un mensaje general.
+- En desarrollo se usan **solo datos ficticios** (Ley 1581 de 2012).
 
 ## Pantallas
 
@@ -38,96 +92,56 @@ Abrir http://localhost:3000/ingreso (cualquier usuario y contraseña).
 |---|---|
 | `/acceso` | Identificación: persona jurídica o natural y documento |
 | `/acceso/registro` | Registro de un tercero nuevo |
-| `/acceso/codigo` | Código de verificación de un solo uso |
-| `/formulario/juridica/paso/1` … `/11` | Formulario de persona jurídica, 11 pasos |
-| `/formulario/natural/paso/1` … `/8` | Formulario de persona natural, 8 pasos |
-| `/formulario/enviado` | Confirmación con el radicado |
-| `/mi-formulario` | Estado del formulario cuando el equipo lo devuelve para corregir |
+| `/acceso/codigo` | Código de verificación de un solo uso *(todavía de demostración)* |
+| `/formulario/juridica/paso/1` … `/11` | Formulario de persona jurídica, 11 pasos *(demostración)* |
+| `/formulario/natural/paso/1` … `/8` | Formulario de persona natural, 8 pasos *(demostración)* |
+| `/formulario/enviado` | Confirmación con el radicado *(demostración)* |
+| `/mi-formulario` | Estado del formulario cuando el equipo lo devuelve *(demostración)* |
 
-Los pasos del formulario los dibuja **una sola plantilla** (`formulario_paso.html`)
-a partir del cuestionario guardado en la base (tablas `modulos`, `preguntas`,
-`modulo_secciones`). Si se cambia una pregunta en la base, la pantalla cambia.
-Las preguntas que dependen de otra («si respondió Sí…») aparecen y desaparecen
-solo con CSS.
-
-### Equipo de cumplimiento
+### Equipo de cumplimiento (requiere ingresar)
 
 | Dirección | Pantalla |
 |---|---|
-| `/ingreso` | Ingreso con usuario y contraseña |
+| `/ingreso`, `/salir` | Ingreso y cierre de sesión |
 | `/` | Inicio: resumen, vencimientos, formularios recientes y alertas |
 | `/formularios/pendientes`, `/revision`, `/aprobados` | Bandejas de formularios |
-| `/formularios/1` … `/11` | Revisión de un formulario: datos, personas, respuestas, soportes, listas, historial; aprobar, devolver o rechazar |
-| `/terceros/clientes`, `/proveedores`, `/empleados`, `/accionistas` | Listas de terceros |
+| `/formularios/1` … `/11` | Revisión de un formulario |
+| `/terceros/clientes`, `/proveedores`, `/empleados`, `/accionistas` | **Listas de terceros (MySQL)** |
 | `/terceros/ficha/1` … `/11` | Ficha de un tercero |
-| `/diligencia/listas` | Consultas en listas restrictivas |
-| `/diligencia/pep` | Personas expuestas políticamente |
-| `/diligencia/alertas` y `/diligencia/alertas/1` | Alertas y su análisis |
+| `/diligencia/listas`, `/pep`, `/alertas` | Debida diligencia |
 | `/reportes` | Indicadores y vencimientos |
-| `/ajustes/preguntas` | Preguntas del formulario (cuestionario versionado) |
-| `/ajustes/usuarios` | Usuarios y roles |
-| `/ajustes/parametros` | Parámetros del sistema |
-| `/ajustes/guia-estilo` | Todos los componentes visuales |
+| `/ajustes/preguntas`, `/usuarios`, `/parametros`, `/guia-estilo` | Ajustes |
 
-Todas funcionan en celular y en tema claro u oscuro (botón de la luna).
+Todas funcionan en celular y en tema claro u oscuro.
 
 ## Base de datos
 
 Todo está en `bd/`. El diseño, los diagramas y el diccionario de datos están en
 **`bd/MER.md`**; los diagramas como imagen, en `bd/mer/`.
 
-Instalar, en este orden (consola `mysql` o MySQL Workbench, ejecutando cada
-archivo completo):
-
-1. `bd/01_esquema.sql`: tablas, restricciones, disparadores y vistas SQL.
-2. `bd/02_catalogos.sql`: catálogos, parámetros y los dos cuestionarios.
-3. `bd/03_datos_prueba.sql`: datos ficticios (solo en desarrollo).
-4. `bd/04_usuario_aplicacion.sql`: usuario de MySQL para la aplicación (cambie la contraseña antes).
-
-`bd/00_reiniciar_desarrollo.sql` borra la base completa para empezar de cero.
-
-Los datos que muestran las pantallas (`src/datos_demo/*.json`) se exportaron de
-esa base de prueba, así que coinciden con lo que hay en MySQL.
-
 ## Estructura
 
 ```
 portal_sarlaft/
-├── servidor.js                 Arranca el servidor
-├── package.json                Dependencias: express y nunjucks
+├── servidor.js                 Carga el .env y arranca el servidor
+├── .env.ejemplo                Plantilla de configuración (copiar como .env)
 ├── bd/                         Base de datos: MER y scripts SQL
 ├── src/
-│   ├── app.js                  Arma la aplicación Express
-│   ├── config.js               Nombre del sistema e imagen de ingreso
-│   ├── menu.js                 Menú lateral
-│   ├── vistas.js               Motor de plantillas y formatos (fecha, moneda)
-│   ├── datos_demo.js           Carga los datos de ejemplo
-│   ├── datos_demo/*.json       Datos exportados de la base de prueba
-│   └── rutas/paginas.js        Qué pantalla se muestra en cada dirección
+│   ├── app.js                  Arma Express: vistas, estáticos, sesión, rutas y 404
+│   ├── bd.js                   Pool de conexiones a MySQL (mysql2)
+│   ├── rutas/
+│   │   ├── autenticacion.js    POST /ingreso y GET /salir
+│   │   ├── acceso.js           Identificación y registro del tercero
+│   │   └── paginas.js          Pantallas; listas de terceros desde MySQL
+│   ├── util/nit.js             Dígito de verificación del NIT (DIAN)
+│   ├── config.js, menu.js      Nombre del sistema, imagen y menú
+│   ├── vistas.js               Nunjucks y formatos (fecha, moneda)
+│   └── datos_demo/             Datos de ejemplo de las pantallas sin lógica
 ├── vistas/                     Plantillas HTML (Nunjucks)
-└── publico/
-    ├── css/estilo.css          Hoja de estilos única (comentada)
-    ├── js/base.js              Comportamiento de la interfaz
-    └── img/                    Imagen de ingreso e icono
+└── publico/                    CSS, JavaScript del navegador e imágenes
 ```
-
-### El JavaScript de esta entrega
-
-| Archivo | Qué hace |
-|---|---|
-| `servidor.js` | Arranca el servidor en el puerto 3000 |
-| `src/app.js` | Configura Express: plantillas, archivos estáticos, rutas y página 404 |
-| `src/vistas.js` | Configura Nunjucks y define los formatos de fecha, moneda y tamaño de archivo |
-| `src/config.js`, `src/menu.js` | Solo datos: nombre del sistema, imagen, opciones del menú |
-| `src/datos_demo.js` | Carga los archivos JSON y calcula los números del menú |
-| `src/rutas/paginas.js` | Una ruta por pantalla: elige los datos y llama a `res.render` |
-| `publico/js/base.js` | Tema claro/oscuro, grupos del menú, menú en el celular, abrir y cerrar diálogos |
-
-No hay lógica de negocio: no se valida, no se guarda y no se consulta la base.
 
 ## Cómo se construyó
 
-Las pantallas, el diseño visual, el modelo de datos y los scripts SQL se
-generaron con asistencia de inteligencia artificial (Claude, de Anthropic), a
-partir de los requerimientos, la normativa y las pantallas de referencia que
-definió el autor del proyecto.
+- **Sprint 1:** las pantallas, el diseño visual, el modelo de datos y los scripts SQL se generaron con asistencia de inteligencia artificial (Claude, de Anthropic), a partir de los requerimientos, la normativa y las pantallas de referencia que definió el autor.
+- **Sprint 2:** la lógica la construyó el autor paso a paso con guía de inteligencia artificial (Claude). La guía explicaba cada bloque de código y el autor lo transcribió, lo probó y corrigió los errores. El proceso está en la bitácora de `PLAN_DE_TRABAJO.md`.

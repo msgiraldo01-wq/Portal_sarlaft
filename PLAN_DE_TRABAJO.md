@@ -121,6 +121,78 @@ Prueba del rollback: con tercero_relacionesX, el NIT 900000004 no quedó en terc
 [ ] Paso 7. Código de verificación (hash, vencimiento). Hoy /acceso/codigo sigue siendo demostración.
 [ ] Pasos 8–9. Clientes desde MySQL. Hoy /terceros/clientes lee el JSON de demostración. Se propuso hacerlos antes del paso 7, porque son parte del alcance del docente.
 [ ] Paso 10. Auditoría.
+Estado al 22/11/2026
+[x] Paso 0. Git iniciado.
+[x] Paso 1. Conexión Node → MySQL.
+src/bd.js con mysql2/promise (pool).
+Variables DB_* en .env; dotenv cargado en servidor.js.
+GET /api/salud (hoy protegida por sesión).
+Usuario MySQL portal_sarlaft con mínimo privilegio.
+[x] Paso 2. Formulario de ingreso por POST (express.urlencoded, POST /ingreso en src/rutas/autenticacion.js).
+[x] Paso 3. Ingreso real.
+SELECT ... WHERE usuario = ?, luego bcrypt.compare.
+El mismo mensaje cuando el usuario no existe, está inactivo o la clave no coincide.
+UPDATE ultimo_ingreso_en = NOW().
+Redirección PRG a /.
+try/catch con mensaje genérico en pantalla y detalle en la terminal.
+Contraseña de prueba: Demo2026*.
+[x] Paso 4. Sesión.
+express-session:
+cookie sarlaft.sid;
+SESION_SECRETO en .env, y el servidor no arranca si falta;
+httpOnly, sameSite: "lax", 30 min.
+Al ingresar: regenerate y luego req.session.usuario = { id, nombre, rol }.
+paginas.js: tabla ROLES, función iniciales(), res.locals.usuario tomado de la sesión, y middleware que exige sesión ubicado después de /ingreso y antes de /.
+GET /salir en autenticacion.js con destroy y clearCookie.
+Mejoras futuras: salir con POST, Cache-Control: no-store, sesiones guardadas en MySQL.
+[x] Paso 5. Identificación del tercero.
+src/rutas/acceso.js, montado en app.js antes de paginas.
+POST /acceso:
+lista blanca de tipos de documento;
+expresiones regulares (el pasaporte acepta letras, los demás solo dígitos);
+SELECT por tipo + número: si ya existe va a /acceso/codigo, si es nuevo va a /acceso/registro?....
+acceso.html envía por POST y conserva tipo, documento y número si hay error.
+Probado quitando pattern y required desde la Consola: el servidor rechaza el dato.
+[x] Paso 6. Registro del tercero.
+src/util/nit.js con digitoVerificacion() (algoritmo DIAN, función pura).
+acceso.js:
+validarDocumento() (compartida, DRY) y validarRegistro() (retorno temprano);
+POST /acceso/registro hace un SELECT previo y luego una transacción con getConnection, beginTransaction, INSERT terceros, insertId, INSERT tercero_relaciones y commit;
+rollback + throw y release() en el finally;
+ER_DUP_ENTRY → va al código;
+guarda req.session.terceroId.
+Terceros de prueba en desarrollo:
+id 12: NIT 900000002-1;
+id 13: NIT 900000003-7;
+«pedro perez»: CC 1000000001, proveedor.
+Prueba del rollback superada con tercero_relacionesX y el NIT 900000004.
+[x] Pasos 8–9. Listas de terceros desde MySQL (probado el 22/11).
+paginas.js: pool y constante SQL_TERCEROS:
+JOIN tercero_relaciones por relación activa;
+LEFT JOIN formularios con la subconsulta MAX(periodo), para traer el formulario más reciente;
+CONCAT + IF para armar el documento con DV.
+Un solo for sobre RELACIONES conecta clientes, proveedores, empleados y accionistas.
+Filtros por GET (req.query.q, req.query.riesgo con lista blanca). El WHERE se arma con los arreglos condiciones + parametros, siempre con ?. Con LIKE '%q%' se busca en el nombre o el número.
+La intercalación ai_ci hace que «medicos» encuentre «Médicos».
+Probado:
+la búsqueda sin tilde;
+el texto OR 1=1, que no inyecta;
+el filtro por riesgo «medio»;
+el catch con estado 500.
+terceros.html:
+los filtros quedaron en un <form method="get"> con los nombres q y riesgo, que conserva los valores;
+enlace «Quitar filtros»;
+«Sin formulario» cuando no hay formulario;
+mensaje propio cuando el filtro no devuelve resultados.
+Pendiente conocido: la ficha /terceros/ficha/:id sigue leyendo el JSON → los terceros nuevos dan 404.
+[ ] Paso 7. Código de verificación (hash, vencimiento). Opcional, fuera del alcance del docente.
+[ ] Paso 10. Auditoría. Opcional.
+[ ] Cierre de la entrega:
+README: «cualquier usuario y contraseña» ya no es cierto;
+.env.ejemplo;
+bitácora;
+guía de sustentación.
+
 
 ## Aprendizajes y tropiezos del autor (para repasar)
 
@@ -188,6 +260,46 @@ AUTO_INCREMENT no se devuelve con rollback: los id no son consecutivos.
 La garantía real contra duplicados la da la llave única de la base.
 Columna calculada nombre.
 Los CHECK validan también desde la base.
+
+Herramientas y configuración
+
+Diferencia entre node archivo y npm run script.
+Los nombres del .env deben coincidir exactamente con process.env.X. npm run dev no se reinicia al cambiar el .env.
+Depuración del «Access denied»: se comparó la longitud de la clave que leía Node (11) con la real (9); sobraban paréntesis en el .env.
+Cannot find module → falta npm install, o la ruta está mal escrita (../db en lugar de ../bd, error repetido dos veces).
+Workbench: error 1046 por falta de USE; cada resultado sale en su propia pestaña.
+Técnica de depuración: imprimir para comprobar en vez de adivinar.
+Un cambio que no se guarda (Ctrl + S) no se prueba.
+Al reemplazar un bloque, revisar no borrar lo que está al lado (se perdió RELACIONES). Para seleccionar un bloque completo, contraerlo en VS Code.
+
+Express
+
+Alcance y módulos: router y rutas no se ven entre sí.
+Orden de middlewares y rutas; el 404 siempre de último.
+Direcciones letra por letra.
+Opciones mal escritas se ignoran en silencio.
+Ubicación: el código del registro quedó primero en la ruta equivocada.
+GET para consultar (filtros en req.query), POST para modificar (req.body).
+
+JavaScript
+
+Choque de nombres → usuarioEscrito.
+Propiedad abreviada, plantillas ${}, ternario, propagación ..., obj[variable].
+split/filter/slice/map/join; reverse() y % en el DV.
+Callbacks y });.
+module.exports = { f } ↔ const { f } = require(...).
+Errores de sintaxis: ( sin cerrar, if !x), "" dobles, touperCase.
+Armar SQL dinámico: solo se concatenan fragmentos fijos; los valores van en parametros, en el orden de los ?.
+
+Bases de datos
+
+Transacción = atomicidad (ACID).
+AUTO_INCREMENT no se devuelve con rollback.
+Llave única como garantía contra duplicados.
+Columna calculada nombre; los CHECK validan desde la base.
+JOIN vs LEFT JOIN: con JOIN los terceros sin formulario desaparecen.
+Alias, subconsulta correlacionada, CONCAT/IF, AS.
+Intercalación _ai_ci.
 
 
 Anote aquí, con sus palabras, qué hizo en cada paso y qué aprendió.
