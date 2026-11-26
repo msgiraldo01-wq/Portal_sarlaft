@@ -14,6 +14,43 @@ modificaciones), y para que el equipo de cumplimiento la revise.
 
 El avance paso a paso y la bitácora están en **`PLAN_DE_TRABAJO.md`**.
 
+Estado al 22/11/2026 (noche)
+[x] Pasos 0–4. Git, conexión MySQL (src/bd.js), ingreso con bcrypt, sesión con express-session (regenerate, httpOnly, sameSite, 30 min, secreto obligatorio), rutas protegidas, salir.
+[x] Pasos 5–6. src/rutas/acceso.js: identificación (POST /acceso) y registro (POST /acceso/registro) con validación en el servidor (listas blancas, expresiones regulares, Ley 1581), src/util/nit.js (DV DIAN) y transacción terceros + tercero_relaciones (commit/rollback, release en finally, ER_DUP_ENTRY).
+[x] Pasos 8–9. Listas de terceros desde MySQL en paginas.js (SQL_TERCEROS: JOIN relación activa + LEFT JOIN formulario más reciente). Filtros GET q y riesgo con WHERE dinámico parametrizado.
+[x] Extra: ficha /terceros/ficha/:id desde MySQL (probada el 22/11).
+req.params validado con Number.isInteger.
+Consultas:
+datos del tercero con GROUP BY + GROUP_CONCAT de las relaciones;
+formularios con el peor resultado en listas (ORDER BY sobre el ENUM DESC + COALESCE);
+alertas;
+vencimiento desde la vista v_vencimientos.
+bd.js con dateStrings: true.
+no_encontrada.html acepta titulo_error y mensaje_error, y se usa con estado 500 en el catch.
+[x] Documentación:
+README nuevo, que declara el uso de IA en ambos sprints;
+.env.ejemplo;
+verificado que el .env nunca se subió a git;
+bitácora, a cargo del autor.
+[x] Guía de sustentación creada en Claude Docs.
+[ ] Mejoras menores sugeridas en la ficha:
+fila «Este tercero aún no tiene formularios» cuando no hay;
+«Vinculación/Actualización» con tilde.
+[ ] Paso 7: código de verificación. Queda para la versión de la empresa.
+[ ] Paso 10: auditoría. Opcional.
+[ ] Pendientes para producción:
+sesiones en MySQL;
+salir por POST;
+Cache-Control: no-store;
+bloqueo por intentos_fallidos;
+HTTPS y cookie secure;
+inicio, bandejas y reportes desde MySQL.
+Datos de prueba en la base de desarrollo del autor
+NIT 900000002 (id 12) y 900000003 (id 13): proveedores.
+900000004: prueba del rollback, no quedó.
+CC 1000000001 «pedro perez»: proveedor.
+Para la demostración se sugirió usar NIT 900000010 y CC 1000000020.
+
 ### Qué funciona con datos reales
 
 - **Ingreso del equipo** (`/ingreso`):
@@ -141,6 +178,43 @@ portal_sarlaft/
 └── publico/                    CSS, JavaScript del navegador e imágenes
 ```
 
+
+Herramientas
+
+.env y process.env deben tener los mismos nombres; reiniciar tras cambiar el .env.
+Los paréntesis en la clave (11 vs 9 caracteres).
+Cannot find module → npm install o una ruta mal escrita (../db vs ../bd, dos veces).
+Workbench: USE y las pestañas de resultados.
+Guardar con Ctrl + S antes de probar.
+No borrar lo de al lado al reemplazar un bloque (RELACIONES).
+
+Express
+
+Alcance y módulos.
+Orden de middlewares y 404.
+Direcciones letra por letra.
+Opciones mal escritas se ignoran.
+Código pegado en la ruta equivocada.
+GET para consultar (req.query), POST para modificar (req.body), req.params para partes de la dirección.
+
+JavaScript
+
+Choque con res.locals.usuario.
+Ternario, propagación, obj[variable], desestructuración.
+Callbacks y });.
+Errores de sintaxis vistos.
+SQL dinámico solo con fragmentos fijos.
+
+Bases de datos
+
+ACID y rollback; AUTO_INCREMENT no se devuelve.
+Llave única.
+CHECK.
+JOIN vs LEFT JOIN.
+Subconsultas, GROUP BY/GROUP_CONCAT, vistas SQL.
+Orden de un ENUM, COALESCE.
+Intercalación _ai_ci.
+dateStrings.
 ## Cómo se construyó
 
 - **Sprint 1:** las pantallas, el diseño visual, el modelo de datos y los scripts SQL se generaron con asistencia de inteligencia artificial (Claude, de Anthropic), a partir de los requerimientos, la normativa y las pantallas de referencia que definió el autor.

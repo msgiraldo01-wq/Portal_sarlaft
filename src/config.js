@@ -10,7 +10,7 @@ module.exports = {
   ENTIDAD: "Su entidad", // nombre que ven los terceros en el formulario
 
   // Cambiar este valor en cada despliegue obliga al navegador a bajar de
-  // nuevo el CSS y el JS (evita que alguien vea estilos viejos).
+  
   VERSION_ESTATICOS: "2026.11.06-2",
 
   /*
